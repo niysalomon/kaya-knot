@@ -15,6 +15,7 @@ import BackgroundIcon from "@/assets/icons/background-icon.svg";
 import BackgroundHouseIcon from "@/assets/icons/background-house.svg";
 import ShareIcon from "@/assets/icons/share-icon.svg";
 import CarIcon from "@/assets/icons/car-icon.svg";
+import BackIcon from "@/assets/icons/back-icon.svg";
 export {
   KayaLogo,
   UserIcon,
@@ -33,4 +34,5 @@ export {
   BackgroundHouseIcon,
   ShareIcon,
   CarIcon,
+  BackIcon,
 };

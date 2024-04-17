@@ -9,9 +9,14 @@ import {
   ShareIcon,
   UserIcon,
 } from "@/assets/icons";
+import { useState } from "react";
+import RentersBooked from "./rentersBooked";
 const SingleHouseDetails = () => {
+    const [showRenters,setShowRenters]=useState<boolean>(false)
   return (
     <>
+      {showRenters?<RentersBooked setShowRenters={setShowRenters}/>
+      :
       <div className="grid gap-4 px-10">
         <div className="grid grid-cols-8 gap-4">
           <div className=" min-w-fit grid row-span-4 col-span-2">
@@ -102,7 +107,7 @@ const SingleHouseDetails = () => {
                       src={UserIcon}
                       alt=""
                     />
-                    <a
+                    <a onClick={()=>setShowRenters(true)}
                       className="flex items-center justify-center w-10 h-10 text-xs font-medium text-white bg-gray-700 border-2 border-white rounded-full hover:bg-gray-600 dark:border-gray-800"
                       href="#"
                     >
@@ -166,6 +171,7 @@ const SingleHouseDetails = () => {
           </div>
         </div>
       </div>
+      }
     </>
   );
 };
