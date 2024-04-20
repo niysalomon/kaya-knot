@@ -1,6 +1,6 @@
 const LoginForm=({isRegister,setIsRegister}:{isRegister:boolean; setIsRegister:(_value:boolean)=>void;})=>{
     return(
-        <section className="bg-gray-50 flex flex-col items-center ">
+        <section className="bg-gray-50 flex flex-col items-center  h-[calc(85vh-186px)] ">
           <div className="flex flex-col">
             <span className="font-bold text-xl py-1">
               Login

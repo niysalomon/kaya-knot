@@ -31,7 +31,7 @@ const Footer = () => {
               <h5>Careers</h5> 
             </div>
 
-            <div>
+            <div className="ml-4">
               {" "}
               <h5>Privacy policy</h5>
               <h5>Terms</h5> 

@@ -9,11 +9,15 @@ import {
   OccupationIcon,
   UserIcon,
 } from "@/assets/icons";
-const RenterCard = () => {
+const RenterCard = ({
+  setShowSingleRenter,
+}: {
+  setShowSingleRenter: (_value: boolean) => void;
+}) => {
   return (
     <>
       <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow p-1 text-gray-600 ">
-        <div>
+        <div className="">
           <Image src={RenterImage} alt="" width={380} height={260} />
         </div>
         <div className="p-5">
@@ -28,14 +32,14 @@ const RenterCard = () => {
             </div>
           </div>
           <div className="flex justify-between items-center">
-            <div className="flex items-center pl-2">
-              <Image src={OccupationIcon} width={15} alt="" />
+            <div className="flex items-center py-2">
+              <Image src={OccupationIcon} width={20} alt="" />
               <div>
                 <span className=" ml-1">Banker</span>
               </div>
             </div>
           </div>
-          <hr className="font-bold text-lg p-y-2" />
+          <hr className="font-bold text-lg" />
           <div className="flex justify-between items-center py-2">
             <div className="flex items-center">
               <Image src={CalendarIcon} width={20} alt="" />
@@ -45,7 +49,7 @@ const RenterCard = () => {
               </div>
             </div>
 
-            <div className="flex items-center">
+            <div className="flex items-center ">
               <Image src={LocationIcon} width={20} alt="" />
               <div className="flex flex-col px-1">
                 <span className=" ml-1 text-sm">room near</span>
@@ -60,9 +64,9 @@ const RenterCard = () => {
             Hi, I am Peninah and i am a cashier in BK and would love to move
             stay in Nyamirambo for.... ....
           </p>
-          <a
-            href="#"
-            className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 "
+          <div
+            onClick={() => setShowSingleRenter(true)}
+            className="cursor-pointer inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 "
           >
             Read more
             <svg
@@ -80,7 +84,7 @@ const RenterCard = () => {
                 d="M1 5h12m0 0L9 1m4 4L9 9"
               />
             </svg>
-          </a>
+          </div>
         </div>
       </div>
     </>

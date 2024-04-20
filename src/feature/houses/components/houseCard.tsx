@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { HouseImage } from "../data/images";
 import { BathroomIcon, BedIcon, HomeIcon, LocationIcon } from "@/assets/icons";
-const HouseCard = () => {
+const HouseCard = ({setIsHouseDetails}:{setIsHouseDetails:(_value:boolean)=>void}) => {
   return (
     <>
       <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow p-1 text-gray-600 ">
@@ -18,7 +18,7 @@ const HouseCard = () => {
               <span className="text-xs mt-1 ml-1">Rwf</span>
             </div>
           </div>
-          <div className="flex justify-between items-center">
+          <div className="flex justify-between items-center my-2">
             <div className="flex items-center">
               <Image src={HomeIcon} alt="" />
               <span className="font-bold ml-1">House</span>
@@ -26,7 +26,7 @@ const HouseCard = () => {
 
             <span className="text-gray-600 font-bold">Semi-booked</span>
           </div>
-          <hr className="font-bold text-lg p-y-2" />
+          <hr className="font-bold text-lg py-2" />
           <div className="flex justify-between items-center py-2">
             <div className="flex items-center">
               <Image src={BedIcon} alt="" />
@@ -44,7 +44,7 @@ const HouseCard = () => {
               </div>
             </div>
           </div>
-          <div className="flex items-center">
+          <div className="flex items-center py-1">
               <Image src={LocationIcon} alt="" />
               <span className="font-semibold ml-1">Muhima</span>
             </div>
@@ -52,9 +52,8 @@ const HouseCard = () => {
           <p className="mb-3 font-normal text-gray-700 ">
           This house was built next year, it is cozy and has an access to a tarmac road and the house....
           </p>
-          <a
-            href="#"
-            className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 "
+          <div onClick={()=>setIsHouseDetails(true)}
+            className="cursor-pointer inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 "
           >
             Read more
             <svg
@@ -72,7 +71,7 @@ const HouseCard = () => {
                 d="M1 5h12m0 0L9 1m4 4L9 9"
               />
             </svg>
-          </a>
+          </div>
         </div>
       </div>
     </>

@@ -16,6 +16,10 @@ import BackgroundHouseIcon from "@/assets/icons/background-house.svg";
 import ShareIcon from "@/assets/icons/share-icon.svg";
 import CarIcon from "@/assets/icons/car-icon.svg";
 import BackIcon from "@/assets/icons/back-icon.svg";
+import SeperatorLine from "@/assets/icons/seperator-line.svg";
+import BudgetIcon from "@/assets/icons/budget-icon.svg";
+import SendIcon from "@/assets/icons/send-button.svg";
+import EmptyUserProfile from "@/assets/icons/empty-user-profile.svg";
 export {
   KayaLogo,
   UserIcon,
@@ -35,4 +39,8 @@ export {
   ShareIcon,
   CarIcon,
   BackIcon,
+  SeperatorLine,
+  BudgetIcon,
+  SendIcon,
+  EmptyUserProfile,
 };

@@ -4,7 +4,7 @@ import { HouseImage } from "../data/images";
 const HouseBackground = () => {
   return (
     <>
-      <div className="relative">
+      <div className="relative mb-2">
         <Image src={BackgroundHouseIcon} alt="" className="w-full h-1/2 " />
 
         <div className="absolute inset-0 bg-gray-900 bg-opacity-75"></div>
