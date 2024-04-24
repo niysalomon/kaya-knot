@@ -1,15 +1,24 @@
 import Image from "next/image";
 import { HouseImage } from "../data/images";
-import { BathroomIcon, BedIcon, HomeIcon, LocationIcon } from "@/assets/icons";
+import {
+  BathroomIcon,
+  BedIcon,
+  FillHeartIcon,
+  HomeIcon,
+  LocationIcon,
+  OutlineHeart,
+} from "@/assets/icons";
 import Autoplay from "embla-carousel-autoplay";
 import useEmblaCarousel from "embla-carousel-react";
 import sliderData from "../data/sliderData";
+import { useState } from "react";
 const HouseCard = ({
   setIsHouseDetails,
 }: {
   setIsHouseDetails: (_value: boolean) => void;
 }) => {
-  const [emblaRef] = useEmblaCarousel({ loop: false }, [Autoplay()])
+  const [emblaRef] = useEmblaCarousel({ loop: false }, [Autoplay()]);
+  const[isLiked,setIsLiked]=useState<boolean>(false);
   return (
     <>
       <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow p-1 text-gray-600 ">
@@ -17,25 +26,49 @@ const HouseCard = ({
           <Image src={HouseImage} alt="" width={380} height={260} />
         </div> */}
         <div
-      className="overflow-hidden bg-gray-200  mx-auto flex items-center justify-center  "
-      ref={emblaRef}>
-      <div className="flex">
-        {sliderData?.map((item) => {
-          return (
-            <div className="embla__slide relative h-full w-full" key={item.id}>
+          className="overflow-hidden bg-gray-200  mx-auto flex items-center justify-center  "
+          ref={emblaRef}
+        >
+          <div className="flex">
+            {sliderData?.map((item) => {
+              return (
+                <div
+                  className="embla__slide relative h-full w-full"
+                  key={item.id}
+                >
+                  {/* the image */}
+                  <img
+                    className="w-full h-full rounded-t-lg"
+                    src={item.url}
+                    alt=""
+                  />
 
-                {/* the image */}
-              <img className="w-full h-full rounded-t-lg" src={item.url} alt="" />
-
-              {/* title/subtitle */}
-              {/* <h1 className="absolute top-1/2 left-1/2 w-full md:w-auto transform -translate-x-1/2 translate-y-[3rem] md:translate-y-[9rem]  lg:translate-y-48 bg-cyan-600 py-2 lg:py-4 px-2 lg:px-8 text-xl lg:text-2xl text-white font-extrabold">
-                {item.title}
-              </h1> */}
-            </div>
-          );
-        })}
-      </div>
-    </div>
+                  {/* title/subtitle */}
+                  <div className="absolute top-5 flex justify-between w-full  ">
+                    <span className="bg-darkColor px-4 py-1 rounded-full text-white">
+                      Apartment
+                    </span>
+                    <div onClick={()=>setIsLiked(!isLiked)} className="mr-2 rounded-full bg-white w-7 h-7   p-1">
+                      {isLiked?<Image
+                        className=" pt-0.5 rounded-full   "
+                        src={FillHeartIcon}
+                        width={20}
+                        height={20}
+                        alt=""
+                      />:<Image
+                      className=" pt-0.5 rounded-full   "
+                      src={OutlineHeart}
+                      width={20}
+                      height={20}
+                      alt=""
+                    />}
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
         <div className="p-5">
           <div className="flex items-center justify-between ">
             <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">

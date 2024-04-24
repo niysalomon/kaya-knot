@@ -22,6 +22,8 @@ import SendIcon from "@/assets/icons/send-button.svg";
 import EmptyUserProfile from "@/assets/icons/empty-user-profile.svg";
 import NoiseIcon from "@/assets/icons/noise-icon.svg";
 import HomeImageBackground from "@/assets/icons/homeImageBackground.svg";
+import OutlineHeart from "@/assets/icons/outline-heart.svg";
+import FillHeartIcon from "@/assets/icons/fill-heart-icon.svg";
 export {
   KayaLogo,
   UserIcon,
@@ -47,4 +49,6 @@ export {
   EmptyUserProfile,
   NoiseIcon,
   HomeImageBackground,
+  OutlineHeart,
+  FillHeartIcon,
 };
