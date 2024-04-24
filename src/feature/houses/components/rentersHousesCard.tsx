@@ -9,7 +9,7 @@ import {
   OccupationIcon,
   UserIcon,
 } from "@/assets/icons";
-const RenterCard = ({
+const rentersHousesCard = ({
   setShowSingleRenter,
 }: {
   setShowSingleRenter: (_value: boolean) => void;
@@ -90,4 +90,4 @@ const RenterCard = ({
     </>
   );
 };
-export default RenterCard;
+export default rentersHousesCard;

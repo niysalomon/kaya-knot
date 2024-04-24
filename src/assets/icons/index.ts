@@ -20,6 +20,8 @@ import SeperatorLine from "@/assets/icons/seperator-line.svg";
 import BudgetIcon from "@/assets/icons/budget-icon.svg";
 import SendIcon from "@/assets/icons/send-button.svg";
 import EmptyUserProfile from "@/assets/icons/empty-user-profile.svg";
+import NoiseIcon from "@/assets/icons/noise-icon.svg";
+import HomeImageBackground from "@/assets/icons/homeImageBackground.svg";
 export {
   KayaLogo,
   UserIcon,
@@ -43,4 +45,6 @@ export {
   BudgetIcon,
   SendIcon,
   EmptyUserProfile,
+  NoiseIcon,
+  HomeImageBackground,
 };

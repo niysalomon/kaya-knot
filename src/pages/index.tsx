@@ -1,9 +1,14 @@
-import Login from "@/feature/login";
+import Layout from "@/common/layout";
+import RenterHouse from "@/feature/houses/renterHouse"; 
 
-export default function Homes() {
+const Home=()=>{
     return(
-        <div className="text-gray-900">
-       <Login/>
-        </div>
+        <>
+        <Layout>
+        <RenterHouse/>
+        </Layout>
+        </>
     )
+
 }
+export default Home;

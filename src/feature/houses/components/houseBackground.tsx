@@ -1,6 +1,7 @@
 import { BackgroundHouseIcon, BackgroundIcon } from "@/assets/icons";
 import Image from "next/image";
 import { HouseImage } from "../data/images";
+import Link from "next/link";
 const HouseBackground = () => {
   return (
     <>
@@ -17,6 +18,14 @@ const HouseBackground = () => {
             <h5 className="  font-bold py-5">
               Start your search today for a space that feels just like home
             </h5>
+            <div className="flex mt-10  ">
+               
+              <Link href="/renters">
+                <div className="bg-white px-10 mx-4 cursor-pointer text-gray-500 py-1 hover:bg-orange rounded">
+                  Find a Roommate
+                </div>
+              </Link>
+            </div>
           </div>
           <div className="flex flex-col items-center justify-center  py-8 mx-auto md:h-screen lg:py-0 w-full">
             <div className="w-full  rounded-lg shadow md:mt-0 sm:max-w-md xl:p-0  bg-darkColor border-gray-700">

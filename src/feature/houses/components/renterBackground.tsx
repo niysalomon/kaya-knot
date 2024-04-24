@@ -1,5 +1,6 @@
 import { BackgroundIcon } from "@/assets/icons";
 import Image from "next/image";
+import Link from "next/link";
 const RenterBackground = () => {
   return (
     <>
@@ -10,13 +11,20 @@ const RenterBackground = () => {
 
         <div className="absolute inset-0 flex items-center justify-center text-white ml-5">
           <div className="pl-5  w-full">
-            <h1 className="text-4xl font-bold">Discover the Perfect Roommate Match
-
-</h1>
+            <h1 className="text-4xl font-bold">
+              Discover the Perfect Roommate Match
+            </h1>
             <h5 className="  font-bold py-5">
-Search today to find the perfect roommate match for a joyful living experience.
-
-</h5> 
+              Search today to find the perfect roommate match for a joyful
+              living experience.
+            </h5>
+            <div className="flex mt-10  ">
+              <Link href="/house">
+                <div className="bg-white px-10 mx-4 cursor-pointer text-gray-500 py-1 hover:bg-orange rounded">
+                  Find Home
+                </div>
+              </Link> 
+            </div>
           </div>
           <div className="flex flex-col items-center justify-center  py-8 mx-auto md:h-screen lg:py-0 w-full">
             <div className="w-full  rounded-lg shadow md:mt-0 sm:max-w-md xl:p-0  bg-darkColor border-gray-700">

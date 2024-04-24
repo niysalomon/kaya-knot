@@ -6,7 +6,7 @@ import SingleRenterDetail from "./components/singleRenter";
 
 const RentersList = () => {
   const h = ["1", "2", "3", "4", "1", "2", "3", "4"];
-const [showSingleRenter, setShowSingleRenter] = useState<boolean>(true);
+const [showSingleRenter, setShowSingleRenter] = useState<boolean>(false);
   return (
     <>
       {showSingleRenter ? (
