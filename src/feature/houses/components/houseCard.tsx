@@ -45,7 +45,7 @@ const HouseCard = ({
 
                   {/* title/subtitle */}
                   <div className="absolute top-5 flex justify-between w-full  ">
-                    <span className="bg-darkColor px-4 py-1 rounded-full text-white">
+                    <span className="bg-darkColor px-4 py-0.5 rounded-full text-sm text-white">
                       Apartment
                     </span>
                     <div onClick={()=>setIsLiked(!isLiked)} className="mr-2 rounded-full bg-white w-7 h-7   p-1">
@@ -71,24 +71,24 @@ const HouseCard = ({
         </div>
         <div className="p-5">
           <div className="flex items-center justify-between ">
-            <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
+            <h5 className="mb-2 text-sm font-bold tracking-tight text-gray-900 ">
               Amahumbezi house
             </h5>
-            <div className="px-4 bg-gray-500 rounded-full flex items-center justify-between text-white">
+            <div className="px-4 text-sm bg-gray-500 rounded-full flex items-center justify-between text-white">
               <span className="text-white  ">500k</span>{" "}
               <span className="text-xs mt-1 ml-1">Rwf</span>
             </div>
           </div>
-          <div className="flex justify-between items-center my-2">
+          <div className="flex justify-between items-center my-2 text-sm">
             <div className="flex items-center">
               <Image src={HomeIcon} alt="" />
-              <span className="font-bold ml-1">House</span>
+              <span className="font-bold ml-1 ">House</span>
             </div>
 
             <span className="text-gray-600 font-bold">Semi-booked</span>
           </div>
-          <hr className="font-bold text-lg py-2" />
-          <div className="flex justify-between items-center py-2">
+          <hr className="font-bold text-lg py-1" />
+          <div className="flex justify-between items-center pb-1  text-sm">
             <div className="flex items-center">
               <Image src={BedIcon} alt="" />
               <div>
@@ -105,18 +105,18 @@ const HouseCard = ({
               </div>
             </div>
           </div>
-          <div className="flex items-center py-1">
+          <div className="flex items-center py-1 text-sm">
             <Image src={LocationIcon} alt="" />
             <span className="font-semibold ml-1">Muhima</span>
           </div>
 
-          <p className="mb-3 font-normal text-gray-700 ">
+          <p className="mb-3 font-normal text-gray-700 text-sm ">
             This house was built next year, it is cozy and has an access to a
             tarmac road and the house....
           </p>
           <div
             onClick={() => setIsHouseDetails(true)}
-            className="cursor-pointer inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 "
+            className=" text-sm cursor-pointer inline-flex items-center px-3 py-1 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 "
           >
             Read more
             <svg

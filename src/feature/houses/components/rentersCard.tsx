@@ -4,19 +4,23 @@ import {
   BathroomIcon,
   BedIcon,
   CalendarIcon,
+  FillHeartIcon,
   HomeIcon,
   LocationIcon,
   OccupationIcon,
+  OutlineHeart,
   UserIcon,
 } from "@/assets/icons";
+import { useState } from "react";
 const RenterCard = ({
   setShowSingleRenter,
 }: {
   setShowSingleRenter: (_value: boolean) => void;
 }) => {
+  const[isLiked,setIsLiked]=useState<boolean>(false);
   return (
     <>
-      <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow p-1 text-gray-600 ">
+      <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow p-1 text-gray-600 text-sm">
         <div className="">
           <Image src={RenterImage} alt="" width={380} height={260} />
         </div>
@@ -32,8 +36,8 @@ const RenterCard = ({
             </div>
           </div>
           <div className="flex justify-between items-center">
-            <div className="flex items-center py-2">
-              <Image src={OccupationIcon} width={20} alt="" />
+            <div className="flex items-center py-2 ml-1">
+              <Image src={OccupationIcon} width={15} alt="" />
               <div>
                 <span className=" ml-1">Banker</span>
               </div>
@@ -64,9 +68,10 @@ const RenterCard = ({
             Hi, I am Peninah and i am a cashier in BK and would love to move
             stay in Nyamirambo for.... ....
           </p>
+          <div className="flex justify-between">
           <div
             onClick={() => setShowSingleRenter(true)}
-            className="cursor-pointer inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 "
+            className="text-sm cursor-pointer inline-flex items-center px-3    text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 "
           >
             Read more
             <svg
@@ -85,6 +90,21 @@ const RenterCard = ({
               />
             </svg>
           </div>
+          <div onClick={()=>setIsLiked(!isLiked)} className="rounded-full bg-white w-10 h-10   p-1">
+                      {isLiked?<Image
+                        className=" pt-0.5 rounded-full   "
+                        src={FillHeartIcon}
+                        width={25}
+                        height={25}
+                        alt=""
+                      />:<Image
+                      className=" pt-0.5 rounded-full   "
+                      src={OutlineHeart}
+                      width={25}
+                      height={25}
+                      alt=""
+                    />}
+                    </div> </div>
         </div>
       </div>
     </>

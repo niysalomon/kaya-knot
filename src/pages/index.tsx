@@ -6,8 +6,7 @@ const Home=()=>{
     return(
         <>
         <Layout>
-        {/* <RenterHouse/> */}
-        <Slider/>
+       <RenterHouse/> 
         </Layout>
         </>
     )
