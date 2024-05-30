@@ -1,11 +1,8 @@
 import Image from "next/image";
 import { HouseImage, RenterImage } from "../data/images";
-import {
-  BathroomIcon,
-  BedIcon,
+import { 
   CalendarIcon,
-  FillHeartIcon,
-  HomeIcon,
+  FillHeartIcon, 
   LocationIcon,
   OccupationIcon,
   OutlineHeart,
@@ -17,7 +14,7 @@ const RenterCard = ({
 }: {
   setShowSingleRenter: (_value: boolean) => void;
 }) => {
-  const[isLiked,setIsLiked]=useState<boolean>(false);
+  const [isLiked, setIsLiked] = useState<boolean>(false);
   return (
     <>
       <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow p-1 text-gray-600 text-sm">
@@ -46,17 +43,23 @@ const RenterCard = ({
           <hr className="font-bold text-lg" />
           <div className="flex justify-between items-center py-2">
             <div className="flex items-center">
-              
               <div className="flex flex-col px-1">
-             <div className="flex items-center justify-between"> <Image src={CalendarIcon} width={20} alt="" /><span className=" ml-1 text-sm">ready to move</span></div>
+                <div className="flex items-center justify-between">
+                  {" "}
+                  <Image src={CalendarIcon} width={20} alt="" />
+                  <span className=" ml-1 text-sm">ready to move</span>
+                </div>
                 <span className=" ml-4 font-semibold">Apr 2024</span>
               </div>
             </div>
 
             <div className="flex items-center ">
-              
               <div className="flex flex-col px-1">
-                <div className="flex items-center justify-between"> <Image src={LocationIcon} width={15} alt="" /><span className=" ml-1 text-sm">room near</span></div>
+                <div className="flex items-center justify-between">
+                  {" "}
+                  <Image src={LocationIcon} width={15} alt="" />
+                  <span className=" ml-1 text-sm">room near</span>
+                </div>
                 <div className="flex items-center">
                   <span className="font-semibold ml-4">Muhima</span>
                 </div>
@@ -69,42 +72,50 @@ const RenterCard = ({
             stay in Nyamirambo for.... ....
           </p>
           <div className="flex justify-between">
-          <div
-            onClick={() => setShowSingleRenter(true)}
-            className="text-sm cursor-pointer inline-flex items-center px-3    text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 "
-          >
-            Read more
-            <svg
-              className="rtl:rotate-180 w-3.5 h-3.5 ms-2"
-              aria-hidden="true"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 14 10"
+            <div
+              onClick={() => setShowSingleRenter(true)}
+              className="text-sm cursor-pointer inline-flex items-center px-3    text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 "
             >
-              <path
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                strokeWidth="2"
-                d="M1 5h12m0 0L9 1m4 4L9 9"
-              />
-            </svg>
+              Read more
+              <svg
+                className="rtl:rotate-180 w-3.5 h-3.5 ms-2"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 14 10"
+              >
+                <path
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  strokeWidth="2"
+                  d="M1 5h12m0 0L9 1m4 4L9 9"
+                />
+              </svg>
+            </div>
+            <div
+              onClick={() => setIsLiked(!isLiked)}
+              className="rounded-full bg-white w-10 h-10   p-1"
+            >
+              {isLiked ? (
+                <Image
+                  className=" pt-0.5 rounded-full   "
+                  src={FillHeartIcon}
+                  width={25}
+                  height={25}
+                  alt=""
+                />
+              ) : (
+                <Image
+                  className=" pt-0.5 rounded-full   "
+                  src={OutlineHeart}
+                  width={25}
+                  height={25}
+                  alt=""
+                />
+              )}
+            </div>{" "}
           </div>
-          <div onClick={()=>setIsLiked(!isLiked)} className="rounded-full bg-white w-10 h-10   p-1">
-                      {isLiked?<Image
-                        className=" pt-0.5 rounded-full   "
-                        src={FillHeartIcon}
-                        width={25}
-                        height={25}
-                        alt=""
-                      />:<Image
-                      className=" pt-0.5 rounded-full   "
-                      src={OutlineHeart}
-                      width={25}
-                      height={25}
-                      alt=""
-                    />}
-                    </div> </div>
         </div>
       </div>
     </>

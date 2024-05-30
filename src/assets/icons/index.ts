@@ -24,6 +24,9 @@ import NoiseIcon from "@/assets/icons/noise-icon.svg";
 import HomeImageBackground from "@/assets/icons/homeImageBackground.svg";
 import OutlineHeart from "@/assets/icons/outline-heart.svg";
 import FillHeartIcon from "@/assets/icons/fill-heart-icon.svg";
+import CancelIcon from "@/assets/icons/cancel.svg";
+import AddIcon from "@/assets/icons/add-icon.svg";
+import MinusIcon from "@/assets/icons/minus-icon.svg";
 export {
   KayaLogo,
   UserIcon,
@@ -51,4 +54,7 @@ export {
   HomeImageBackground,
   OutlineHeart,
   FillHeartIcon,
+  CancelIcon,
+  AddIcon,
+  MinusIcon,
 };

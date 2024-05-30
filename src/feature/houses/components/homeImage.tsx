@@ -5,8 +5,7 @@ const images = [
   { url: './cover.png' },
   { url: './reapply.png' },
   { url: './cover.png' },
-  { url: './reapply.png' },
-  // Add more images as needed
+  { url: './reapply.png' }, 
 ];
 
 const HomeImage = () => {

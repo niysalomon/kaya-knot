@@ -9,6 +9,7 @@ const h = ["1", "2", "3", "4", "1", "2", "3", "4"];
 const HouseList = () => {
   const [isHouseDetails, setIsHouseDetails] = useState<boolean>(false);
   const [showSingleRenter, setShowSingleRenter] = useState<boolean>(false);
+  const [bookingInfo, setBookingInfo] = useState<boolean>(false);
   return (
     <>
       <div className="h-[calc(99vh-170px)] pr-0.5 overflow-auto px-4">
