@@ -27,6 +27,12 @@ import FillHeartIcon from "@/assets/icons/fill-heart-icon.svg";
 import CancelIcon from "@/assets/icons/cancel.svg";
 import AddIcon from "@/assets/icons/add-icon.svg";
 import MinusIcon from "@/assets/icons/minus-icon.svg";
+import DashboadIcon from "@/assets/icons/dashboad-icon.svg";
+import MessageIcon from "@/assets/icons/messages-icon.svg";
+import TenantsIcon from "@/assets/icons/tenants-icon.svg";
+import StatisticsIcon from "@/assets/icons/statistics-icon.svg";
+import SettingsIcon from "@/assets/icons/settings-icon.svg"; 
+import HousesIcon from "@/assets/icons/houses-icon.svg"; 
 export {
   KayaLogo,
   UserIcon,
@@ -57,4 +63,10 @@ export {
   CancelIcon,
   AddIcon,
   MinusIcon,
+  DashboadIcon,
+MessageIcon,
+TenantsIcon,
+StatisticsIcon,
+SettingsIcon,
+HousesIcon,
 };

@@ -29,7 +29,7 @@ const RentersBooked = ({
                 className="w-48 text-white focus:ring-4 focus:outline-none   
                         font-medium rounded-lg text-sm px-5 py-2.5 text-center  bg-darkColor focus:ring-primary-800"
               >
-                Book
+                Join
               </button></div>
           </div>
         </div>
