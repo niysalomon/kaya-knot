@@ -25,7 +25,7 @@ const SideBarMenu = () => {
         </div>
         
         <Link
-        href="profile"
+        href="/profile"
           className={`flex items-center mb-3   last:mb-0 cursor-pointer py-1 top-10 border-b `}
         >
           <Image src={DashboadIcon} alt="" width={15} />
@@ -33,7 +33,7 @@ const SideBarMenu = () => {
           </Link>
         
         <Link
-        href=" profile/houses"
+        href=" ./houses"
           className={`flex items-center mb-3   last:mb-0 cursor-pointer  top-10 py-1 border-b `}
         >
           <Image src={HomeIcon} alt="" width={15} />
