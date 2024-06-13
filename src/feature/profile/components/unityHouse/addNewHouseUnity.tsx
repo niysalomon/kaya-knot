@@ -54,11 +54,12 @@ const AddNewHouseUnity = ({
                     <div className="mr-3 flex items-center">
                       <input type="radio" name="isFurnished" />
                       <label className="pl-1">Is Available</label>
-                    </div>
-                    <div className="mr-3 flex items-center">
-                      <input type="radio" name="isFurnished" />
-                      <label className="pl-1">Not Available</label>
-                    </div>
+                    </div> 
+                     
+                     <div className="mr-3 flex items-center">
+                        <input type="radio" name="isFurnished" />
+                        <label className="pl-1">Furnished</label>
+                      </div> 
                   </div>
                   <div className="grid md:grid-cols-2 md:gap-6 items-center ">
                     <div className="relative z-0 w-full mb-5 group">

@@ -47,33 +47,23 @@ const AddNewHouse = ({
                       <option>select</option>
                       <option>select</option>
                     </select>
-                     
-                  </div> 
-                  
+                  </div>
+
                   <div className="grid md:grid-cols-2 md:gap-6 items-center ">
                     <div className="relative z-0 w-full mb-5 group">
                       <div className="mr-3 flex items-center">
-                      <select
-                      name="floating_password"
-                      className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none  focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-                      required
-                    >
-                      <option>Select house Type</option>
-                      <option>select</option>
-                      <option>select</option>
-                    </select>
+                        <select
+                          name="floating_password"
+                          className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none  focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                          required
+                        >
+                          <option>Select house Type</option>
+                          <option>select</option>
+                          <option>select</option>
+                        </select>
                       </div>
                     </div>
-                    <div className="relative flex items-center z-0 w-full mb-5 group">
-                    <div className="mr-3 flex items-center">
-                      <input type="radio" name="isFurnished" />
-                      <label className="pl-1">Furnished</label>
-                    </div>
-                    <div className="flex items-center">
-                      <input type="radio" name="isFurnished" />
-                      <label className="pl-1">UnFurnished</label>
-                    </div>
-                  </div>
+                    
                   </div>
                   <div className="grid md:grid-cols-2 md:gap-6 items-center  ">
                     <div className="relative z-0 w-full mb-5 group">
@@ -95,21 +85,21 @@ const AddNewHouse = ({
                       </label>
                     </div>
                   </div>
-                  <div className="grid md:grid-cols-1 md:gap-6">                     
+                  <div className="grid md:grid-cols-1 md:gap-6">
                     <div className="relative z-0 w-full mb-5 group">
-                    <select
-                      name="floating_password"
-                      className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none  focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-                      required
-                    >
-                      <option>Select house offers</option>
-                      <option>wifi</option>
-                      <option>tank</option>
-                      <option>parking</option>
-                    </select>
+                      <select
+                        name="floating_password"
+                        className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none  focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                        required
+                      >
+                        <option>Select house offers</option>
+                        <option>wifi</option>
+                        <option>tank</option>
+                        <option>parking</option>
+                      </select>
                     </div>
                   </div>
-                  <div className="grid md:grid-cols-1 md:gap-6">                     
+                  <div className="grid md:grid-cols-1 md:gap-6">
                     <div className="relative z-0 w-full mb-5 group">
                       <input
                         type="text"
@@ -119,7 +109,7 @@ const AddNewHouse = ({
                         required
                       />
                       <label className="peer-focus:font-medium absolute text-sm text-gray-500  duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600  peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
-                       House Description
+                        House Description
                       </label>
                     </div>
                   </div>
@@ -196,7 +186,7 @@ const AddNewHouse = ({
                       </label>
                     </div>
                   </form>
-                </div>               
+                </div>
               </div>
             </div>
             <div className="justify-center flex">
@@ -204,14 +194,14 @@ const AddNewHouse = ({
               Attachments
             </div>
             <div className="justify-center flex">
-                <div></div>
-            <button
-                    type="submit"
-                    className="text-white w-1/3 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-lg  px-5 py-2  "
-                  >
-                    SAVE
-                  </button>
-                  </div>
+              <div></div>
+              <button
+                type="submit"
+                className="text-white w-1/3 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-lg  px-5 py-2  "
+              >
+                SAVE
+              </button>
+            </div>
           </div>
         </div>
       </div>
