@@ -1,6 +1,10 @@
+import { useState } from "react";
+import AddNewHouseUnity from "./addNewHouseUnity";
+
 const SingleHouseUnity = () => {
-  return (
-    <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
+  const [addHouseUnity, setAddHouseUnity] = useState<boolean>(false);
+  return (<>
+    {addHouseUnity?<AddNewHouseUnity setAddHouseUnity={setAddHouseUnity}/>:<div className="relative overflow-x-auto shadow-md sm:rounded-lg">
       <div className="flex items-center justify-between flex-column md:flex-row flex-wrap space-y-4 md:space-y-0 p-3 bg-white ">
         <label className="sr-only">Search</label>
         <div className="relative">
@@ -29,12 +33,11 @@ const SingleHouseUnity = () => {
           />
         </div>
         <div>
-          <button
-            className="inline-flex items-center text-gray-500 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm px-3 py-1.5 "
-            type="button"
-          >
-            <span className=" ">Add Unity</span>
-          </button>
+          <div onClick={()=>setAddHouseUnity(true)}
+            className="cursor-pointer inline-flex items-center text-gray-500 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm px-3 py-1.5 "
+           >
+            <span className=" ">Add House Unity</span>
+          </div>
         </div>
       </div>
       <table className="w-full text-sm text-left rtl:text-right text-gray-500 ">
@@ -362,6 +365,8 @@ const SingleHouseUnity = () => {
         </ul>
       </nav>
     </div>
+    }
+    </>
   );
 };
 export default SingleHouseUnity;
