@@ -1,5 +1,8 @@
 import Image from "next/image";
 import { useState } from "react";
+import SystemPolicyDetails from "./systemBookingPolicy";
+import SystemBookingPolicy from "./systemBookingPolicy";
+import SystemCancellingPolicy from "./systemCancellingPolicy";
 const SystemPolicies=()=>{
     const [houseTabs, setHouseTabs] = useState<number>(0);
     return(
@@ -34,8 +37,8 @@ const SystemPolicies=()=>{
               </ul>
             </div>
             {houseTabs === 0 ? 
-            'booking' 
-            : 'cancelling'}
+            <SystemBookingPolicy/> 
+            : <SystemCancellingPolicy/>}
           </div>
         </div>
       </div>

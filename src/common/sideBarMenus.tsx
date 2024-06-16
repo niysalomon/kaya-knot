@@ -4,7 +4,7 @@ import {
   DocumentIcon,
 } from "@heroicons/react/24/solid";
 import Image from "next/image";
-import { DashboadIcon, HomeIcon, MessageIcon, SettingsIcon, StatisticsIcon, TenantsIcon } from "@/assets/icons";
+import { DashboadIcon, HomeIcon, MessageIcon, SearchIcon, SettingsIcon, StatisticsIcon, TenantsIcon } from "@/assets/icons";
 
 const SideBarMenu = () => {
   let item = 1;
@@ -41,6 +41,14 @@ const SideBarMenu = () => {
           
         </Link>
         <Link
+        href=" ./houseSearch"
+          className={`flex items-center mb-3   last:mb-0 cursor-pointer  top-10 py-1 border-b `}
+        >
+          <Image src={SearchIcon} alt="" width={15} />
+          <div className={` pl-3 font-medium  `}>Search Houses</div>
+          
+        </Link>
+        <Link
         href=" ./tenants"
           className={`flex items-center mb-3   last:mb-0 cursor-pointer  top-10  py-1 border-b`}
         >
@@ -60,12 +68,13 @@ const SideBarMenu = () => {
           <Image src={MessageIcon} alt="" width={15} />
           <div className={` pl-3 font-medium  `}>Meassage</div>
         </div>
-        <div
+        <Link
+                href="./setting"
           className={`flex items-center mb-3   last:mb-0 cursor-pointer  py-1 border-b top-10 `}
         >
           <Image src={SettingsIcon} alt="" width={15} />
           <div className={` pl-3 font-medium  `}>Settings</div>
-        </div>
+        </Link>
         <details
           className={`mb-3 last:mb-0 cursor-pointer py-1 border-b top-10`}
           open={true}
