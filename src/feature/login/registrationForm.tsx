@@ -16,10 +16,10 @@ const RegistrationForm=({isRegister,setIsRegister}:{isRegister:boolean; setIsReg
                 <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl">
                   Create and account
                 </h1>
-                <form className="  md:space-y-6" action="#">
+                <form className="  md:space-y-2" action="#">
                   <div>
-                    <label className="block mb-2 text-sm font-medium text-gray-900 ">
-                      Your names
+                    <label className="block   text-sm font-medium text-gray-900 ">
+                      Fist Names
                     </label>
                     <input
                       type="text"
@@ -30,7 +30,19 @@ const RegistrationForm=({isRegister,setIsRegister}:{isRegister:boolean; setIsReg
                     />
                   </div>
                   <div>
-                    <label className="block mb-2 text-sm font-medium text-gray-900 ">
+                    <label className="block   text-sm font-medium text-gray-900 ">
+                      Last Names
+                    </label>
+                    <input
+                      type="text"
+                      name="names"
+                      className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 "
+                      placeholder="Type your names.."
+                      required
+                    />
+                  </div>
+                  <div>
+                    <label className="block   text-sm font-medium text-gray-900 ">
                       Your email
                     </label>
                     <input
@@ -43,7 +55,7 @@ const RegistrationForm=({isRegister,setIsRegister}:{isRegister:boolean; setIsReg
                     />
                   </div>
                   <div>
-                    <label className="block mb-2 text-sm font-medium text-gray-900 ">
+                    <label className="block   text-sm font-medium text-gray-900 ">
                       Password
                     </label>
                     <input
@@ -56,7 +68,7 @@ const RegistrationForm=({isRegister,setIsRegister}:{isRegister:boolean; setIsReg
                     />
                   </div>
                   <div>
-                    <label className="block mb-2 text-sm font-medium text-gray-900 ">
+                    <label className="block   text-sm font-medium text-gray-900 ">
                       Confirm password
                     </label>
                     <input

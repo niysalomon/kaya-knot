@@ -1,8 +1,8 @@
 import Layout from "@/common/layout";
 import Image from "next/image";
 import { useState } from "react";
-import RegistrationForm from "./registrationForm";
-import LoginForm from "./login-form";
+import RegistrationForm from "./registrationForm"; 
+import LoginForm from "./loginForm";
 
 const Login = () => {
   const [isRegister, setIsRegister] = useState<boolean>(false);

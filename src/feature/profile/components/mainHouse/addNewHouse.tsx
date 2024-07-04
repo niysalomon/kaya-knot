@@ -1,10 +1,12 @@
 import { CancelIcon, UserIcon } from "@/assets/icons";
 import Image from "next/image";
+import { useState } from "react";
 const AddNewHouse = ({
   setAddHouse,
 }: {
   setAddHouse: (_value: boolean) => void;
 }) => {
+  const [security, setSecurity] = useState<number>(1);
   return (
     <>
       <div className="flex flex-col w-full ">
@@ -113,6 +115,7 @@ const AddNewHouse = ({
                       </label>
                     </div>
                   </div>
+                  
                 </form>
               </div>
               <div className="grid col-span-5 text-gray-700  w-full">
@@ -174,6 +177,41 @@ const AddNewHouse = ({
                         Village
                       </label>
                     </div>
+                    <div className="col-span-full sm:col-auto flex items-center">
+                        <label className="block  text-sm font-medium text-gray-900 ">
+                          Capture this location
+                        </label>
+                        <div className="flex justify-between items-center py-2 px-5 ">
+                          <label
+                            className={`${
+                              security === 1 ? " bg-green-500 " : "bg-gray-200"
+                            } cursor-pointer relative w-24 h-8 px-2 rounded-full`}
+                          >
+                            <input
+                              onChange={() => {
+                                if (security === 1) {
+                                  setSecurity(2);
+                                } else {
+                                  setSecurity(1);
+                                }
+                              }}
+                              type="checkbox"
+                              id="check"
+                              className="sr-only peer"
+                            />
+                            <span className="w-3 h-3/5 bg-white absolute rounded-full p-3 left-1 top-1  peer-checked:left-16 transition-all duration-500 z-10"></span>
+                            {security === 1 ? (
+                              <span className="absolute left-11 top-1 font-bold text-gray-600">
+                                YES
+                              </span>
+                            ) : (
+                              <span className="absolute text-white left-2 top-1 font-bold">
+                                NO
+                              </span>
+                            )}
+                          </label>
+                        </div>
+                      </div>
                     <div className="relative z-0 w-full mb-5 group">
                       <input
                         type="text"
