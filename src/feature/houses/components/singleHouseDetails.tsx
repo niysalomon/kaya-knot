@@ -29,7 +29,20 @@ const SingleHouseDetails = ({
   const [longitude, setLongitude] = useState("");
   const [showBookingConfirmation, setShowBookingConfirmation] =
     useState<boolean>(false);
+  const images = [
+    "https://cdn.pixabay.com/photo/2014/12/16/22/25/woman-570883_1280.jpg",
+  "https://cdn.pixabay.com/photo/2013/07/18/20/26/sea-164989_1280.jpg",
+  "https://cdn.pixabay.com/photo/2013/10/02/23/03/mountains-190055_1280.jpg", 
+  "https://cdn.pixabay.com/photo/2014/12/16/22/25/woman-570883_1280.jpg",
+  "https://cdn.pixabay.com/photo/2013/10/02/23/03/mountains-190055_1280.jpg", 
+  "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg",
+  "https://cdn.pixabay.com/photo/2013/10/02/23/03/mountains-190055_1280.jpg", 
+  "https://cdn.pixabay.com/photo/2013/10/02/23/03/mountains-190055_1280.jpg", 
+  "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg",
+  "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg",
+  "https://cdn.pixabay.com/photo/2013/10/02/23/03/mountains-190055_1280.jpg", 
 
+  ];
   const handleGetCurrentLocation = () => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
@@ -45,7 +58,20 @@ const SingleHouseDetails = ({
       );
     }
   };
+  const [startIndex, setStartIndex] = useState(0);
+  const visibleImages = 5; // Number of images visible at a time
 
+  const prevSlide = () => {
+    if (startIndex > 0) {
+      setStartIndex((prev) => prev - 1);
+    }
+  };
+
+  const nextSlide = () => {
+    if (startIndex + visibleImages < images.length) {
+      setStartIndex((prev) => prev + 1);
+    }
+  };
   useEffect(() => {
     handleGetCurrentLocation();
   }, [latitude, longitude]);
@@ -56,7 +82,6 @@ const SingleHouseDetails = ({
           setShowRenters={setShowRenters}
           setShowSingleRenter={setShowSingleRenter}
         />
-      
       ) : (
         <div className="grid gap-4 px-10 text-gray-500">
           <div
@@ -139,7 +164,7 @@ const SingleHouseDetails = ({
                   <div className="flex  justify-between items-center">
                     <span>2 rooms booked</span> <span>1 room remains</span>
                   </div>
-                  <div className="py-2 flex items-center py-4 px-4">
+                  <div className="py-2 flex  items-center py-4 px-4">
                     Booked by
                     <div className="flex -space-x-4 rtl:space-x-reverse px-2">
                       <Image
@@ -169,7 +194,9 @@ const SingleHouseDetails = ({
                 </div>
 
                 <button
-                  onClick={() => setShowBookingConfirmation(!showBookingConfirmation)}
+                  onClick={() =>
+                    setShowBookingConfirmation(!showBookingConfirmation)
+                  }
                   type="submit"
                   className="w-full text-white focus:ring-4 focus:outline-none   
                         font-medium rounded-lg text-sm px-5 py-2.5 text-center  bg-darkColor focus:ring-primary-800"
@@ -185,7 +212,46 @@ const SingleHouseDetails = ({
               </div>
             </div>
           </div>
-          <div className="grid grid-cols-6 place-content-center gap-4 ">
+          <div className="relative flex justify-center ">
+      {/* Image List (Scrollable) */}
+      <div className="flex items-center gap-2 overflow-hidden">
+        {/* Previous Button */}
+        <button
+          onClick={prevSlide}
+          className={`bg-gray-800/50 text-white p-2 rounded-full hover:bg-gray-900 transition ${
+            startIndex === 0 ? "opacity-50 cursor-not-allowed" : ""
+          }`}
+          disabled={startIndex === 0}
+        >
+          {/* <ChevronLeft size={24} /> */} Prev
+        </button>
+
+        {/* Images */}
+        <div className="flex gap-2">
+          {images.slice(startIndex, startIndex + visibleImages).map((src, index) => (
+            <img
+              key={index}
+              src={src}
+              width={250}
+              alt={`Slide ${index + 1}`}
+              className="  object-cover rounded-lg shadow-lg transition transform hover:scale-105"
+            />
+          ))}
+        </div>
+
+        {/* Next Button */}
+        <button
+          onClick={nextSlide}
+          className={`bg-gray-800/50 text-white p-2 rounded-full hover:bg-gray-900 transition ${
+            startIndex + visibleImages >= images.length ? "opacity-50 cursor-not-allowed" : ""
+          }`}
+          disabled={startIndex + visibleImages >= images.length}
+        >
+          {/* <ChevronRight size={24} />  */} Next
+        </button>
+      </div>
+    </div>
+          {/* <div className="grid grid-cols-6 place-content-center gap-4 flex fustify-center bg-red-400">
             <div>
               <Image
                 className="h-auto max-w-full rounded-lg"
@@ -221,7 +287,7 @@ const SingleHouseDetails = ({
                 alt=""
               />
             </div>
-          </div>
+          </div> */}
           <div className="flex w-full  ">
             <div className="mx-5">
               <hr className="my-2" />
@@ -325,12 +391,14 @@ const SingleHouseDetails = ({
               </div>
             </div>
           </div>
-         { showBookingConfirmation &&
-        <BookingConfirmation
-          setShowBookingConfirmation={setShowBookingConfirmation}
-        />}
+          {showBookingConfirmation && (
+            <BookingConfirmation
+              setShowBookingConfirmation={setShowBookingConfirmation}
+            />
+          )}
         </div>
       )}
+     
     </>
   );
 };

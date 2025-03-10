@@ -4,6 +4,7 @@ import HouseBackground from "./components/houseBackground";
 import HomeImage from "./components/homeImage";
 import SingleHouseDetails from "./components/singleHouseDetails";
 import SingleRenterDetail from "./components/singleRenter";
+import PhotoSlider from "./components/housCard";
 const h = ["1", "2", "3", "4", "1", "2", "3", "4"];
 
 const HouseList = () => {
@@ -19,6 +20,8 @@ const HouseList = () => {
               <HouseBackground />
               <div className="grid grid-cols-1 xs:grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 mb-4">
                 {h.map((item) => (
+                  // <PhotoSlider/>
+
                   <HouseCard setIsHouseDetails={setIsHouseDetails} />
                 ))}
               </div>
