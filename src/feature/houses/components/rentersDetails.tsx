@@ -12,7 +12,7 @@ const RentersDetails = ({
   const data = ["1", "2", "3"];
   const [showSingleRenter, setShowSingleRenter] = useState<boolean>(true);
   return (
-    <>
+    <div className="">
       {showSingleRenter ? (
         <SingleRenterDetail setShowSingleRenter={setShowSingleRenter} />
       ) : (
@@ -48,7 +48,7 @@ const RentersDetails = ({
           </div>
         </div>
       )}
-    </>
+    </div>
   );
 };
 export default RentersDetails;
