@@ -46,11 +46,11 @@ const HouseCard = ({
         >
           <div className="flex w-full">
              
-            <div className="relative w-full mx-auto xs:max-w-lg sm:max-w-lg md:max-w-lg">
+            <div className="relative w-full mx-auto xs:max-w-lg sm:max-w-lg md:max-w-lg" >
               <img
                 src={slideData[currentIndex]}
                 alt={`Slide ${currentIndex + 1}`}
-                className="w-full h-64 object-cover rounded-lg shadow-lg"
+                className="w-full h-64 object-cover rounded-lg shadow-lg" onClick={() => setIsHouseDetails(true)}
               /> 
               <button
                 onClick={prevSlide}
@@ -124,27 +124,7 @@ const HouseCard = ({
             This house was built next year, it is cozy and has an access to a
             tarmac road and the house....
           </p>
-          <div
-            onClick={() => setIsHouseDetails(true)}
-            className=" text-sm cursor-pointer inline-flex items-center px-3 py-1 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 "
-          >
-            Read more
-            <svg
-              className="rtl:rotate-180 w-3.5 h-3.5 ms-2"
-              aria-hidden="true"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 14 10"
-            >
-              <path
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M1 5h12m0 0L9 1m4 4L9 9"
-              />
-            </svg>
-          </div>
+         
         </div>
       </div>
     </>
