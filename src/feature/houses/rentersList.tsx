@@ -16,7 +16,7 @@ const [showSingleRenter, setShowSingleRenter] = useState<boolean>(false);
           <div className="grid grid-cols-10 gap-4">
             <div className="col-span-10 sm:col-span-10">
               <RenterBackground />
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-5 gap-4 my-2">
+              <div className="grid grid-cols-1 xs:grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 mb-4">
                 {h.map((item) => (
                   <RenterCard setShowSingleRenter={setShowSingleRenter} />
                 ))}

@@ -39,73 +39,33 @@ const HouseCard = ({
   return (
     <>
       <div className="max-w-sm md:max-w-xl sm:max-w-lg xs:max-w-lg bg-white border border-gray-200 rounded-lg shadow p-1 text-gray-600 ">
-        {/* <div>
-          <Image src={HouseImage} alt="" width={380} height={260} />
-        </div> */}
+         
         <div
           className="overflow-hidden bg-gray-200  mx-auto flex items-center justify-center  "
           ref={emblaRef}
         >
           <div className="flex w-full">
-            {/* {sliderData?.map((item) => {
-              return (
-                <div
-                  className="embla__slide relative h-full w-full"
-                  key={item.id}
-                > 
-                  <img
-                    className="w-full h-full rounded-t-lg"
-                    src={item.url}
-                    alt=""
-                  />
- 
-                  <div className="absolute top-5 flex justify-between w-full  ">
-                    <span className="bg-darkColor px-4 py-0.5 rounded-full text-sm text-white">
-                      Apartment
-                    </span>
-                    <div onClick={()=>setIsLiked(!isLiked)} className="mr-2 rounded-full bg-white w-7 h-7   p-1">
-                      {isLiked?<Image
-                        className=" pt-0.5 rounded-full   "
-                        src={FillHeartIcon}
-                        width={20}
-                        height={20}
-                        alt=""
-                      />:<Image
-                      className=" pt-0.5 rounded-full   "
-                      src={OutlineHeart}
-                      width={20}
-                      height={20}
-                      alt=""
-                    />}
-                    </div>
-                  </div>
-                </div>
-              );
-            })} */}
+             
             <div className="relative w-full mx-auto xs:max-w-lg sm:max-w-lg md:max-w-lg">
               <img
                 src={slideData[currentIndex]}
                 alt={`Slide ${currentIndex + 1}`}
                 className="w-full h-64 object-cover rounded-lg shadow-lg"
-              />
-
-              {/* Left Control */}
+              /> 
               <button
                 onClick={prevSlide}
                 className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-gray-800/50 text-white p-2 rounded-full hover:bg-gray-900 transition"
               >
                 {/* <ChevronLeft size={24} /> */}Back
               </button>
-
-              {/* Right Control */}
+ 
               <button
                 onClick={nextSlide}
                 className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-gray-800/50 text-white p-2 rounded-full hover:bg-gray-900 transition"
               >
                 {/* <ChevronRight size={24} /> */} Next
               </button>
-
-              {/* Indicators */}
+ 
               <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 flex gap-2">
                 {images.map((_, index) => (
                   <div

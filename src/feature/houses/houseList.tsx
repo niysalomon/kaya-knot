@@ -18,7 +18,7 @@ const HouseList = () => {
           <div className="grid grid-cols-10 ">
             <div className="col-span-10 sm:col-span-10">
               <HouseBackground />
-              <div className="grid grid-cols-1 xs:grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 mb-4">
+              <div className="grid grid-cols-1 xs:grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 mb-4">
                 {h.map((item) => (
                   // <PhotoSlider/>
 

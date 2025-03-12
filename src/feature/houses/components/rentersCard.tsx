@@ -17,9 +17,9 @@ const RenterCard = ({
   const [isLiked, setIsLiked] = useState<boolean>(false);
   return (
     <>
-      <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow p-1 text-gray-600 text-sm">
-        <div className="">
-          <Image src={RenterImage} alt="" width={380} height={260} />
+      <div className="max-w-sm md:max-w-xl sm:max-w-lg xs:max-w-lg bg-white border border-gray-200 rounded-lg shadow p-1 text-gray-600 ">
+        <div className="w-full mx-auto xs:max-w-lg sm:max-w-lg md:max-w-lg">
+          <Image src={RenterImage} alt="" className="w-full h-64 object-cover rounded-lg shadow-lg" />
         </div>
         <div className="p-5">
           <div className="flex items-center justify-between ">
