@@ -12,11 +12,10 @@ const Map: React.FC = () => {
     if (typeof window !== 'undefined') {
     // Initialize the map
     const map = L.map('map', {
-      center: [-1.952936, 30.094370], // Initial map center coordinates
-      zoom: 17, // Initial zoom level
+      center: [-1.952936, 30.094370],  
+      zoom: 17, 
     });
-
-    // Add a tile layer for the map
+ 
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: '',
       // attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',

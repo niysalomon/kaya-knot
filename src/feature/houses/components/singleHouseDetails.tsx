@@ -15,6 +15,7 @@ import { useEffect, useState } from "react";
 import RentersBooked from "./rentersBooked";
 import dynamic from "next/dynamic";
 import BookingConfirmation from "./bookingConfirm";
+import ImageSliderModal from "../slide";
 // import Map from "./map";
 const Map = dynamic(() => import("./map"), { ssr: false });
 const SingleHouseDetails = ({
@@ -27,6 +28,8 @@ const SingleHouseDetails = ({
   const [showRenters, setShowRenters] = useState<boolean>(false);
   const [latitude, setLatitude] = useState("");
   const [longitude, setLongitude] = useState("");
+  const [isModalOpen, setModalOpen] = useState(false);
+
   const [showBookingConfirmation, setShowBookingConfirmation] =
     useState<boolean>(false);
   const images = [
@@ -229,7 +232,7 @@ const SingleHouseDetails = ({
         {/* Images */}
         <div className="flex gap-2">
           {images.slice(startIndex, startIndex + visibleImages).map((src, index) => (
-            <img
+            <img onClick={() => setModalOpen(true)}
               key={index}
               src={src}
               width={250}
@@ -249,7 +252,8 @@ const SingleHouseDetails = ({
         >
           {/* <ChevronRight size={24} />  */} Next
         </button>
-      </div>
+      </div> 
+      <ImageSliderModal isOpen={isModalOpen} onClose={() => setModalOpen(false)} />
     </div>
           {/* <div className="grid grid-cols-6 place-content-center gap-4 flex fustify-center bg-red-400">
             <div>
@@ -288,6 +292,7 @@ const SingleHouseDetails = ({
               />
             </div>
           </div> */}
+          
           <div className="flex w-full  ">
             <div className="mx-5">
               <hr className="my-2" />

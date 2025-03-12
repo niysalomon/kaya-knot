@@ -38,7 +38,7 @@ const HouseCard = ({
   console.log("currentIndex====",currentIndex)
   return (
     <>
-      <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow p-1 text-gray-600 ">
+      <div className="max-w-sm md:max-w-xl sm:max-w-lg xs:max-w-lg bg-white border border-gray-200 rounded-lg shadow p-1 text-gray-600 ">
         {/* <div>
           <Image src={HouseImage} alt="" width={380} height={260} />
         </div> */}
@@ -46,7 +46,7 @@ const HouseCard = ({
           className="overflow-hidden bg-gray-200  mx-auto flex items-center justify-center  "
           ref={emblaRef}
         >
-          <div className="flex">
+          <div className="flex w-full">
             {/* {sliderData?.map((item) => {
               return (
                 <div
@@ -82,7 +82,7 @@ const HouseCard = ({
                 </div>
               );
             })} */}
-            <div className="relative w-full max-w-lg mx-auto">
+            <div className="relative w-full mx-auto xs:max-w-lg sm:max-w-lg md:max-w-lg">
               <img
                 src={slideData[currentIndex]}
                 alt={`Slide ${currentIndex + 1}`}
