@@ -5,7 +5,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
     <>
       <div className="flex flex-col bg-white justify-between z-90">
-        <div className="px-2">
+        <div className="">
           <Header />
         </div>
         {/* h-[calc(80vh-186px)] */}

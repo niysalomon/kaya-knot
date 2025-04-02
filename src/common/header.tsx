@@ -1,9 +1,14 @@
 import {
   ApartmentIcon,
+  HomeWhiteIcon,
   HotelIcon,
   HousesIcon,
+  HouseWhiteIcon,
   KayaLogo,
+  LocationWhiteIcon,
   SearchIcon,
+  TenantsIcon,
+  TenantsWhiteIcon,
   UserIcon,
 } from "@/assets/icons";
 import DatePicker from "react-datepicker";
@@ -12,9 +17,12 @@ import "/node_modules/react-datepicker/dist/react-datepicker.css";
 import "react-day-picker/dist/style.css";
 import { DayPicker } from "react-day-picker";
 import { format, differenceInDays } from "date-fns";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import Image from "next/image";
+import { HomeIcon } from "@heroicons/react/24/solid";
 const Header = () => {
+  const openingLocation = useRef<HTMLDivElement>(null);
+  const openingdates = useRef<HTMLDivElement>(null);
   const [dateRange, setDateRange] = useState<[Date | null, Date | null]>([
     null,
     null,
@@ -38,55 +46,64 @@ const Header = () => {
       // setTimeout(() => setIsOpen(false), 300); // Auto-close modal after selection
     }
   };
+  const handleClickOutsideDropDownMenu = (e: any) => {
+    if (showFilter && !openingLocation.current?.contains(e.target as Node)) {
+      setShowFilter(false);
+    }
+    if (isOpen && !openingdates.current?.contains(e.target as Node)) {
+      setIsOpen(false);
+    }
+  };
+  
+
+  if (typeof window !== "undefined") {
+    window.addEventListener("click", handleClickOutsideDropDownMenu);
+  }
   return (
     <div className="bg-opacity-50 z-[9999] ">
       {/* <Image src={KayaLogo} alt="" /> */}
 
       <div className="w-full flex justify-between items-center  bg-gray-100 h-18   ">
-        <Image src={KayaLogo} alt="" />
-        <div className="   flex  items-center content-center  justify-center    ">
-          <div className="flex flex-col">
-            <div className="  flex items-center justify-center     p-4 bg-white w-full ">
+        <div className="  "><Image src={KayaLogo} alt="" /></div>
+        
+        <div className="  w-5/6 flex  items-center content-center  justify-center   ">
+          <div className="flex flex-col  w-full">
+            <div className=" relative flex items-center justify-center   p-4 bg-white w-full ">
               {/* Single Input for Date Range */}
-              <div className="relative">
+              <div className=" border border-darkColor rounded" ref={openingLocation}>
                 <input
                   onClick={() => setShowFilter(!showFilter)}
                   type="text"
                   placeholder="Choose place"
-                  className="border px-16 py-3 rounded"
+                  className="border px-36 w-full py-3 rounded"
                 />
                 {showFilter && (
-                  <div className="bg-white absolute top-12 w-full z-10  divide-y divide-gray-100 p-2 text-black  shadow-[0_35px_60px_-15px_rgba(0,0,0,0.9)]">
-                    <p>jhdsfugewu</p>
-                    <p>jhdsfugewu</p>
-                    <p>jhdsfugewu</p>
+                   <div className=" absolute  bg-white flex  flex-col justify-around  w-1/2 z-10 top-20  divide-y divide-gray-50 text-black     shadow-[0_35px_60px_-15px_rgba(0,0,0,0.9)]">
+
+                   {/* <div className="bg-white flex flex-col  justify-center inset-x-0 top-0 absolute top-20 right-2 w-1/2 z-10  divide-y divide-gray-100 p-2 text-black  shadow-[0_35px_60px_-15px_rgba(0,0,0,0.9)]"> */}
+                    <div onClick={() => setShowFilter(!showFilter)} className=" p-2 border-b ">Kigali, Kanombe</div> 
+                    <div onClick={() => setShowFilter(!showFilter)} className=" p-2 border-b ">Kigali, Kacyiru</div> 
+                    <div onClick={() => setShowFilter(!showFilter)} className=" p-2 border-b ">Kigali, kimisagara</div> 
+                    <div onClick={() => setShowFilter(!showFilter)} className=" p-2 border-b ">Gicumbi , Byumba</div> 
                   </div>
                 )}
               </div>
-              <div className="flex  z-10  bg-gradient-to-br from-blue-100 to-purple-200 ">
+              <div className="flex  z-10  bg-gradient-to-br text-black  " ref={openingdates}>
                 <div
                   onClick={() => setIsOpen(true)}
-                  className="px-6 py-3 border border-gray-400 font-semibold rounded-lg   hover:bg-green-600 transition"
+                  className="px-6 py-3 border border-darkColor font-semibold rounded-lg  transition mx-2"
                 >
-                  <span>{format(range.from, "dd/MM/yyyy")} - </span>
-                  <span>{format(range.to, "yyyy/MM/dd")}</span>
+                  <span >{format(range.from, "dd/MM/yyyy")}  </span><span className="px-2">-</span>
+                  <span className=" ">{format(range.to, "dd/MM/yyyy")}</span>
                 </div>
-
-                {/* Display Selected Dates */}
-                {range.from && range.to && (
-                  <div className="  text-lg text-gray-700 font-medium bg-white p-2 rounded-lg shadow-md">
-                    <p>{differenceInDays(range.to, range.from)} days</p>
-                  </div>
-                )}
-
+ 
                 {isOpen && (
                   <div className=" absolute inset-0 flex  justify-around  w-full z-10 top-20  divide-y divide-gray-50 text-black   bg-opacity-50 shadow-[0_35px_60px_-15px_rgba(0,0,0,0.9)]">
                     <div className="fixed ">
                       <div className="bg-white shadow-2xl   p-6  w-auto text-center border border-gray-200">
-                        <h2 className="text-2xl font-bold text-gray-700 mb-4">
+                        <h2 className="text-xl font-bold text-gray-700 mb-4">
                           Select Date Range
                         </h2>
-
                         <DayPicker
                           mode="range"
                           selected={range} // Now we pass the range directly, which is compatible with the DateRange type
@@ -115,39 +132,62 @@ const Header = () => {
                             },
                           }}
                         />
-
-                        {/* Close Button */}
-                        <button
-                          onClick={() => setIsOpen(false)}
-                          className="mt-4 px-6 py-2 bg-red-500 text-white rounded-lg shadow-md hover:bg-red-600 transition"
-                        >
-                          Close
-                        </button>
+                        {range.from && range.to && (
+                  <div className="  text-lg text-gray-700 font-medium bg-white p-2 rounded-lg shadow-md">
+                   <div
+                  onClick={() => setIsOpen(true)}
+                  className="px-6 py-3 border border-darkColor font-semibold rounded-lg  transition mx-2"
+                >
+                  <span >{format(range.from, "dd/MM/yyyy")}  </span><span className="px-2">-</span>
+                  <span className=" ">{format(range.to, "dd/MM/yyyy")}</span>
+                </div> <p>{differenceInDays(range.to, range.from)} days</p>
+                  </div>
+                )}
                       </div>
                     </div>
                   </div>
                 )}
               </div>
             </div>
-            <div className="flex">
-              <div className="bg-white p-2 flex justify-end items-center rounded-full border border-primary m-1 px-6 text-black">
-              
-                <Image src={HotelIcon} alt="" /> <span className="pl-1">Hotel</span>
-              </div> 
-              <div>
-                <Image src={ApartmentIcon} alt="" />
-                Apartment
-              </div> 
-            </div>
           </div>
-        </div> 
+        </div>
         <div
-          className="inline-flex items-center px-1 py-1 text-white   rounded-full active   dark:bg-blue-600"
+          className="inline-flex items-center px-1 py-1 text-white    rounded-full active "
           aria-current="page"
         >
           <Image src={UserIcon} alt="" />
         </div>
-      </div> 
+      </div>
+      <div className="flex bg-darkColor justify-center items-center py-2 gap-6 ">
+        <div className=" text-white  flex justify-end items-center rounded-full border border-primary py-1 m-1 px-6 ">
+          <Image src={HotelIcon} alt="" /> <span className="pl-1">Hotel</span>
+        </div>
+        <div className=" text-white  flex justify-end items-center rounded-full  m-1 px-3 hover:border hover:border-white py-1">
+          <Image src={ApartmentIcon} alt="" />{" "}
+          <span className="pl-1">Apartment</span>
+        </div>
+        <div className=" text-white  flex justify-end items-center rounded-full  m-1 px-3 hover:border hover:border-white py-1">
+          <Image src={HouseWhiteIcon} alt="" />{" "}
+          <span className="pl-1">House</span>
+        </div>
+        <div className=" text-white  flex justify-end items-center rounded-full  m-1 px-3 hover:border hover:border-white py-1">
+          <Image src={ApartmentIcon} alt="" />{" "}
+          <span className="pl-1">Office</span>
+        </div>
+        <div className=" text-white  flex justify-end items-center rounded-full  m-1 px-3 hover:border hover:border-white py-1">
+          <Image src={TenantsWhiteIcon} alt="" width={22} />{" "}
+          <span className="pl-1">Co-renter</span>
+        </div>
+        <div className=" text-white  flex justify-end items-center rounded-full  m-1 px-3 hover:border hover:border-white py-1 ">
+          <Image src={LocationWhiteIcon} alt="" />{" "}
+          <span className="pl-1">Kigali</span>
+        </div>
+        <div className=" text-white  flex justify-end items-center rounded-full  m-1 px-3 hover:border hover:border-white py-1 ">
+          <Image src={HomeWhiteIcon} alt="" />{" "}
+          <span className="pl-1">Ghetto</span>
+          <HomeIcon />
+        </div>
+      </div>
       <hr />
     </div>
   );
