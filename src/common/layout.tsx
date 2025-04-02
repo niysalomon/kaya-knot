@@ -4,7 +4,7 @@ import Header from "./header";
 const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
     <>
-      <div className="flex flex-col bg-white justify-between ">
+      <div className="flex flex-col bg-white justify-between z-90">
         <div className="px-2">
           <Header />
         </div>

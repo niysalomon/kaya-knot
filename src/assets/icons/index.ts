@@ -31,8 +31,10 @@ import DashboadIcon from "@/assets/icons/dashboad-icon.svg";
 import MessageIcon from "@/assets/icons/messages-icon.svg";
 import TenantsIcon from "@/assets/icons/tenants-icon.svg";
 import StatisticsIcon from "@/assets/icons/statistics-icon.svg";
-import SettingsIcon from "@/assets/icons/settings-icon.svg"; 
-import HousesIcon from "@/assets/icons/houses-icon.svg"; 
+import SettingsIcon from "@/assets/icons/settings-icon.svg";
+import HousesIcon from "@/assets/icons/houses-icon.svg";
+import ApartmentIcon from "@/assets/icons/apartment-icon.svg";
+import HotelIcon from "@/assets/icons/hotel-icon.svg";
 export {
   KayaLogo,
   UserIcon,
@@ -64,9 +66,11 @@ export {
   AddIcon,
   MinusIcon,
   DashboadIcon,
-MessageIcon,
-TenantsIcon,
-StatisticsIcon,
-SettingsIcon,
-HousesIcon,
+  MessageIcon,
+  TenantsIcon,
+  StatisticsIcon,
+  SettingsIcon,
+  HousesIcon,
+  ApartmentIcon,
+  HotelIcon,
 };

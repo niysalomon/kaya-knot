@@ -2,14 +2,21 @@ import { BackgroundHouseIcon, BackgroundIcon } from "@/assets/icons";
 import Image from "next/image";
 import { HouseImage } from "../data/images";
 import Link from "next/link";
+import DatePicker from "react-datepicker";
+// import "react-datepicker/dist/react-datepicker.css";
+import "/node_modules/react-datepicker/dist/react-datepicker.css";
+
+import { format, differenceInDays } from "date-fns";
+import { useState } from "react";
 const HouseBackground = () => {
+ 
   return (
     <>
       <div className="relative mb-2">
-        <Image src={BackgroundHouseIcon} alt="" className="w-full h-1/2 " />
+        <Image src={BackgroundHouseIcon} alt="" className=" " />
 
         <div className="absolute inset-0 bg-gray-900 bg-opacity-75"></div>
-
+        
         <div className="absolute inset-0 flex items-center justify-center text-white ml-5">
           <div className="pl-5  w-full">
             <h1 className="text-4xl font-bold">
@@ -19,7 +26,6 @@ const HouseBackground = () => {
               Start your search today for a space that feels just like home
             </h5>
             <div className="flex mt-10  ">
-               
               <Link href="/renters">
                 <div className="bg-white px-10 mx-4 cursor-pointer text-gray-500 py-1 hover:bg-orange rounded">
                   Find a Roommate
@@ -44,7 +50,7 @@ const HouseBackground = () => {
                       <option>Female</option>
                     </select>
                   </div>
-                   
+
                   <div className="flex items-center ">
                     <label className="block mb-2 text-sm font-medium text-white w-5/6">
                       Location
@@ -65,8 +71,6 @@ const HouseBackground = () => {
                       <option>Female</option>
                     </select>
                   </div>
-                   
-                   
 
                   <button
                     type="submit"
