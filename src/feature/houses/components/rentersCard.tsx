@@ -11,6 +11,7 @@ import {
 import { useState } from "react";
 const RenterCard = ({
   setShowSingleRenter,
+  
 }: {
   setShowSingleRenter: (_value: boolean) => void;
 }) => {

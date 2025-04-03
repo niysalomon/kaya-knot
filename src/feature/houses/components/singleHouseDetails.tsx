@@ -16,6 +16,7 @@ import RentersBooked from "./rentersBooked";
 import dynamic from "next/dynamic";
 import BookingConfirmation from "./bookingConfirm";
 import ImageSliderModal from "../slide";
+import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/solid";
 // import Map from "./map";
 const Map = dynamic(() => import("./map"), { ssr: false });
 const SingleHouseDetails = ({
@@ -34,17 +35,16 @@ const SingleHouseDetails = ({
     useState<boolean>(false);
   const images = [
     "https://cdn.pixabay.com/photo/2014/12/16/22/25/woman-570883_1280.jpg",
-  "https://cdn.pixabay.com/photo/2013/07/18/20/26/sea-164989_1280.jpg",
-  "https://cdn.pixabay.com/photo/2013/10/02/23/03/mountains-190055_1280.jpg", 
-  "https://cdn.pixabay.com/photo/2014/12/16/22/25/woman-570883_1280.jpg",
-  "https://cdn.pixabay.com/photo/2013/10/02/23/03/mountains-190055_1280.jpg", 
-  "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg",
-  "https://cdn.pixabay.com/photo/2013/10/02/23/03/mountains-190055_1280.jpg", 
-  "https://cdn.pixabay.com/photo/2013/10/02/23/03/mountains-190055_1280.jpg", 
-  "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg",
-  "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg",
-  "https://cdn.pixabay.com/photo/2013/10/02/23/03/mountains-190055_1280.jpg", 
-
+    "https://cdn.pixabay.com/photo/2013/07/18/20/26/sea-164989_1280.jpg",
+    "https://cdn.pixabay.com/photo/2013/10/02/23/03/mountains-190055_1280.jpg",
+    "https://cdn.pixabay.com/photo/2014/12/16/22/25/woman-570883_1280.jpg",
+    "https://cdn.pixabay.com/photo/2013/10/02/23/03/mountains-190055_1280.jpg",
+    "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg",
+    "https://cdn.pixabay.com/photo/2013/10/02/23/03/mountains-190055_1280.jpg",
+    "https://cdn.pixabay.com/photo/2013/10/02/23/03/mountains-190055_1280.jpg",
+    "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg",
+    "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg",
+    "https://cdn.pixabay.com/photo/2013/10/02/23/03/mountains-190055_1280.jpg",
   ];
   const handleGetCurrentLocation = () => {
     if (navigator.geolocation) {
@@ -215,84 +215,51 @@ const SingleHouseDetails = ({
               </div>
             </div>
           </div>
-          <div className="relative flex justify-center ">
-      {/* Image List (Scrollable) */}
-      <div className="flex items-center gap-2 overflow-hidden">
-        {/* Previous Button */}
-        <button
-          onClick={prevSlide}
-          className={`bg-gray-800/50 text-white p-2 rounded-full hover:bg-gray-900 transition ${
-            startIndex === 0 ? "opacity-50 cursor-not-allowed" : ""
-          }`}
-          disabled={startIndex === 0}
-        >
-          {/* <ChevronLeft size={24} /> */} Prev
-        </button>
+          <div className="relative flex justify-center "> 
+            <div className="flex items-center gap-2 overflow-hidden">
+               
+              <button
+                onClick={prevSlide}
+                className={`bg-gray-800/50 text-white p-2 rounded-full hover:bg-gray-900 transition ${
+                  startIndex === 0 ? "opacity-50 cursor-not-allowed" : ""
+                }`}
+                disabled={startIndex === 0}
+              >
+                <ChevronLeftIcon width={20} />
+              </button>
 
-        {/* Images */}
-        <div className="flex gap-2">
-          {images.slice(startIndex, startIndex + visibleImages).map((src, index) => (
-            <img onClick={() => setModalOpen(true)}
-              key={index}
-              src={src}
-              width={250}
-              alt={`Slide ${index + 1}`}
-              className="  object-cover rounded-lg shadow-lg transition transform hover:scale-105"
+              <div className="flex gap-2">
+                {images
+                  .slice(startIndex, startIndex + visibleImages)
+                  .map((src, index) => (
+                    <img
+                      onClick={() => setModalOpen(true)}
+                      key={index}
+                      src={src}
+                      width={250}
+                      alt={`Slide ${index + 1}`}
+                      className="  object-cover rounded-lg shadow-lg transition transform hover:scale-105"
+                    />
+                  ))}
+              </div>
+
+              <button
+                onClick={nextSlide}
+                className={`bg-gray-800/50 text-white p-2 rounded-full hover:bg-gray-900 transition ${
+                  startIndex + visibleImages >= images.length
+                    ? "opacity-50 cursor-not-allowed"
+                    : ""
+                }`}
+                disabled={startIndex + visibleImages >= images.length}
+              >
+                <ChevronRightIcon width={20} />
+              </button>
+            </div>
+            <ImageSliderModal
+              isOpen={isModalOpen}
+              onClose={() => setModalOpen(false)}
             />
-          ))}
-        </div>
-
-        {/* Next Button */}
-        <button
-          onClick={nextSlide}
-          className={`bg-gray-800/50 text-white p-2 rounded-full hover:bg-gray-900 transition ${
-            startIndex + visibleImages >= images.length ? "opacity-50 cursor-not-allowed" : ""
-          }`}
-          disabled={startIndex + visibleImages >= images.length}
-        >
-          {/* <ChevronRight size={24} />  */} Next
-        </button>
-      </div> 
-      <ImageSliderModal isOpen={isModalOpen} onClose={() => setModalOpen(false)} />
-    </div>
-          {/* <div className="grid grid-cols-6 place-content-center gap-4 flex fustify-center bg-red-400">
-            <div>
-              <Image
-                className="h-auto max-w-full rounded-lg"
-                src={HouseImage}
-                alt=""
-              />
-            </div>
-            <div>
-              <Image
-                className="h-auto max-w-full rounded-lg"
-                src={HouseImage}
-                alt=""
-              />
-            </div>
-            <div>
-              <Image
-                className="h-auto max-w-full rounded-lg"
-                src={HouseImage}
-                alt=""
-              />
-            </div>
-            <div>
-              <Image
-                className="h-auto max-w-full rounded-lg"
-                src={HouseImage}
-                alt=""
-              />
-            </div>
-            <div>
-              <Image
-                className="h-auto max-w-full rounded-lg"
-                src={HouseImage}
-                alt=""
-              />
-            </div>
-          </div> */}
-          
+          </div>
           <div className="flex w-full  ">
             <div className="mx-5">
               <hr className="my-2" />
@@ -323,7 +290,7 @@ const SingleHouseDetails = ({
                       </span>
                     </div>
                     <p className="text-sm font-normal py-2.5 text-gray-900  ">
-                      That's awesome. I think our users will really appreciate
+                      That is awesome. I think our users will really appreciate
                       the improvements.
                     </p>
                   </div>
@@ -339,7 +306,7 @@ const SingleHouseDetails = ({
                       </span>
                     </div>
                     <p className="text-sm font-normal py-2.5 text-gray-900  ">
-                      That's awesome. I think our users will really appreciate
+                      Awesome. I think our users will really appreciate
                       the improvements.
                     </p>
                   </div>
@@ -357,7 +324,7 @@ const SingleHouseDetails = ({
                       </span>
                     </div>
                     <p className="text-sm font-normal py-2.5 text-gray-900  ">
-                      That's awesome. I think our users will really appreciate
+                     Awesome. I think our users will really appreciate
                       the improvements.
                     </p>
                   </div>
@@ -373,7 +340,7 @@ const SingleHouseDetails = ({
                       </span>
                     </div>
                     <p className="text-sm font-normal py-2.5 text-gray-900  ">
-                      That's awesome. I think our users will really appreciate
+                      Awesome. I think our users will really appreciate
                       the improvements.
                     </p>
                   </div>
@@ -403,7 +370,6 @@ const SingleHouseDetails = ({
           )}
         </div>
       )}
-     
     </>
   );
 };

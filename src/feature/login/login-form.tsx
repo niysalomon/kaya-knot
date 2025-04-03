@@ -47,7 +47,7 @@ const LoginForm=({isRegister,setIsRegister}:{isRegister:boolean; setIsRegister:(
                     Sign in
                   </button>
                   <p className="text-sm font-light text-gray-500 ">
-                    You don't have an account?{" "}
+                    You do not have an account?{" "}
                     <span onClick={()=>setIsRegister(true)}
                       className="font-medium text-primary-600 cursor-pointer hover:underline "
                     >

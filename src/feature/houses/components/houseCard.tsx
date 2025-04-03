@@ -12,17 +12,17 @@ import Autoplay from "embla-carousel-autoplay";
 import useEmblaCarousel from "embla-carousel-react";
 import { useState } from "react";
 import { slideData, sliderData } from "../data/sliderData";
+import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/solid";
 const HouseCard = ({
   setIsHouseDetails,
 }: {
   setIsHouseDetails: (_value: boolean) => void;
 }) => {
   const images = [
-    "https://source.unsplash.com/800x500/?city",
     "https://source.unsplash.com/800x500/?nature",
+    "https://source.unsplash.com/800x500/?city",
     "https://source.unsplash.com/800x500/?technology",
     "https://source.unsplash.com/800x500/?city",
-    
   ];
   const [emblaRef] = useEmblaCarousel({ loop: false }, [Autoplay()]);
   const [isLiked, setIsLiked] = useState<boolean>(false);
@@ -35,37 +35,35 @@ const HouseCard = ({
   const nextSlide = () => {
     setCurrentIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1));
   };
-  console.log("currentIndex====",currentIndex)
   return (
     <>
       <div className="max-w-sm md:max-w-xl sm:max-w-lg xs:max-w-lg bg-white border border-gray-200 rounded-lg shadow p-1 text-gray-600 ">
-         
         <div
           className="overflow-hidden bg-gray-200  mx-auto flex items-center justify-center  "
           ref={emblaRef}
         >
           <div className="flex w-full">
-             
-            <div className="relative w-full mx-auto xs:max-w-lg sm:max-w-lg md:max-w-lg" >
+            <div className="relative w-full mx-auto xs:max-w-lg sm:max-w-lg md:max-w-lg">
               <img
                 src={slideData[currentIndex]}
                 alt={`Slide ${currentIndex + 1}`}
-                className="w-full h-64 object-cover rounded-lg shadow-lg" onClick={() => setIsHouseDetails(true)}
-              /> 
+                className="w-full h-64 object-cover rounded-lg shadow-lg"
+                onClick={() => setIsHouseDetails(true)}
+              />
               <button
                 onClick={prevSlide}
                 className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-gray-800/50 text-white p-2 rounded-full hover:bg-gray-900 transition"
               >
-                {/* <ChevronLeft size={24} /> */}Back
+                <ChevronLeftIcon width={20} />
               </button>
- 
+
               <button
                 onClick={nextSlide}
                 className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-gray-800/50 text-white p-2 rounded-full hover:bg-gray-900 transition"
               >
-                {/* <ChevronRight size={24} /> */} Next
+                <ChevronRightIcon width={20} />
               </button>
- 
+
               <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 flex gap-2">
                 {images.map((_, index) => (
                   <div
@@ -124,7 +122,6 @@ const HouseCard = ({
             This house was built next year, it is cozy and has an access to a
             tarmac road and the house....
           </p>
-         
         </div>
       </div>
     </>

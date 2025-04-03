@@ -106,7 +106,7 @@ const SingleRenterDetail = ({
                             </span>
                           </div>
                           <p className="text-sm font-normal py-2.5 text-gray-900  ">
-                            That's awesome. I think our users will really
+                            Awesome. I think our users will really
                             appreciate the improvements.
                           </p>
                         </div>
@@ -123,7 +123,7 @@ const SingleRenterDetail = ({
                             </span>
                           </div>
                           <p className="text-sm font-normal py-2.5 text-gray-900  ">
-                            That's awesome. I think our users will really
+                            Awesome. I think our users will really
                             appreciate the improvements.
                           </p>
                         </div>

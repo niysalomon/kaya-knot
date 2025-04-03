@@ -1,7 +1,6 @@
 import { useState } from "react";
 import HouseCard from "./components/houseCard";
-import HouseBackground from "./components/houseBackground";
-import HomeImage from "./components/homeImage";
+import HouseBackground from "./components/houseBackground"; 
 import SingleHouseDetails from "./components/singleHouseDetails";
 import SingleRenterDetail from "./components/singleRenter";
 import PhotoSlider from "./components/housCard";
@@ -20,7 +19,7 @@ const HouseList = () => {
               <HouseBackground />
               <div className="grid grid-cols-1 xs:grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 mb-4">
                 {h.map((item) => ( 
-                  <HouseCard setIsHouseDetails={setIsHouseDetails} />
+                  <HouseCard setIsHouseDetails={setIsHouseDetails} key={item} />
                 ))}
               </div>
             </div>
@@ -35,8 +34,7 @@ const HouseList = () => {
               setShowSingleRenter={setShowSingleRenter}
             />
             <div></div>
-          </div>
-          // <HomeImage/>
+          </div> 
         )}
       </div>
     </>
