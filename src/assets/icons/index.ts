@@ -36,7 +36,7 @@ import SettingsIcon from "@/assets/icons/settings-icon.svg";
 import HousesIcon from "@/assets/icons/houses-icon.svg";
 import ApartmentIcon from "@/assets/icons/apartment-icon.svg";
 import HotelIcon from "@/assets/icons/hotel-icon.svg";
-import HomeWhiteIcon from "@/assets/icons/Home-white-icon.svg";
+import HomeWhiteIcon from "@/assets/icons/home-white-icon.svg";
 import LocationWhiteIcon from "@/assets/icons/location-white-icon.svg";
 import HouseWhiteIcon from "@/assets/icons/houses-white-icon.svg";
 export {

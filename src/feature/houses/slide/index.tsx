@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { useState } from "react";
 // import { ChevronLeft, ChevronRight, X } from "lucide-react";
 
@@ -42,7 +43,7 @@ const ImageSliderModal=({ isOpen,onClose }:{ isOpen:boolean,onClose:()=>void; })
 
         {/* Current Image (Large) */}
         <div className="relative p-5">
-          <img
+          <Image
             src={images[currentIndex]}
             alt={`Slide ${currentIndex + 1}`}
             className="w-full h-160 object-cover rounded-lg shadow-md transition-transform duration-300"
@@ -68,7 +69,7 @@ const ImageSliderModal=({ isOpen,onClose }:{ isOpen:boolean,onClose:()=>void; })
         {/* Thumbnail Navigation */}
         <div className="flex justify-center gap-2 mt-4">
           {images.map((src, index) => (
-            <img
+            <Image
               key={index}
               src={src}
               alt={`Thumbnail ${index + 1}`}

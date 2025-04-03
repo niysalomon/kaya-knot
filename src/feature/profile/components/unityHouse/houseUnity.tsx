@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Image from "next/image";
 import AddNewHouseUnity from "./addNewHouseUnity";
 
 const SingleHouseUnity = () => {
@@ -88,7 +89,7 @@ const SingleHouseUnity = () => {
                   scope="row"
                   className="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap "
                 >
-                  <img
+                  <Image
                     className="w-10 h-10 rounded-full"
                     src="/docs/images/people/profile-picture-1.jpg"
                     alt="Jese image"
@@ -134,7 +135,7 @@ const SingleHouseUnity = () => {
                   scope="row"
                   className="flex items-center px-6 py-4 font-medium text-gray-900 whitespace-nowrap"
                 >
-                  <img
+                  <Image
                     className="w-10 h-10 rounded-full"
                     src="/docs/images/people/profile-picture-3.jpg"
                     alt="Jese image"
@@ -179,7 +180,7 @@ const SingleHouseUnity = () => {
                   scope="row"
                   className="flex items-center px-6 py-4 font-medium text-gray-900 whitespace-nowrap  "
                 >
-                  <img
+                  <Image
                     className="w-10 h-10 rounded-full"
                     src="/docs/images/people/profile-picture-2.jpg"
                     alt="Jese image"
@@ -224,7 +225,7 @@ const SingleHouseUnity = () => {
                   scope="row"
                   className="flex items-center px-6 py-4 font-medium text-gray-900 whitespace-nowrap  "
                 >
-                  <img
+                  <Image
                     className="w-10 h-10 rounded-full"
                     src="/docs/images/people/profile-picture-5.jpg"
                     alt="Jese image"
@@ -269,7 +270,7 @@ const SingleHouseUnity = () => {
                   scope="row"
                   className="flex items-center px-6 py-4 font-medium text-gray-900 whitespace-nowrap "
                 >
-                  <img
+                  <Image
                     className="w-10 h-10 rounded-full"
                     src="/docs/images/people/profile-picture-4.jpg"
                     alt="Jese image"

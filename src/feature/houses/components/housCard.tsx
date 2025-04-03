@@ -1,5 +1,5 @@
 import { useState } from "react";
-// import { ChevronLeft, ChevronRight } from "lucide-react";
+import Image from "next/image";
 
 const images = [
   "https://source.unsplash.com/800x500/?nature",
@@ -21,7 +21,7 @@ const PhotoSlider=()=> {
   return (
     <div className="relative w-full max-w-lg mx-auto">
        
-      <img
+      <Image
         src={slideData[currentIndex]}
         alt={`Slide ${currentIndex + 1}`}
         className="w-full h-64 object-cover rounded-lg shadow-lg"
