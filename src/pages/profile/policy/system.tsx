@@ -1,5 +1,5 @@
-import ProfileLayout from "@/common/profileLayout"; 
-import SystemPolicies from "@/feature/profile/components/policy/SystemPolicies";
+import ProfileLayout from "@/common/profileLayout";  
+import SystemPolicies from "@/feature/profile/components/policy/systemPolicies";
 
 export const SystemPolicy=()=>{
     return(
