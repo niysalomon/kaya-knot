@@ -3,7 +3,7 @@ const RegistrationForm=({isRegister,setIsRegister}:{isRegister:boolean; setIsReg
         <section className="bg-gray-50 flex flex-col items-center ">
           <div className="flex flex-col">
             <span className="font-bold text-xl py-1">
-              Let's get you started here
+              Let get you started here
             </span>
             <h5 className="py-1">
               Fill in your details to join kaya community
