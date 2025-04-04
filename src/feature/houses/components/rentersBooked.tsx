@@ -14,7 +14,7 @@ const RentersBooked = ({
   return (
     <>
       <div className=" text-gray-900 ">
-        <div className="cursor-pointer pl-4" onClick={()=>{setShowRenters(false)}}><Image src={BackIcon} alt="" /></div>
+        {/* <div className="cursor-pointer pl-4" onClick={()=>{setShowRenters(false)}}><Image src={BackIcon} alt="" /></div> */}
         <p className="text-4xl font-bold py-4">Already booked by 2 people</p>
         <div className="grid grid-cols-10 gap-4 ">
           <div className="col-span-10 sm:col-span-10 ">
