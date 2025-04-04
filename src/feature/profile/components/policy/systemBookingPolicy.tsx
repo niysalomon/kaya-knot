@@ -85,7 +85,7 @@ const SystemBookingPolicy = () => {
                 scope="row"
                 className="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap "
               >
-                <Image
+                <img
                   className="w-10 h-10 rounded-full"
                   src="/docs/images/people/profile-picture-1.jpg"
                   alt="Jese image"
@@ -131,7 +131,7 @@ const SystemBookingPolicy = () => {
                 scope="row"
                 className="flex items-center px-6 py-4 font-medium text-gray-900 whitespace-nowrap"
               >
-                <Image
+                <img
                   className="w-10 h-10 rounded-full"
                   src="/docs/images/people/profile-picture-3.jpg"
                   alt="Jese image"
@@ -176,7 +176,7 @@ const SystemBookingPolicy = () => {
                 scope="row"
                 className="flex items-center px-6 py-4 font-medium text-gray-900 whitespace-nowrap  "
               >
-                <Image
+                <img
                   className="w-10 h-10 rounded-full"
                   src="/docs/images/people/profile-picture-2.jpg"
                   alt="Jese image"

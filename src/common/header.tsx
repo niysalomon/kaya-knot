@@ -61,8 +61,7 @@ const Header = () => {
     window.addEventListener("click", handleClickOutsideDropDownMenu);
   }
   return (
-    <div className="bg-opacity-50 z-[9999] ">
-      {/* <Image src={KayaLogo} alt="" /> */}
+    <div className="bg-opacity-50 z-[9999] "> 
 
       <div className="w-full flex justify-between items-center  bg-gray-100 h-18   ">
         <div className="  ">

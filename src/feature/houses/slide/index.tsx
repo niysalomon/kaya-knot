@@ -69,7 +69,7 @@ const ImageSliderModal=({ isOpen,onClose }:{ isOpen:boolean,onClose:()=>void; })
         {/* Thumbnail Navigation */}
         <div className="flex justify-center gap-2 mt-4">
           {images.map((src, index) => (
-            <Image
+            <img
               key={index}
               src={src}
               alt={`Thumbnail ${index + 1}`}

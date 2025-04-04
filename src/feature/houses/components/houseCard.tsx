@@ -44,7 +44,7 @@ const HouseCard = ({
         >
           <div className="flex w-full">
             <div className="relative w-full mx-auto xs:max-w-lg sm:max-w-lg md:max-w-lg">
-              <Image
+              <img
                 src={slideData[currentIndex]}
                 alt={`Slide ${currentIndex + 1}`}
                 className="w-full h-64 object-cover rounded-lg shadow-lg"

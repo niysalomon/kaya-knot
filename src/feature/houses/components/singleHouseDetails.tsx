@@ -232,7 +232,7 @@ const SingleHouseDetails = ({
                 {images
                   .slice(startIndex, startIndex + visibleImages)
                   .map((src, index) => (
-                    <Image
+                    <img
                       onClick={() => setModalOpen(true)}
                       key={index}
                       src={src}
