@@ -18,15 +18,15 @@ const SingleRenterDetail = ({
   return (
     <>
       <div className=" text-gray-900 ">
-        <div
+        {/* <div
           className="cursor-pointer pl-10"
           onClick={() => {
             setShowSingleRenter(false);
           }}
         >
           <Image src={BackIcon} alt="" />
-        </div>
-        <div className="flex flex-col justify-between items-center">
+        </div> */}
+        <div className="flex flex-col justify-between items-center p-2">
           <div className="flex">
             <div className="w-1/3">
               <Image
@@ -51,7 +51,7 @@ const SingleRenterDetail = ({
               </div>
               joined 2 years ago
             </div>
-            <div className="flex flex-col w-3/4 mr-5">
+            <div className="flex flex-col w-3/4 mx-5">
               <p className="font-bold text-xl mb-5"> About Peninah</p>
               <div className="flex  py-2">
                 <Image src={BudgetIcon} alt="" />
@@ -130,94 +130,7 @@ const SingleRenterDetail = ({
                       </div>
                     </div>
                     <hr />
-                  </div>
-
-                  {/* <div className=" w-1/3 bg-white border border-gray-200 rounded-xl shadow p-1 text-gray-600 bg-gray-50  ">
-                    <div className="p-5  max-h-[420px] overflow-auto">
-                      <div className="flex items-start gap-2.5 my-1">
-                        <Image src={UserIcon} alt="" />
-                        <div className="flex flex-col w-full max-w-[320px] leading-1.5 p-4 border-gray-200 bg-gray-100 rounded-br-[42px]  ">
-                          <div className="flex items-center space-x-2 rtl:space-x-reverse">
-                            <span className="text-sm font-semibold text-gray-900  ">
-                              Bonnie Green
-                            </span>
-                            <span className="text-sm font-normal text-gray-500  ">
-                              11:46
-                            </span>
-                          </div>
-                          <p className="text-sm font-normal py-2.5 text-gray-900  ">
-                            That's awesome. I think our users will really
-                            appreciate the improvements.
-                          </p>
-                        </div>
-                      </div>
-                      <div className="flex  items-start gap-2.5 justify-end">
-                        <div className="flex  flex-col w-full max-w-[320px] leading-1.5 p-4 border-gray-200 bg-gray-100 rounded-bl-[42px]  ">
-                          <div className="flex items-center space-x-2 rtl:space-x-reverse">
-                            <span className="text-sm font-semibold text-gray-900  ">
-                              Bonnie Green
-                            </span>
-                            <span className="text-sm font-normal text-gray-500  ">
-                              11:46
-                            </span>
-                          </div>
-                          <p className="text-sm font-normal py-2.5 text-gray-900  ">
-                            That's awesome. I think our users will really
-                            appreciate the improvements.
-                          </p>
-                        </div>
-                        <Image src={UserIcon} alt="" />
-                      </div>
-                      <div className="flex items-start gap-2.5 my-1">
-                        <Image src={UserIcon} alt="" />
-                        <div className="flex flex-col w-full max-w-[320px] leading-1.5 p-4 border-gray-200 bg-gray-100 rounded-br-[42px]  ">
-                          <div className="flex items-center space-x-2 rtl:space-x-reverse">
-                            <span className="text-sm font-semibold text-lg text-gray-900  ">
-                              Bonnie Green
-                            </span>
-                            <span className="text-sm font-normal text-gray-500  ">
-                              11:46
-                            </span>
-                          </div>
-                          <p className="text-sm font-normal py-2.5 text-gray-900  ">
-                            That's awesome. I think our users will really
-                            appreciate the improvements.
-                          </p>
-                        </div>
-                      </div>
-                      <div className="flex  items-start gap-2.5 justify-end">
-                        <div className="flex  flex-col w-full max-w-[320px] leading-1.5 p-4 border-gray-200 bg-gray-100 rounded-bl-[42px]  ">
-                          <div className="flex items-center space-x-2 rtl:space-x-reverse">
-                            <span className="text-sm font-semibold text-gray-900  ">
-                              Bonnie Green
-                            </span>
-                            <span className="text-sm font-normal text-gray-500  ">
-                              11:46
-                            </span>
-                          </div>
-                          <p className="text-sm font-normal py-2.5 text-gray-900  ">
-                            That's awesome. I think our users will really
-                            appreciate the improvements.
-                          </p>
-                        </div>
-                        <Image src={UserIcon} alt="" />
-                      </div>
-                    </div>
-                    <div className="flex items-center  pl-3 pb-3 sticky top-0 ">
-                      <textarea
-                        placeholder="chat with penina......"
-                        className="w-full shadow rounded-md border p-2"
-                      ></textarea>
-                      <div className="  w-20">
-                        <Image
-                          className="bg-orange "
-                          width={25}
-                          src={SendIcon}
-                          alt=""
-                        />
-                      </div>
-                    </div>
-                  </div> */}
+                  </div> 
                 </div>
               </div>
             </div>

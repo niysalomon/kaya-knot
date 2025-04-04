@@ -2,16 +2,15 @@ import Footer from "./footer";
 import Header from "./header";
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
-  return (
-    <>
-      <div className="flex flex-col bg-white justify-between z-90">
+  return ( 
+      <div className="bg-white h-screen ">
         <div className="">
           <Header />
         </div> 
-        <div className="">{children}</div>
+        <div className="h-[calc(95vh-190px)] overflow-auto">{children}</div>
         <Footer />
       </div>
-    </>
+ 
   );
 };
 export default Layout;

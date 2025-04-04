@@ -87,15 +87,15 @@ const SingleHouseDetails = ({
         />
       ) : (
         <div className="grid gap-4 px-10 text-gray-500">
-          <div
+          {/* <div
             className="cursor-pointer pl-4"
             onClick={() => {
               setIsHouseDetails(false);
             }}
           >
             <Image src={BackIcon} alt="" />
-          </div>
-          <div className="grid grid-cols-8 gap-4">
+          </div> */}
+          <div className="grid grid-cols-8 gap-4 pt-2">
             <div className=" w-full grid row-span-4 col-span-2">
               <div className=" block max-w-sm p-6 ml-4 text-gray-600 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 ">
                 <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 py-3  ">

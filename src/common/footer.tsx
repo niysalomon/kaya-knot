@@ -3,8 +3,8 @@ import Image from "next/image";
 const Footer = () => {
   return (
     <>
-      <div className="bg-darkColor p-1">
-        <div className="text-white flex flex-col atems-center justify-between py-2 px-5">
+      <div className="bg-darkColor p-1 z-99">
+        {/* <div className="text-white flex flex-col atems-center justify-between py-2 px-5">
           <div className=" flex atems-center justify-between py-2">
             <Image src={KayaLogoDark} alt="" />
             <div></div>
@@ -38,11 +38,11 @@ const Footer = () => {
             </div>
             <div></div>
           </div>
-        </div> 
+        </div>  */}
         <div className=""> <hr/></div>
         <div className=" flex justify-between items-center text-white ">
           <div>© 2024 KAKA Knot</div>
-          <div className=" flex  py-2">
+          <div className=" flex  py-5">
           
           <Image className="px-1" src={FacebookIcon} alt=""/>
           <Image className="px-1 mt-2" src={InstagramIcon} alt=""/>

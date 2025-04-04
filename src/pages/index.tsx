@@ -3,12 +3,10 @@ import RenterHouse from "@/feature/houses/renterHouse";
 import Slider from "@/feature/houses/slide";
 
 const Home=()=>{
-    return(
-        <>
+    return( 
         <Layout>
        <RenterHouse/> 
-        </Layout>
-        </>
+        </Layout> 
     )
 
 }

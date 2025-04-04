@@ -24,10 +24,10 @@ import Breadcrumbs from "@/feature/houses/components/breadCrumbs";
 const Header = () => {
   const breadcrumbLinks = [
     { name: "Home", href: "/" },
-    { name: "Residential", href: "/resident" },
-    { name: "Hotels", href: "/hotel" },
-    { name: "Kigali", href: "/shop/electronics" },
-    { name: "Laptops", href: "/shop/electronics/laptops" },
+    { name: "Residential", href: "/house" },
+    { name: "Renter", href: "/renter" },
+    { name: "Kigali", href: "/house"},
+    { name: "kabeza", href: "/" },
   ];
 
   const openingLocation = useRef<HTMLDivElement>(null);
