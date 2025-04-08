@@ -19,14 +19,15 @@ import { DayPicker } from "react-day-picker";
 import { format, differenceInDays } from "date-fns";
 import { useRef, useState } from "react";
 import Image from "next/image";
-import { HomeIcon } from "@heroicons/react/24/solid";
+import { BellAlertIcon, HomeIcon } from "@heroicons/react/24/solid";
 import Breadcrumbs from "@/feature/houses/components/breadCrumbs";
+import NotificationComponent from "@/feature/profile/components/profile/notification";
 const Header = () => {
   const breadcrumbLinks = [
     { name: "Home", href: "/" },
     { name: "Residential", href: "/house" },
     { name: "Renter", href: "/renter" },
-    { name: "Kigali", href: "/house"},
+    { name: "Kigali", href: "/house" },
     { name: "kabeza", href: "/" },
   ];
 
@@ -34,6 +35,8 @@ const Header = () => {
   const openingdates = useRef<HTMLDivElement>(null);
   const [location, setLocation] = useState<string>();
   const [showFilter, setShowFilter] = useState<boolean>(false);
+  const [openProfile, setOpenProfile] = useState<boolean>(false);
+  const [openNotification, setOpenNofication] = useState<boolean>(false);
   const today = new Date();
   const [range, setRange] = useState<{ from: Date; to: Date }>({
     from: today,
@@ -60,9 +63,9 @@ const Header = () => {
   if (typeof window !== "undefined") {
     window.addEventListener("click", handleClickOutsideDropDownMenu);
   }
-  return (
-    <div className="bg-opacity-50 z-[9999] "> 
 
+  return (
+    <div className="bg-opacity-50 z-[9999] ">
       <div className="w-full flex justify-between items-center  bg-gray-100 h-18   ">
         <div className="  ">
           <Image src={KayaLogo} alt="" />
@@ -207,10 +210,87 @@ const Header = () => {
           </div>
         </div>
         <div
-          className="inline-flex items-center px-1 py-1 text-white    rounded-full active "
+          className="relative inline-flex items-center px-1 py-1 text-white rounded-full active mr-4 "
           aria-current="page"
         >
-          <Image src={UserIcon} alt="" />
+          <div className="flex items-center">
+            <div
+              className="px-2 relative "
+              onClick={() => setOpenNofication(!openNotification)}
+            >
+              <BellAlertIcon color="gray" width={27} />
+              <div className="absolute inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-white bg-red-500 border-2 border-white rounded-full -top-5 end-2 ">
+                2
+              </div>
+            </div>
+
+            <Image
+              onClick={() => setOpenProfile(!openProfile)}
+              src={UserIcon}
+              width={30}
+              alt=""
+            />
+          </div>
+          {openNotification && (
+            <div className=" absolute  w-full flex  justify-around  w-full  top-6 right-16 divide-y divide-gray-50 text-black   bg-opacity-0 shadow-[0_35px_60px_-15px_rgba(0,0,0,0.9)]">
+              <div className="fixed p-2 w-64">
+                <div className="bg-white shadow-2xl     text-center border border-gray-200 mr-2">
+                <NotificationComponent/>
+                </div>
+              </div>
+            </div>
+          )}
+          {openProfile && (
+            <div className=" absolute   flex  justify-around  w-full  top-6 right-12 divide-y divide-gray-50 text-black   bg-opacity-50 shadow-[0_35px_60px_-15px_rgba(0,0,0,0.9)]">
+              <div className="fixed p-2 w-64">
+                <div className="bg-white shadow-2xl w-full border border-gray-200 mr-2">
+                  <div className="px-4 py-3 text-sm text-gray-900 border border-gray-200 ">
+                    <Image
+                      onClick={() => setOpenProfile(!openProfile)}
+                      src={UserIcon}
+                      width={30}
+                      alt=""
+                    />
+                    <div className="truncate">Kalisa John</div>
+                  </div>
+                  <ul className="py-2 text-sm text-gray-700  ">
+                    <li>
+                      <a
+                        href="#"
+                        className="block px-4 py-2 hover:bg-gray-100  "
+                      >
+                        Dashboard
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="#"
+                        className="block px-4 py-2 hover:bg-gray-100  "
+                      >
+                        Settings
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="#"
+                        className="block px-4 py-2 hover:bg-gray-100  "
+                      >
+                        Earnings
+                      </a>
+                    </li>
+                  </ul>
+                  <div className="py-2">
+                    <a
+                      href="#"
+                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100  "
+                    >
+                      Sign out
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
         </div>
       </div>
       <div className="flex bg-darkColor justify-between items-center py-2   ">
