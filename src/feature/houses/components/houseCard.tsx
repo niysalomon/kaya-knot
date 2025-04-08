@@ -13,15 +13,18 @@ import useEmblaCarousel from "embla-carousel-react";
 import { useState } from "react";
 import { slideData, sliderData } from "../data/sliderData";
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/solid";
+import Link from "next/link";
+import { useRouter } from "next/router";
 const HouseCard = ({
   setIsHouseDetails,
 }: {
   setIsHouseDetails: (_value: boolean) => void;
 }) => {
+  const router = useRouter();
   const images = [
-    "https://source.unsplash.com/800x500/?nature",
+    "https://source.unsplash.com/800x500/?technology", 
     "https://source.unsplash.com/800x500/?city",
-    "https://source.unsplash.com/800x500/?technology",
+    "https://source.unsplash.com/800x500/?nature",
     "https://source.unsplash.com/800x500/?city",
   ];
   const [emblaRef] = useEmblaCarousel({ loop: false }, [Autoplay()]);
@@ -34,7 +37,7 @@ const HouseCard = ({
 
   const nextSlide = () => {
     setCurrentIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1));
-  };
+  }; 
   return (
     <>
       <div className="max-w-sm md:max-w-xl sm:max-w-lg xs:max-w-lg bg-white border border-gray-200 rounded-lg shadow p-1 text-gray-600 ">
@@ -42,14 +45,16 @@ const HouseCard = ({
           className="overflow-hidden bg-gray-200  mx-auto flex items-center justify-center  "
           ref={emblaRef}
         >
+          
           <div className="flex w-full">
             <div className="relative w-full mx-auto xs:max-w-lg sm:max-w-lg md:max-w-lg">
-              <img
+            <Link href={`./house/house-details`}><img
                 src={slideData[currentIndex]}
                 alt={`Slide ${currentIndex + 1}`}
                 className="w-full h-64 object-cover rounded-lg shadow-lg"
                 onClick={() => setIsHouseDetails(true)}
               />
+              </Link>
               <button
                 onClick={prevSlide}
                 className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-gray-800/50 text-white p-2 rounded-full hover:bg-gray-900 transition"
@@ -76,6 +81,7 @@ const HouseCard = ({
               </div>
             </div>
           </div>
+          
         </div>
         <div className="p-5">
           <div className="flex items-center justify-between ">

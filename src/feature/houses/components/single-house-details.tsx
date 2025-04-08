@@ -19,13 +19,7 @@ import ImageSliderModal from "../slide";
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/solid";
 // import Map from "./map";
 const Map = dynamic(() => import("./map"), { ssr: false });
-const SingleHouseDetails = ({
-  setIsHouseDetails,
-  setShowSingleRenter,
-}: {
-  setIsHouseDetails: (_value: boolean) => void;
-  setShowSingleRenter: (_value: boolean) => void;
-}) => {
+const SingleHouseDetails = ( ) => {
   const [showRenters, setShowRenters] = useState<boolean>(false);
   const [latitude, setLatitude] = useState("");
   const [longitude, setLongitude] = useState("");
@@ -81,20 +75,11 @@ const SingleHouseDetails = ({
   return (
     <>
       {showRenters ? (
-        <RentersBooked
-          setShowRenters={setShowRenters}
-          setShowSingleRenter={setShowSingleRenter}
+        <RentersBooked 
         />
       ) : (
         <div className="grid gap-4 px-10 text-gray-500">
-          {/* <div
-            className="cursor-pointer pl-4"
-            onClick={() => {
-              setIsHouseDetails(false);
-            }}
-          >
-            <Image src={BackIcon} alt="" />
-          </div> */}
+           
           <div className="grid grid-cols-8 gap-4 pt-2">
             <div className=" w-full grid row-span-4 col-span-2">
               <div className=" block max-w-sm p-6 ml-4 text-gray-600 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 ">

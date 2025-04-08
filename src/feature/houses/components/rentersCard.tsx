@@ -9,19 +9,20 @@ import {
   UserIcon,
 } from "@/assets/icons";
 import { useState } from "react";
-const RenterCard = ({
-  setShowSingleRenter,
-  
-}: {
-  setShowSingleRenter: (_value: boolean) => void;
-}) => {
+import Link from "next/link";
+const RenterCard = () => {
   const [isLiked, setIsLiked] = useState<boolean>(false);
   return (
     <>
       <div className="max-w-sm md:max-w-xl sm:max-w-lg xs:max-w-lg bg-white border border-gray-200 rounded-lg shadow p-1 text-gray-600 ">
-        <div className="w-full mx-auto xs:max-w-lg sm:max-w-lg md:max-w-lg cursor-pointer" onClick={() => setShowSingleRenter(true)}>
+      <Link href={`./renters/renter-details`}>
+        <div className="w-full mx-auto xs:max-w-lg sm:max-w-lg md:max-w-lg cursor-pointer" 
+        // onClick={() => setShowSingleRenter(true)}
+        >
+
           <Image src={RenterImage} alt="" className="w-full h-64 object-cover rounded-lg shadow-lg" />
         </div>
+        </Link>
         <div className="p-5">
           <div className="flex items-center justify-between ">
             <div className="flex items-center">

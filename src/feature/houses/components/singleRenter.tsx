@@ -9,11 +9,7 @@ import {
 } from "@/assets/icons";
 import Image from "next/image";
 import RenterCard from "./rentersCard";
-const SingleRenterDetail = ({
-  setShowSingleRenter,
-}: {
-  setShowSingleRenter: (_value: boolean) => void;
-}) => {
+const SingleRenterDetail = () => {
   const data = ["1", "2"];
   return (
     <>
