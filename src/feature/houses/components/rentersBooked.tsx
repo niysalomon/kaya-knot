@@ -3,7 +3,7 @@ import RenterCard from "./rentersCard";
 import Image from "next/image";
 import { useState } from "react";
 
-const RentersBooked = ( ) => { 
+const RentersBooked = () => {
   const data = ["1", "2", "3"];
   return (
     <>
@@ -16,16 +16,18 @@ const RentersBooked = ( ) => {
               {data.map((key) => (
                 <RenterCard key={key} />
               ))}
-                 
             </div>
             <p>One room remains before they can settle in</p>
-            <div className="flex items-center py-5"><p>Do you want to join? </p><button
+            <div className="flex items-center py-5">
+              <p>Do you want to join? </p>
+              <button
                 type="submit"
                 className="w-48 text-white focus:ring-4 focus:outline-none   
                         font-medium rounded-lg text-sm px-5 py-2.5 text-center  bg-darkColor focus:ring-primary-800"
               >
                 Join
-              </button></div>
+              </button>
+            </div>
           </div>
         </div>
       </div>

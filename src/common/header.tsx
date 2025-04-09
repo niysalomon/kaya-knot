@@ -19,21 +19,27 @@ import { DayPicker } from "react-day-picker";
 import { format, differenceInDays } from "date-fns";
 import { useRef, useState } from "react";
 import Image from "next/image";
-import { HomeIcon } from "@heroicons/react/24/solid";
+import { BellAlertIcon, HomeIcon } from "@heroicons/react/24/solid";
 import Breadcrumbs from "@/feature/houses/components/breadCrumbs";
+import NotificationComponent from "@/feature/profile/components/profile/notification";
+import Link from "next/link";
 const Header = () => {
   const breadcrumbLinks = [
     { name: "Home", href: "/" },
     { name: "Residential", href: "/house" },
     { name: "Renter", href: "/renter" },
-    { name: "Kigali", href: "/house"},
+    { name: "Kigali", href: "/house" },
     { name: "kabeza", href: "/" },
   ];
 
   const openingLocation = useRef<HTMLDivElement>(null);
   const openingdates = useRef<HTMLDivElement>(null);
+  const openingNotification = useRef<HTMLDivElement>(null);
+  const openingProfile = useRef<HTMLDivElement>(null);
   const [location, setLocation] = useState<string>();
   const [showFilter, setShowFilter] = useState<boolean>(false);
+  const [openProfile, setOpenProfile] = useState<boolean>(false);
+  const [openNotification, setOpenNofication] = useState<boolean>(false);
   const today = new Date();
   const [range, setRange] = useState<{ from: Date; to: Date }>({
     from: today,
@@ -55,14 +61,23 @@ const Header = () => {
     if (isOpen && !openingdates.current?.contains(e.target as Node)) {
       setIsOpen(false);
     }
+    if (
+      openNotification &&
+      !openingNotification.current?.contains(e.target as Node)
+    ) {
+      setOpenNofication(false);
+    }
+    if (openProfile && !openingProfile.current?.contains(e.target as Node)) {
+      setOpenProfile(false);
+    }
   };
 
   if (typeof window !== "undefined") {
     window.addEventListener("click", handleClickOutsideDropDownMenu);
   }
-  return (
-    <div className="bg-opacity-50 z-[9999] "> 
 
+  return (
+    <div className="bg-opacity-50 z-[9999] ">
       <div className="w-full flex justify-between items-center  bg-gray-100 h-18   ">
         <div className="  ">
           <Image src={KayaLogo} alt="" />
@@ -207,41 +222,122 @@ const Header = () => {
           </div>
         </div>
         <div
-          className="inline-flex items-center px-1 py-1 text-white    rounded-full active "
+          className="relative inline-flex items-center px-1 py-1 text-white rounded-full active mr-4 z-10  "
           aria-current="page"
         >
-          <Image src={UserIcon} alt="" />
+          <div className="flex items-center">
+            <div
+              ref={openingNotification}
+              className="px-2 relative "
+              onClick={() => setOpenNofication(!openNotification)}
+            >
+              <BellAlertIcon color="gray" width={27} />
+              <div className="absolute inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-white bg-red-500 border-2 border-white rounded-full -top-5 end-2 ">
+                2
+              </div>
+            </div>
+            <div ref={openingProfile}>
+              <Image
+                onClick={() => setOpenProfile(!openProfile)}
+                src={UserIcon}
+                width={30}
+                alt=""
+              />
+            </div>
+          </div>
+          {openNotification && (
+            <div className=" absolute  w-full flex  justify-around  w-full  top-6 right-16 divide-y divide-gray-50 text-black   bg-opacity-0 shadow-[0_35px_60px_-15px_rgba(0,0,0,0.9)]">
+              <div className="fixed p-2 w-64">
+                <div className="bg-white shadow-2xl     text-center border border-gray-200 mr-2">
+                  <NotificationComponent />
+                </div>
+              </div>
+            </div>
+          )}
+          {openProfile && (
+            <div className=" absolute   flex  justify-around  w-full  top-6 right-12 divide-y divide-gray-50 text-black   bg-opacity-50 shadow-[0_35px_60px_-15px_rgba(0,0,0,0.9)]">
+              <div className="fixed p-2 w-64">
+                <div className="bg-white shadow-2xl w-full border border-gray-200 mr-2">
+                  <div className="px-4 py-3 text-sm text-gray-900 border border-gray-300 ">
+                    <Image
+                      onClick={() => setOpenProfile(!openProfile)}
+                      src={UserIcon}
+                      width={30}
+                      alt=""
+                    />
+                    <div className="truncate">Kalisa John</div>
+                  </div>
+                  <ul className="py-2 text-sm text-gray-700  ">
+                    <li className="border-b border-gray-100">
+                      <a
+                        href="#"
+                        className="block px-4 py-2 hover:bg-gray-100  "
+                      >
+                        Dashboard
+                      </a>
+                    </li>
+                    <li className="border-b border-gray-100">
+                      <a
+                        href="#"
+                        className="block px-4 py-2 hover:bg-gray-100  "
+                      >
+                        Settings
+                      </a>
+                    </li>
+                    <li className="border-b border-gray-100">
+                      <a
+                        href="#"
+                        className="block px-4 py-2 hover:bg-gray-100  "
+                      >
+                        Earnings
+                      </a>
+                    </li>
+                  </ul>
+                  <div className=" ">
+                    <a
+                      href="#"
+                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100  "
+                    >
+                      Sign out
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
         </div>
       </div>
       <div className="flex bg-darkColor justify-between items-center py-2   ">
         <div className=" float-left  ">
           <Breadcrumbs links={breadcrumbLinks} />
         </div>
-        <div className="flex justify-center items-center py-2 gap-6 mr-5">
-          <div className=" text-white  flex justify-end items-center rounded-full border border-primary py-1 m-1 px-6 ">
+        <div className="flex justify-center items-center py-2 gap-3 mr-5">
+          <Link href="./house" className=" text-white  flex justify-end items-center rounded-full  m-1 px-3 border border-primary  hover:border hover:border-white py-1 cursor-pointer">
+            <Image src={HouseWhiteIcon} alt="" />{" "}
+            <span className="pl-1">House</span>
+          </Link>
+          <Link href="./renters"className=" text-white  flex justify-end items-center rounded-full  m-1 px-3 hover:border hover:border-white py-1 cursor-pointer">
+            <Image src={TenantsWhiteIcon} alt="" width={22} />{" "}
+            <span className="pl-1">Co-renter</span>
+          </Link>
+          <div className=" text-white  flex justify-end items-center rounded-full hover:border hover:border-white py-1 m-1 px-6 cursor-pointer ">
             <Image src={HotelIcon} alt="" /> <span className="pl-1">Hotel</span>
           </div>
-          <div className=" text-white  flex justify-end items-center rounded-full  m-1 px-3 hover:border hover:border-white py-1">
+          <div className=" text-white  flex justify-end items-center rounded-full  m-1 px-3 hover:border hover:border-white py-1 cursor-pointer">
             <Image src={ApartmentIcon} alt="" />{" "}
             <span className="pl-1">Apartment</span>
           </div>
-          <div className=" text-white  flex justify-end items-center rounded-full  m-1 px-3 hover:border hover:border-white py-1">
-            <Image src={HouseWhiteIcon} alt="" />{" "}
-            <span className="pl-1">House</span>
-          </div>
-          <div className=" text-white  flex justify-end items-center rounded-full  m-1 px-3 hover:border hover:border-white py-1">
+
+          <div className=" text-white  flex justify-end items-center rounded-full  m-1 px-3 hover:border hover:border-white py-1 cursor-pointer">
             <Image src={ApartmentIcon} alt="" />{" "}
             <span className="pl-1">Office</span>
           </div>
-          <div className=" text-white  flex justify-end items-center rounded-full  m-1 px-3 hover:border hover:border-white py-1">
-            <Image src={TenantsWhiteIcon} alt="" width={22} />{" "}
-            <span className="pl-1">Co-renter</span>
-          </div>
-          <div className=" text-white  flex justify-end items-center rounded-full  m-1 px-3 hover:border hover:border-white py-1 ">
+
+          <div className=" text-white  flex justify-end items-center rounded-full  m-1 px-3 hover:border hover:border-white py-1 cursor-pointer">
             <Image src={LocationWhiteIcon} alt="" />{" "}
             <span className="pl-1">Kigali</span>
           </div>
-          <div className=" text-white  flex justify-end items-center rounded-full  m-1 px-3 hover:border hover:border-white py-1 ">
+          <div className=" text-white  flex justify-end items-center rounded-full  m-1 px-3 hover:border hover:border-white py-1 cursor-pointer">
             <Image src={HomeWhiteIcon} alt="" />{" "}
             <span className="pl-1">Ghetto</span>
             <HomeIcon />
