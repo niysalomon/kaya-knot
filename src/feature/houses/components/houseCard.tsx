@@ -22,9 +22,9 @@ const HouseCard = ({
 }) => {
   const router = useRouter();
   const images = [
-    "https://source.unsplash.com/800x500/?technology", 
-    "https://source.unsplash.com/800x500/?city",
     "https://source.unsplash.com/800x500/?nature",
+      "https://source.unsplash.com/800x500/?city",
+    "https://source.unsplash.com/800x500/?technology",  
     "https://source.unsplash.com/800x500/?city",
   ];
   const [emblaRef] = useEmblaCarousel({ loop: false }, [Autoplay()]);

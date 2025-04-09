@@ -8,8 +8,7 @@ import HomeBackground from "./components/homeBackground";
 const RenterHouse=()=>{
     const h = ["1", "2", "3", "4", "1", "2", "3", "4"];
     const [isHouseDetails, setIsHouseDetails] = useState<boolean>(false);
-  const [showSingleRenter, setShowSingleRenter] = useState<boolean>(true);
-  console.log("showSingleRenter",showSingleRenter)
+  const [showSingleRenter, setShowSingleRenter] = useState<boolean>(true); 
    return( <>
     <div className="h-[calc(99vh-170px)] pr-0.5 overflow-auto px-4">
     <div className="grid grid-cols-10 ">

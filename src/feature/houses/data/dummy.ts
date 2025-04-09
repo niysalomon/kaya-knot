@@ -1,0 +1,42 @@
+export const houses = [
+    "Hotel",
+    "Motel",
+    "Apartment",
+    "Offices",
+    "Shared offices",
+    "Guest houses",
+    "Transit house",
+    "Shared house",
+    "Homestays",
+    "Room",
+    "Halls",
+    "Gardens",
+    "Villa",
+    "Resorts",
+  ];
+  export const locations = [
+    "Kigali",
+    "Dar salam",
+    "Kicukiro",
+    "Bujumbura",
+    "Gisozi",
+    "Nyamirambo",
+    "Rwamagana",
+    "Byumba",
+    "Gisenyi",
+    "Room",
+    "Halls",
+    "Gardens",
+  ];
+
+  export const facilities = [
+    "Parking",
+    "Wi-Fi",
+    "Restaurent",
+    "swimming pool",
+    "Airport shuttle",
+    "Pets allowed",
+    "Non-smoking rooms",
+    "Gym", 
+    "Air conditions", 
+  ];

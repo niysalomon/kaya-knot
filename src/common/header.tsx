@@ -22,6 +22,7 @@ import Image from "next/image";
 import { BellAlertIcon, HomeIcon } from "@heroicons/react/24/solid";
 import Breadcrumbs from "@/feature/houses/components/breadCrumbs";
 import NotificationComponent from "@/feature/profile/components/profile/notification";
+import Link from "next/link";
 const Header = () => {
   const breadcrumbLinks = [
     { name: "Home", href: "/" },
@@ -33,6 +34,8 @@ const Header = () => {
 
   const openingLocation = useRef<HTMLDivElement>(null);
   const openingdates = useRef<HTMLDivElement>(null);
+  const openingNotification = useRef<HTMLDivElement>(null);
+  const openingProfile = useRef<HTMLDivElement>(null);
   const [location, setLocation] = useState<string>();
   const [showFilter, setShowFilter] = useState<boolean>(false);
   const [openProfile, setOpenProfile] = useState<boolean>(false);
@@ -57,6 +60,15 @@ const Header = () => {
     }
     if (isOpen && !openingdates.current?.contains(e.target as Node)) {
       setIsOpen(false);
+    }
+    if (
+      openNotification &&
+      !openingNotification.current?.contains(e.target as Node)
+    ) {
+      setOpenNofication(false);
+    }
+    if (openProfile && !openingProfile.current?.contains(e.target as Node)) {
+      setOpenProfile(false);
     }
   };
 
@@ -210,11 +222,12 @@ const Header = () => {
           </div>
         </div>
         <div
-          className="relative inline-flex items-center px-1 py-1 text-white rounded-full active mr-4 "
+          className="relative inline-flex items-center px-1 py-1 text-white rounded-full active mr-4 z-10  "
           aria-current="page"
         >
           <div className="flex items-center">
             <div
+              ref={openingNotification}
               className="px-2 relative "
               onClick={() => setOpenNofication(!openNotification)}
             >
@@ -223,19 +236,20 @@ const Header = () => {
                 2
               </div>
             </div>
-
-            <Image
-              onClick={() => setOpenProfile(!openProfile)}
-              src={UserIcon}
-              width={30}
-              alt=""
-            />
+            <div ref={openingProfile}>
+              <Image
+                onClick={() => setOpenProfile(!openProfile)}
+                src={UserIcon}
+                width={30}
+                alt=""
+              />
+            </div>
           </div>
           {openNotification && (
             <div className=" absolute  w-full flex  justify-around  w-full  top-6 right-16 divide-y divide-gray-50 text-black   bg-opacity-0 shadow-[0_35px_60px_-15px_rgba(0,0,0,0.9)]">
               <div className="fixed p-2 w-64">
                 <div className="bg-white shadow-2xl     text-center border border-gray-200 mr-2">
-                <NotificationComponent/>
+                  <NotificationComponent />
                 </div>
               </div>
             </div>
@@ -244,7 +258,7 @@ const Header = () => {
             <div className=" absolute   flex  justify-around  w-full  top-6 right-12 divide-y divide-gray-50 text-black   bg-opacity-50 shadow-[0_35px_60px_-15px_rgba(0,0,0,0.9)]">
               <div className="fixed p-2 w-64">
                 <div className="bg-white shadow-2xl w-full border border-gray-200 mr-2">
-                  <div className="px-4 py-3 text-sm text-gray-900 border border-gray-200 ">
+                  <div className="px-4 py-3 text-sm text-gray-900 border border-gray-300 ">
                     <Image
                       onClick={() => setOpenProfile(!openProfile)}
                       src={UserIcon}
@@ -254,7 +268,7 @@ const Header = () => {
                     <div className="truncate">Kalisa John</div>
                   </div>
                   <ul className="py-2 text-sm text-gray-700  ">
-                    <li>
+                    <li className="border-b border-gray-100">
                       <a
                         href="#"
                         className="block px-4 py-2 hover:bg-gray-100  "
@@ -262,7 +276,7 @@ const Header = () => {
                         Dashboard
                       </a>
                     </li>
-                    <li>
+                    <li className="border-b border-gray-100">
                       <a
                         href="#"
                         className="block px-4 py-2 hover:bg-gray-100  "
@@ -270,7 +284,7 @@ const Header = () => {
                         Settings
                       </a>
                     </li>
-                    <li>
+                    <li className="border-b border-gray-100">
                       <a
                         href="#"
                         className="block px-4 py-2 hover:bg-gray-100  "
@@ -279,7 +293,7 @@ const Header = () => {
                       </a>
                     </li>
                   </ul>
-                  <div className="py-2">
+                  <div className=" ">
                     <a
                       href="#"
                       className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100  "
@@ -297,31 +311,33 @@ const Header = () => {
         <div className=" float-left  ">
           <Breadcrumbs links={breadcrumbLinks} />
         </div>
-        <div className="flex justify-center items-center py-2 gap-6 mr-5">
-          <div className=" text-white  flex justify-end items-center rounded-full border border-primary py-1 m-1 px-6 ">
+        <div className="flex justify-center items-center py-2 gap-3 mr-5">
+          <Link href="./house" className=" text-white  flex justify-end items-center rounded-full  m-1 px-3 border border-primary  hover:border hover:border-white py-1 cursor-pointer">
+            <Image src={HouseWhiteIcon} alt="" />{" "}
+            <span className="pl-1">House</span>
+          </Link>
+          <Link href="./renters"className=" text-white  flex justify-end items-center rounded-full  m-1 px-3 hover:border hover:border-white py-1 cursor-pointer">
+            <Image src={TenantsWhiteIcon} alt="" width={22} />{" "}
+            <span className="pl-1">Co-renter</span>
+          </Link>
+          <div className=" text-white  flex justify-end items-center rounded-full hover:border hover:border-white py-1 m-1 px-6 cursor-pointer ">
             <Image src={HotelIcon} alt="" /> <span className="pl-1">Hotel</span>
           </div>
-          <div className=" text-white  flex justify-end items-center rounded-full  m-1 px-3 hover:border hover:border-white py-1">
+          <div className=" text-white  flex justify-end items-center rounded-full  m-1 px-3 hover:border hover:border-white py-1 cursor-pointer">
             <Image src={ApartmentIcon} alt="" />{" "}
             <span className="pl-1">Apartment</span>
           </div>
-          <div className=" text-white  flex justify-end items-center rounded-full  m-1 px-3 hover:border hover:border-white py-1">
-            <Image src={HouseWhiteIcon} alt="" />{" "}
-            <span className="pl-1">House</span>
-          </div>
-          <div className=" text-white  flex justify-end items-center rounded-full  m-1 px-3 hover:border hover:border-white py-1">
+
+          <div className=" text-white  flex justify-end items-center rounded-full  m-1 px-3 hover:border hover:border-white py-1 cursor-pointer">
             <Image src={ApartmentIcon} alt="" />{" "}
             <span className="pl-1">Office</span>
           </div>
-          <div className=" text-white  flex justify-end items-center rounded-full  m-1 px-3 hover:border hover:border-white py-1">
-            <Image src={TenantsWhiteIcon} alt="" width={22} />{" "}
-            <span className="pl-1">Co-renter</span>
-          </div>
-          <div className=" text-white  flex justify-end items-center rounded-full  m-1 px-3 hover:border hover:border-white py-1 ">
+
+          <div className=" text-white  flex justify-end items-center rounded-full  m-1 px-3 hover:border hover:border-white py-1 cursor-pointer">
             <Image src={LocationWhiteIcon} alt="" />{" "}
             <span className="pl-1">Kigali</span>
           </div>
-          <div className=" text-white  flex justify-end items-center rounded-full  m-1 px-3 hover:border hover:border-white py-1 ">
+          <div className=" text-white  flex justify-end items-center rounded-full  m-1 px-3 hover:border hover:border-white py-1 cursor-pointer">
             <Image src={HomeWhiteIcon} alt="" />{" "}
             <span className="pl-1">Ghetto</span>
             <HomeIcon />
