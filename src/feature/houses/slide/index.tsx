@@ -43,7 +43,7 @@ const ImageSliderModal=({ isOpen,onClose }:{ isOpen:boolean,onClose:()=>void; })
 
         {/* Current Image (Large) */}
         <div className="relative p-5">
-          <Image
+          <img
             src={images[currentIndex]}
             alt={`Slide ${currentIndex + 1}`}
             className="w-full h-160 object-cover rounded-lg shadow-md transition-transform duration-300"

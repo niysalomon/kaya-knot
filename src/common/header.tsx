@@ -268,9 +268,17 @@ const Header = () => {
                     <div className="truncate">Kalisa John</div>
                   </div>
                   <ul className="py-2 text-sm text-gray-700  ">
+                  <li className="border-b border-gray-100">
+                      <a
+                        href="./profile"
+                        className="block px-4 py-2 hover:bg-gray-100  "
+                      >
+                        Profile
+                      </a>
+                    </li>
                     <li className="border-b border-gray-100">
                       <a
-                        href="#"
+                        href="./profile/dashboard"
                         className="block px-4 py-2 hover:bg-gray-100  "
                       >
                         Dashboard
@@ -278,7 +286,7 @@ const Header = () => {
                     </li>
                     <li className="border-b border-gray-100">
                       <a
-                        href="#"
+                        href="./profile/setting"
                         className="block px-4 py-2 hover:bg-gray-100  "
                       >
                         Settings
@@ -295,7 +303,7 @@ const Header = () => {
                   </ul>
                   <div className=" ">
                     <a
-                      href="#"
+                      href="./../"
                       className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100  "
                     >
                       Sign out

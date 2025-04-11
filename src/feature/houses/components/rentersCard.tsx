@@ -72,32 +72,7 @@ const RenterCard = () => {
           <p className="mb-3 font-normal text-gray-700 ">
             Hi, I am Peninah and i am a cashier in BK and would love to move
             stay in Nyamirambo for.... ....
-          </p>
-          <div className="flex justify-between">
-             
-            <div
-              onClick={() => setIsLiked(!isLiked)}
-              className="rounded-full bg-white w-10 h-10   p-1"
-            >
-              {isLiked ? (
-                <Image
-                  className=" pt-0.5 rounded-full   "
-                  src={FillHeartIcon}
-                  width={25}
-                  height={25}
-                  alt=""
-                />
-              ) : (
-                <Image
-                  className=" pt-0.5 rounded-full   "
-                  src={OutlineHeart}
-                  width={25}
-                  height={25}
-                  alt=""
-                />
-              )}
-            </div>{" "}
-          </div>
+          </p> 
         </div>
       </div>
     </>

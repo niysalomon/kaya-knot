@@ -14,7 +14,7 @@ const RentersDetails = ({
   return (
     <div className="">
       {showSingleRenter ? (
-        <SingleRenterDetail setShowSingleRenter={setShowSingleRenter} />
+        <SingleRenterDetail  />
       ) : (
         <div className=" text-gray-900 ">
           <div
@@ -30,7 +30,7 @@ const RentersDetails = ({
             <div className="col-span-10 sm:col-span-10">
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-5 gap-4 mb-4">
                 {data.map((key) => (
-                  <RenterCard setShowSingleRenter={setShowSingleRenter} key={key} />
+                  <RenterCard  key={key} />
                 ))}
               </div>
               <p>One room remains before they can settle in</p>
