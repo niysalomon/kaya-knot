@@ -2,12 +2,10 @@ import Layout from "@/common/layout";
 import HouseList from "@/feature/houses/houseList";
 
 const Houses=()=>{
-    return(
-        <>
+    return( 
         <Layout>
         <HouseList/>
-        </Layout>
-        </>
+        </Layout> 
     )
 
 }

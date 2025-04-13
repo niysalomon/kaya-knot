@@ -1,3 +1,4 @@
+import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/solid";
 import Image from "next/image";
 import { useState } from "react";
 // import { ChevronLeft, ChevronRight, X } from "lucide-react";
@@ -54,7 +55,7 @@ const ImageSliderModal=({ isOpen,onClose }:{ isOpen:boolean,onClose:()=>void; })
             onClick={prevSlide}
             className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-800/50 text-white p-2 rounded-full hover:bg-gray-900 transition"
           >
-            {/* <ChevronLeft size={24} /> */}Prev
+             <ChevronLeftIcon width={20} />
           </button>
 
           {/* Right Control */}
@@ -62,7 +63,8 @@ const ImageSliderModal=({ isOpen,onClose }:{ isOpen:boolean,onClose:()=>void; })
             onClick={nextSlide}
             className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-800/50 text-white p-2 rounded-full hover:bg-gray-900 transition"
           >
-            {/* <ChevronRight size={24} /> */} Next
+                       <ChevronRightIcon width={20} />
+
           </button>
         </div>
 

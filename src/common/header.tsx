@@ -162,7 +162,7 @@ const Header = () => {
                           </h2>
                           <DayPicker
                             mode="range"
-                            selected={range} // Now we pass the range directly, which is compatible with the DateRange type
+                            selected={range} 
                             onSelect={handleSelect}
                             numberOfMonths={2}
                             className="rounded-lg shadow-md p-3 text-gray-700 border border-gray-300 bg-white hover:shadow-lg transition-all"
