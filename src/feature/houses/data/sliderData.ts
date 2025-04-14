@@ -27,10 +27,11 @@ export const sliderData = [
 ];
 
 export const slideData = [
-  "https://cdn.pixabay.com/photo/2014/12/16/22/25/woman-570883_1280.jpg",
-  "https://cdn.pixabay.com/photo/2013/07/18/20/26/sea-164989_1280.jpg",
-  "https://cdn.pixabay.com/photo/2013/10/02/23/03/mountains-190055_1280.jpg",
-  
-  "https://cdn.pixabay.com/photo/2014/12/16/22/25/woman-570883_1280.jpg",
-  "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg",
+  "https://images.unsplash.com/photo-1568605114967-8130f3a36994",
+    "https://images.unsplash.com/photo-1600585154340-be6161a56a0c",
+    "https://images.unsplash.com/photo-1580587771525-78b9dba3b914",
+   "https://images.unsplash.com/photo-1568605114967-8130f3a36994",
+   "https://images.unsplash.com/photo-1600585154340-be6161a56a0c",
+    "https://images.unsplash.com/photo-1580587771525-78b9dba3b914",
+    "https://images.unsplash.com/photo-1599423300746-b62533397364",
 ];

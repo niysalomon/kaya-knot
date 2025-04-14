@@ -22,10 +22,13 @@ const HouseCard = ({
 }) => {
   const router = useRouter();
   const images = [
-    "https://source.unsplash.com/800x500/?nature",
-      "https://source.unsplash.com/800x500/?city",
-    "https://source.unsplash.com/800x500/?technology",  
-    "https://source.unsplash.com/800x500/?city",
+    "https://images.unsplash.com/photo-1568605114967-8130f3a36994",
+    "https://images.unsplash.com/photo-1600585154340-be6161a56a0c",
+    "https://images.unsplash.com/photo-1580587771525-78b9dba3b914",
+   "https://images.unsplash.com/photo-1568605114967-8130f3a36994",
+   "https://images.unsplash.com/photo-1600585154340-be6161a56a0c",
+    "https://images.unsplash.com/photo-1580587771525-78b9dba3b914",
+    "https://images.unsplash.com/photo-1599423300746-b62533397364",
   ];
   const [emblaRef] = useEmblaCarousel({ loop: false }, [Autoplay()]);
   const [isLiked, setIsLiked] = useState<boolean>(false);

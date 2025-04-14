@@ -19,7 +19,7 @@ import ImageSliderModal from "../slide";
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/solid";
 // import Map from "./map";
 const Map = dynamic(() => import("./map"), { ssr: false });
-const SingleHouseDetails = ( ) => {
+const SingleHouseDetails = () => {
   const [showRenters, setShowRenters] = useState<boolean>(false);
   const [latitude, setLatitude] = useState("");
   const [longitude, setLongitude] = useState("");
@@ -27,7 +27,7 @@ const SingleHouseDetails = ( ) => {
 
   const [showBookingConfirmation, setShowBookingConfirmation] =
     useState<boolean>(false);
-  const images = [
+  const images1 = [
     "https://cdn.pixabay.com/photo/2014/12/16/22/25/woman-570883_1280.jpg",
     "https://cdn.pixabay.com/photo/2013/07/18/20/26/sea-164989_1280.jpg",
     "https://cdn.pixabay.com/photo/2013/10/02/23/03/mountains-190055_1280.jpg",
@@ -39,6 +39,18 @@ const SingleHouseDetails = ( ) => {
     "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg",
     "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg",
     "https://cdn.pixabay.com/photo/2013/10/02/23/03/mountains-190055_1280.jpg",
+  ];
+  const images = [
+    "https://images.unsplash.com/photo-1568605114967-8130f3a36994",
+    "https://images.unsplash.com/photo-1600585154340-be6161a56a0c",
+    "https://images.unsplash.com/photo-1580587771525-78b9dba3b914",
+   "https://images.unsplash.com/photo-1568605114967-8130f3a36994",
+   "https://images.unsplash.com/photo-1600585154340-be6161a56a0c",
+    "https://images.unsplash.com/photo-1580587771525-78b9dba3b914",
+    "https://images.unsplash.com/photo-1599423300746-b62533397364",
+    "https://images.unsplash.com/photo-1599423300746-b62533397364",
+    "https://images.unsplash.com/photo-1599423300746-b62533397364",
+    "https://images.unsplash.com/photo-1599423300746-b62533397364"
   ];
   const handleGetCurrentLocation = () => {
     if (navigator.geolocation) {
@@ -75,11 +87,9 @@ const SingleHouseDetails = ( ) => {
   return (
     <>
       {showRenters ? (
-        <RentersBooked 
-        />
+        <RentersBooked />
       ) : (
         <div className="grid gap-4 px-10 text-gray-500">
-           
           <div className="grid grid-cols-8 gap-4 pt-2">
             <div className=" w-full grid row-span-4 col-span-2">
               <div className=" block max-w-sm p-6 ml-4 text-gray-600 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 ">
@@ -200,9 +210,8 @@ const SingleHouseDetails = ( ) => {
               </div>
             </div>
           </div>
-          <div className="relative flex justify-center "> 
+          <div className="relative flex justify-center ">
             <div className="flex items-center gap-2 overflow-hidden">
-               
               <button
                 onClick={prevSlide}
                 className={`bg-gray-800/50 text-white p-2 rounded-full hover:bg-gray-900 transition ${
@@ -265,69 +274,77 @@ const SingleHouseDetails = ( ) => {
               <div className="p-5  max-h-[420px] overflow-auto">
                 <div className="flex items-start gap-2.5 my-1">
                   <Image src={UserIcon} alt="" />
-                  <div className="flex flex-col w-full max-w-[320px] leading-1.5 p-4 border-gray-200 bg-gray-100 rounded-br-[42px]  ">
-                    <div className="flex items-center space-x-2 rtl:space-x-reverse">
+                  <div className="flex flex-col w-full max-w-[320px] leading-1.5 px-2 border-gray-200 bg-gray-100 rounded-[12px]  ">
+                    <div className="flex items-center justify-between space-x-2 rtl:space-x-reverse py-1">
                       <span className="text-sm font-semibold text-gray-900  ">
                         Bonnie Green
-                      </span>
-                      <span className="text-sm font-normal text-gray-500  ">
-                        11:46
                       </span>
                     </div>
                     <p className="text-sm font-normal py-2.5 text-gray-900  ">
                       That is awesome. I think our users will really appreciate
                       the improvements.
                     </p>
-                  </div>
-                </div>
-                <div className="flex  items-start gap-2.5 justify-end">
-                  <div className="flex  flex-col w-full max-w-[320px] leading-1.5 p-4 border-gray-200 bg-gray-100 rounded-bl-[42px]  ">
-                    <div className="flex items-center space-x-2 rtl:space-x-reverse">
-                      <span className="text-sm font-semibold text-gray-900  ">
-                        Bonnie Green
-                      </span>
+                    <div className="flex justify-end">
                       <span className="text-sm font-normal text-gray-500  ">
                         11:46
                       </span>
                     </div>
+                  </div>
+                </div>
+                <div className="flex  items-start gap-2.5 justify-end">
+                  <div className="flex flex-col w-full max-w-[320px] leading-1.5 px-2 border-gray-200 bg-gray-100 rounded-[12px]  ">
+                    <div className="flex items-center justify-between space-x-2 rtl:space-x-reverse py-1">
+                      <span className="text-sm font-semibold text-gray-900  ">
+                        Bonnie Green
+                      </span>
+                    </div>
                     <p className="text-sm font-normal py-2.5 text-gray-900  ">
-                      Awesome. I think our users will really appreciate
+                      That is awesome. I think our users will really appreciate
                       the improvements.
                     </p>
+                    <div className="flex justify-end">
+                      <span className="text-sm font-normal text-gray-500  ">
+                        11:46
+                      </span>
+                    </div>
                   </div>
                   <Image src={UserIcon} alt="" />
                 </div>
                 <div className="flex items-start gap-2.5 my-1">
                   <Image src={UserIcon} alt="" />
-                  <div className="flex flex-col w-full max-w-[320px] leading-1.5 p-4 border-gray-200 bg-gray-100 rounded-br-[42px]  ">
-                    <div className="flex items-center space-x-2 rtl:space-x-reverse">
-                      <span className="text-sm font-semibold text-lg text-gray-900  ">
-                        Bonnie Green
-                      </span>
-                      <span className="text-sm font-normal text-gray-500  ">
-                        11:46
-                      </span>
-                    </div>
-                    <p className="text-sm font-normal py-2.5 text-gray-900  ">
-                     Awesome. I think our users will really appreciate
-                      the improvements.
-                    </p>
-                  </div>
-                </div>
-                <div className="flex  items-start gap-2.5 justify-end">
-                  <div className="flex  flex-col w-full max-w-[320px] leading-1.5 p-4 border-gray-200 bg-gray-100 rounded-bl-[42px]  ">
-                    <div className="flex items-center space-x-2 rtl:space-x-reverse">
+                  <div className="flex flex-col w-full max-w-[320px] leading-1.5 px-2 border-gray-200 bg-gray-100 rounded-[12px]  ">
+                    <div className="flex items-center justify-between space-x-2 rtl:space-x-reverse py-1">
                       <span className="text-sm font-semibold text-gray-900  ">
                         Bonnie Green
                       </span>
+                    </div>
+                    <p className="text-sm font-normal py-2.5 text-gray-900  ">
+                      That is awesome. I think our users will really appreciate
+                      the improvements.
+                    </p>
+                    <div className="flex justify-end">
                       <span className="text-sm font-normal text-gray-500  ">
                         11:46
                       </span>
                     </div>
+                  </div>
+                </div>
+                <div className="flex  items-start gap-2.5 justify-end">
+                  <div className="flex flex-col w-full max-w-[320px] leading-1.5 px-2 border-gray-200 bg-gray-100 rounded-[12px]  ">
+                    <div className="flex items-center justify-between space-x-2 rtl:space-x-reverse py-1">
+                      <span className="text-sm font-semibold text-gray-900  ">
+                        Bonnie Green
+                      </span>
+                    </div>
                     <p className="text-sm font-normal py-2.5 text-gray-900  ">
-                      Awesome. I think our users will really appreciate
+                      That is awesome. I think our users will really appreciate
                       the improvements.
                     </p>
+                    <div className="flex justify-end">
+                      <span className="text-sm font-normal text-gray-500  ">
+                        11:46
+                      </span>
+                    </div>
                   </div>
                   <Image src={UserIcon} alt="" />
                 </div>
@@ -337,9 +354,9 @@ const SingleHouseDetails = ( ) => {
                   placeholder="chat with penina......"
                   className="w-full shadow rounded-md border p-2"
                 ></textarea>
-                <div className="  w-20">
+                <div className=" relative bg-darkColor w-10 h-10 ml-1 rounded-full items-center">
                   <Image
-                    className="bg-orange "
+                    className="absolute right-1 top-2 "
                     width={25}
                     src={SendIcon}
                     alt=""

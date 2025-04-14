@@ -39,6 +39,7 @@ import HotelIcon from "@/assets/icons/hotel-icon.svg";
 import HomeWhiteIcon from "@/assets/icons/home-white-icon.svg";
 import LocationWhiteIcon from "@/assets/icons/location-white-icon.svg";
 import HouseWhiteIcon from "@/assets/icons/houses-white-icon.svg";
+import CancelBlackIcon from "@/assets/icons/cancel-black.svg";
 export {
   KayaLogo,
   UserIcon,
@@ -80,5 +81,5 @@ export {
   TenantsWhiteIcon,
   HomeWhiteIcon,
   LocationWhiteIcon,
-  HouseWhiteIcon
+  HouseWhiteIcon,CancelBlackIcon
 };

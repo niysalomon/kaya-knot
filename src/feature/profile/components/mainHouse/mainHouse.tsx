@@ -90,7 +90,7 @@ const MainHouse = () => {
             >
               <img
                 className="w-10 h-10 rounded-full"
-                src="/docs/images/people/profile-picture-1.jpg"
+                src="https://cdn.pixabay.com/photo/2014/12/16/22/25/woman-570883_1280.jpg"
                 alt="Jese image"
               />
               <div className="ps-3">

@@ -9,8 +9,7 @@ import L from 'leaflet';
 //   { ssr: false });
 const Map: React.FC = () => {
   useEffect(() => {
-    if (typeof window !== 'undefined') {
-    // Initialize the map
+    if (typeof window !== 'undefined') { 
     const map = L.map('map', {
       center: [-1.952936, 30.094370],  
       zoom: 17, 
