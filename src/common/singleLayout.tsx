@@ -23,7 +23,9 @@ import SearchSideBar from "./searchSideBar";
           </div>
         </div>
         <div>
-          <SearchSideBar /> 
+          <SearchSideBar open={false} setOpen={function (_value: boolean): void {
+            throw new Error("Function not implemented.");
+          } } /> 
           <div className="bg-gray-50">{children}</div>
           <div className=" bg-darkColor p-1">
             <div className="text-white flex flex-col atems-center justify-between py-2 px-5">

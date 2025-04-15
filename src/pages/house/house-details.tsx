@@ -7,7 +7,9 @@ const Houses=()=>{
       const [isHouseDetails, setIsHouseDetails] = useState<boolean>(false);
     return(
         <>
-        <Layout>
+         <Layout open={false} setOpen={function (_value: boolean): void {
+            throw new Error("Function not implemented.");
+          } } >
         <div className="h-[calc(99vh-170px)] pr-0.5 overflow-auto px-4">
         <div className="flex justify-center items-center">
             <div>
