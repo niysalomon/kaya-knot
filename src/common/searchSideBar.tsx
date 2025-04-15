@@ -17,21 +17,46 @@ import {
   TenantsIcon,
 } from "@/assets/icons";
 import { facilities, houses, locations } from "@/feature/houses/data/dummy";
+import { useRef, useState } from "react";
 
-const SearchSideBar = () => {
+const SearchSideBar = ({
+  open,
+  setOpen,
+}: {
+  open: boolean;
+  setOpen: (_value: boolean) => void;
+}) => {
+  // const openingMenu = useRef<HTMLDivElement>(null);
+  // const handleClickOutsideDropDownMenu = (e: any) => {
+  //   if (open && !openingMenu.current?.contains(e.target as Node)) {
+  //     setOpen(!open);
+  //   } 
+  // };
+  // if (typeof window !== "undefined") {
+  //   window.addEventListener("click", handleClickOutsideDropDownMenu);
+  // }
   let item = 1;
   return (
     <aside
-      className={`  w-full h-full flex flex-col justify-between text-sm duration-500 bg-gray-100 text-gray-900 `}
+      className={`xs:fixed sm:fixed md:fixed  lg:static sx:top-0 sx:left-0   bg-white text-darkColor shadow-lg sm:z-40 xs:z-40
+      transition-transform duration-300
+      ${open ? "translate-x-0" : "-translate-x-full"} w-full  
+      lg:translate-x-0 lg:w-full xs:w-[60%] sm:w-[30%]   h-screen  overflow-auto
+      `}
     >
-      <div className="relative h-screen   border-r border-gray-300 mr-2 overflow-auto">
+      <div className="relative h-screen  overflow-auto"  >
         <div
           className={`top-[90px] cursor-pointer w-full z-10 relative mb-10 left-[1.9rem]
                 }`}
-        > 
+        >
+          {/* <div className="absolute rounded-md w-6 h-6 bg-gray-200 right-1">
+            <ChevronDoubleRightIcon
+              className={`w-4 h-4 m-auto my-1 rotate-180`}
+            />
+          </div> */}
         </div>
 
-        <div 
+        <div
           className={`flex items-center mb-3 px-3  last:mb-0 cursor-pointer py-1 top-10 border-b border-gray-600 `}
         >
           <div className={` pl-3 font-medium  `}>Search Parameters</div>
@@ -160,9 +185,7 @@ const SearchSideBar = () => {
                 className={`px-1  py-2  hover:border-b-2 hover:border-darkColor duration-500 flex justify-between items-center cursor-pointer 
                          `}
               >
-                <div 
-                  className="group flex items-center gap-x-1 relative"
-                >
+                <div className="group flex items-center gap-x-1 relative">
                   <span>
                     <span className="absolute -right-12 top-0.5 mr-5 text-xs bg-primary text-white font-medium px-1  rounded-full"></span>
                   </span>
@@ -189,7 +212,7 @@ const SearchSideBar = () => {
         </details>
         <details
           className={`mb-2 last:mb-0 cursor-pointer py-1 px-3  `}
-          open={true}
+          open={false}
         >
           <summary
             className={`font-medium flex justify-between items-center border-b `}
@@ -229,7 +252,7 @@ const SearchSideBar = () => {
                     placeholder="Max..."
                   />
                 </div>
-              </div> 
+              </div>
             </li>
           </ul>
         </details>
@@ -251,7 +274,7 @@ const SearchSideBar = () => {
               className={` flex   duration-500 flex justify-between items-center cursor-pointer 
                          `}
             >
-             <div className=" flex flex-col w-full">
+              <div className=" flex flex-col w-full">
                 <div className="flex items-center">
                   {" "}
                   <input
@@ -324,18 +347,18 @@ const SearchSideBar = () => {
                 className={`px-1  py-2  hover:border-b-2 hover:border-darkColor duration-500 flex justify-between items-center cursor-pointer 
                          `}
               >
-                <div 
-                  className="group flex items-center gap-x-1 relative"
-                >
+                <div className="group flex items-center gap-x-1 relative">
                   <span>
                     <span className="absolute -right-12 top-0.5 mr-5 text-xs bg-primary text-white font-medium px-1  rounded-full"></span>
                   </span>
                   <div className="flex -mx-[6px] relative">
-                  <input
-                    type="checkbox"
-                    className="form-checkbox h-5 w-5 text-blue-600 transition duration-150 ease-in-out"
-                  />
-                    <span className={`text-sm whitespace-pre ml-1 `}>{items}</span>
+                    <input
+                      type="checkbox"
+                      className="form-checkbox h-5 w-5 text-blue-600 transition duration-150 ease-in-out"
+                    />
+                    <span className={`text-sm whitespace-pre ml-1 `}>
+                      {items}
+                    </span>
                   </div>
                 </div>
                 <span
@@ -367,7 +390,7 @@ const SearchSideBar = () => {
               className={` flex   duration-500 flex justify-between items-center cursor-pointer 
                          `}
             >
-            <div className=" flex flex-col w-full">
+              <div className=" flex flex-col w-full">
                 <div className="flex items-center">
                   {" "}
                   <input
