@@ -40,6 +40,7 @@ import HomeWhiteIcon from "@/assets/icons/home-white-icon.svg";
 import LocationWhiteIcon from "@/assets/icons/location-white-icon.svg";
 import HouseWhiteIcon from "@/assets/icons/houses-white-icon.svg";
 import CancelBlackIcon from "@/assets/icons/cancel-black.svg";
+import BarIcon from "@/assets/icons/bar-icon.svg";
 export {
   KayaLogo,
   UserIcon,
@@ -81,5 +82,7 @@ export {
   TenantsWhiteIcon,
   HomeWhiteIcon,
   LocationWhiteIcon,
-  HouseWhiteIcon,CancelBlackIcon
+  HouseWhiteIcon,
+  CancelBlackIcon,
+  BarIcon,
 };

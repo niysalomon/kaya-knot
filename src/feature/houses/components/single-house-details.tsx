@@ -27,30 +27,18 @@ const SingleHouseDetails = () => {
 
   const [showBookingConfirmation, setShowBookingConfirmation] =
     useState<boolean>(false);
-  const images1 = [
-    "https://cdn.pixabay.com/photo/2014/12/16/22/25/woman-570883_1280.jpg",
-    "https://cdn.pixabay.com/photo/2013/07/18/20/26/sea-164989_1280.jpg",
-    "https://cdn.pixabay.com/photo/2013/10/02/23/03/mountains-190055_1280.jpg",
-    "https://cdn.pixabay.com/photo/2014/12/16/22/25/woman-570883_1280.jpg",
-    "https://cdn.pixabay.com/photo/2013/10/02/23/03/mountains-190055_1280.jpg",
-    "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg",
-    "https://cdn.pixabay.com/photo/2013/10/02/23/03/mountains-190055_1280.jpg",
-    "https://cdn.pixabay.com/photo/2013/10/02/23/03/mountains-190055_1280.jpg",
-    "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg",
-    "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg",
-    "https://cdn.pixabay.com/photo/2013/10/02/23/03/mountains-190055_1280.jpg",
-  ];
+
   const images = [
     "https://images.unsplash.com/photo-1568605114967-8130f3a36994",
     "https://images.unsplash.com/photo-1600585154340-be6161a56a0c",
     "https://images.unsplash.com/photo-1580587771525-78b9dba3b914",
-   "https://images.unsplash.com/photo-1568605114967-8130f3a36994",
-   "https://images.unsplash.com/photo-1600585154340-be6161a56a0c",
+    "https://images.unsplash.com/photo-1568605114967-8130f3a36994",
+    "https://images.unsplash.com/photo-1600585154340-be6161a56a0c",
     "https://images.unsplash.com/photo-1580587771525-78b9dba3b914",
     "https://images.unsplash.com/photo-1599423300746-b62533397364",
     "https://images.unsplash.com/photo-1599423300746-b62533397364",
     "https://images.unsplash.com/photo-1599423300746-b62533397364",
-    "https://images.unsplash.com/photo-1599423300746-b62533397364"
+    "https://images.unsplash.com/photo-1599423300746-b62533397364",
   ];
   const handleGetCurrentLocation = () => {
     if (navigator.geolocation) {
@@ -143,12 +131,12 @@ const SingleHouseDetails = () => {
             </div>
             <div className="min-w-fit grid row-span-2 col-span-2 text-gray-700 ml-4">
               <div className="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 ">
-                <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900  ">
+                <h5 className="mb-2 text-2xl font-semibold tracking-tight text-gray-900  ">
                   Individual share
                 </h5>
                 <div
-                  className="w-full text-white focus:ring-4 focus:outline-none   
-                        font-medium rounded-lg text-md px-2 py-2.5 text-center  bg-grayOrange "
+                  className="w-full text-darkColor focus:ring-4 focus:outline-none   
+                        font-medium rounded-lg text-md px-2 py-2.5 text-center  border border-grayOrange "
                 >
                   200k <span className="text-xs">Rwf/Month</span>
                 </div>
@@ -210,6 +198,7 @@ const SingleHouseDetails = () => {
               </div>
             </div>
           </div>
+
           <div className="relative flex justify-center ">
             <div className="flex items-center gap-2 overflow-hidden">
               <button
@@ -253,6 +242,79 @@ const SingleHouseDetails = () => {
               isOpen={isModalOpen}
               onClose={() => setModalOpen(false)}
             />
+          </div>
+          <div className="grid  px-1 text-gray-500">
+            <fieldset className="border p-2 rounded">
+              <legend className="  px-2 py-1 font-medium">
+                <span>Co-renting</span>
+              </legend>
+              <div className="grid grid-cols-5   ">
+                <div className="flex flex-col  items-center p-2 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100  ">
+                  <span className="">Individual share</span>
+                  <div className="  rounded-lg px-1 py-2 ">
+                    <span>200k </span>{" "}
+                    <span className="text-xs">Rwf/Month</span>
+                  </div>
+                </div>
+                <div className="flex flex-col items-center p-2 bg-white mx-2 border border-gray-200 rounded-lg shadow hover:bg-gray-100  ">
+                  <span className="">Booked Rooms</span>
+                  <div className="  rounded-lg px-2 py-2 ">
+                    <span>3 </span> in <span className="text-xs">4</span>
+                  </div>
+                </div>
+                <div className="flex flex-col items-center p-2 bg-white mx-2 border border-gray-200 rounded-lg shadow hover:bg-gray-100  ">
+                  <span className=""> Booked by</span>
+                  <div className="  rounded-lg px-2 py-2 ">
+                    <div className="flex -space-x-4 rtl:space-x-reverse px-2">
+                      <Image
+                        className="w-10 h-10 border-2 border-white rounded-full dark:border-gray-800"
+                        src={UserIcon}
+                        alt=""
+                      />
+                      <Image
+                        className="w-10 h-10 border-2 border-white rounded-full dark:border-gray-800"
+                        src={UserIcon}
+                        alt=""
+                      />
+                      <Image
+                        className="w-10 h-10 border-2 border-white rounded-full dark:border-gray-800"
+                        src={UserIcon}
+                        alt=""
+                      />
+                      <a
+                        onClick={() => setShowRenters(true)}
+                        className="flex items-center justify-center w-10 h-10 text-xs font-medium text-white bg-gray-700 border-2 border-white rounded-full hover:bg-gray-600 dark:border-gray-800"
+                        href="#"
+                      >
+                        +1
+                      </a>
+                    </div>{" "}
+                  </div>
+                </div>
+                <div className="flex flex-col items-center p-2 bg-white mx-2 border border-gray-200 rounded-lg shadow hover:bg-gray-100  ">
+                  <button className="p-2  rounded-lg px-2">
+                    Share to your favorities
+                  </button>
+                  <div className="  rounded-lg px-2 py-2 ">
+                    <Image src={ShareIcon} alt="" className="mx-2" />
+                  </div>
+                </div>
+                <div className="flex flex-col items-center justify-center  p-2 bg-white mx-2   rounded-lg ">
+                  <div></div>
+                <button
+              onClick={() =>
+                setShowBookingConfirmation(!showBookingConfirmation)
+              }
+              type="submit"
+              className="w-full text-white focus:ring-4 focus:outline-none   
+                        font-medium rounded-lg text-sm px-5 py-2.5 text-center  bg-darkColor focus:ring-primary-800"
+            >
+              Book
+            </button>
+                </div>
+              </div>
+            </fieldset>
+            
           </div>
           <div className="flex w-full  ">
             <div className="mx-5">
