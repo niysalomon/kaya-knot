@@ -1,9 +1,11 @@
 import Layout from "@/common/layout";
 import SingleRenterDetail from "@/feature/houses/components/singleRenter";
+import { useState } from "react";
 
 const RenterDetails = () => {
-  return (
-    <Layout>
+  const [open, setOpen] = useState(true);
+  return( 
+      <Layout open={open} setOpen={setOpen}>
       <SingleRenterDetail />
     </Layout>
   );

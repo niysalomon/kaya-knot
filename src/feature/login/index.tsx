@@ -6,9 +6,10 @@ import LoginForm from "./login-form";
 
 const Login = () => {
   const [isRegister, setIsRegister] = useState<boolean>(false);
+  const [open, setOpen] = useState(true);
   return (
     <>
-      <Layout>
+     <Layout open={open} setOpen={setOpen}>
         <>
           {isRegister ? (
             <RegistrationForm

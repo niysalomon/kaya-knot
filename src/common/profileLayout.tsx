@@ -83,7 +83,9 @@ const ProfileLayout = ({ children }: { children: React.ReactNode }) => {
 
 <div className="bg-white h-screen ">
 <div className="">
-  <Header />
+  <Header open={false} setOpen={function (_value: boolean): void {
+          throw new Error("Function not implemented.");
+        } } />
 </div> 
 <SideBarMenu />
 <div className="h-[calc(95vh-190px)] overflow-auto">{children}</div>
