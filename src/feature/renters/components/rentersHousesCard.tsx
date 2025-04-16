@@ -1,14 +1,11 @@
-import Image from "next/image";
-import { HouseImage, RenterImage } from "../data/images";
-import {
-  BathroomIcon,
-  BedIcon,
-  CalendarIcon,
-  HomeIcon,
+import Image from "next/image"; 
+import { 
+  CalendarIcon, 
   LocationIcon,
   OccupationIcon,
   UserIcon,
 } from "@/assets/icons";
+import { RenterImage } from "@/feature/houses/data/images";
 const rentersHousesCard = ({
   setShowSingleRenter,
 }: {
