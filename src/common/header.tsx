@@ -190,7 +190,7 @@ const Header = ({
           <Image src={KayaLogo} alt="" />
         </div>
 
-        <div className=" w-full  flex  items-center content-center justify-center bg-red-500">
+        <div className=" w-full  flex  items-center content-center justify-center ">
           <div className="flex flex-col  w-full">
             <div className=" relative flex items-center justify-center   md:p-4 xs:p-0  w-full ">
               <div className="flex items-center justify-center  w-full py-1   ">
