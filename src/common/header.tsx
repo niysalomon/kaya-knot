@@ -432,10 +432,10 @@ const Header = ({
         <div className=" float-left  ">
           <Breadcrumbs links={breadcrumbLinks} />
         </div>
-        <div className="flex justify-center items-center py-2 lg:gap-3 xs:gap-0 sm:gap-0 md:gap-0 mr-5">
+        <div className="flex justify-center items-center py-2 lg:gap-3 xs:gap-0 sm:gap-0 md:gap-0 mr-5 xs:m-0  ">
           <Link
             href="./house"
-            className="flex items-center justify-end m-1 px-3 py-1 text-white border border-primary rounded-full cursor-pointer hover:border-white"
+            className="flex items-center justify-end m-1 px-3 xs:p-1 py-1 text-white border border-primary rounded-full cursor-pointer hover:border-white "
           >
             <Image
               src={HouseWhiteIcon}
@@ -448,7 +448,7 @@ const Header = ({
           </Link>
           <Link
             href="./renters"
-            className=" text-white  flex justify-end items-center rounded-full  m-1 px-3 hover:border hover:border-white py-1 cursor-pointer"
+            className=" text-white  flex justify-end items-center rounded-full  m-1 px-3 xs:p-1 hover:border hover:border-white py-1 cursor-pointer"
           >
             <Image
               src={TenantsWhiteIcon}
@@ -459,7 +459,7 @@ const Header = ({
             />{" "}
             <span className="pl-1 hidden xl:inline">Co-renter</span>
           </Link>
-          <div className=" text-white  flex justify-end items-center rounded-full hover:border hover:border-white py-1 m-1 px-6 cursor-pointer ">
+          <div className=" text-white  flex justify-end items-center rounded-full hover:border hover:border-white py-1 m-1 px-6 xs:p-1 cursor-pointer ">
             <Image
               src={HotelIcon}
               alt=""
@@ -469,7 +469,7 @@ const Header = ({
             />{" "}
             <span className="pl-1 hidden xl:inline">Hotel</span>
           </div>
-          <div className=" text-white  flex justify-end items-center rounded-full  m-1 px-3 hover:border hover:border-white py-1 cursor-pointer">
+          <div className=" text-white  flex justify-end items-center rounded-full  m-1 px-3 xs:p-1 hover:border hover:border-white py-1 cursor-pointer">
             <Image
               src={ApartmentIcon}
               alt=""
@@ -480,7 +480,7 @@ const Header = ({
             <span className="pl-1 hidden xl:inline">Apartment</span>
           </div>
 
-          <div className=" text-white  flex justify-end items-center rounded-full  m-1 px-3 hover:border hover:border-white py-1 cursor-pointer">
+          <div className=" text-white  flex justify-end items-center rounded-full  m-1 px-3 xs:p-1 hover:border hover:border-white py-1 cursor-pointer">
             <Image
               src={ApartmentIcon}
               alt=""
@@ -491,7 +491,7 @@ const Header = ({
             <span className="pl-1 hidden xl:inline">Office</span>
           </div>
 
-          <div className=" text-white  flex justify-end items-center rounded-full  m-1 px-3 hover:border hover:border-white py-1 cursor-pointer">
+          <div className=" text-white  flex justify-end items-center rounded-full  m-1 px-3 xs:p-1 hover:border hover:border-white py-1 cursor-pointer">
             <Image
               src={LocationWhiteIcon}
               alt=""
@@ -501,7 +501,7 @@ const Header = ({
             />{" "}
             <span className="pl-1 hidden xl:inline">Kigali</span>
           </div>
-          <div className=" text-white  flex justify-end items-center rounded-full  m-1 px-3 hover:border hover:border-white py-1 cursor-pointer">
+          <div className=" text-white  flex justify-end items-center rounded-full  m-1 px-3 xs:p-1 hover:border hover:border-white py-1 cursor-pointer">
             <Image
               src={HomeWhiteIcon}
               alt=""
