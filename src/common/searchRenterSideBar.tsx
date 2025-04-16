@@ -18,11 +18,15 @@ import {
 } from "@/assets/icons";
 import { facilities, houses, locations } from "@/feature/houses/data/dummy";
 
-const SearchRenterSideBar = () => {
+const SearchRenterSideBar = ({open,setOpen}:{open:boolean; setOpen:(_value:boolean)=>void})  => {
   let item = 1;
   return (
     <aside
-      className={`  w-full h-screen flex flex-col justify-between text-sm duration-500 bg-gray-100 text-gray-900 `}
+    className={`xs:fixed sm:fixed md:fixed  lg:static sx:top-0 sx:left-0   bg-white text-darkColor shadow-lg sm:z-40 xs:z-40
+      transition-transform duration-300
+      ${open ? "translate-x-0" : "-translate-x-full"} w-full  
+      lg:translate-x-0 lg:w-full xs:w-[60%] sm:w-[30%] h-screen  overflow-auto  
+      `}
     >
       <div className="relative h-screen   border-r border-gray-300 mr-2 overflow-auto">
         <div

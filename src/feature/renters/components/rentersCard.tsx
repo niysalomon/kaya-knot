@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { HouseImage, RenterImage } from "../data/images";
+// import { HouseImage, RenterImage } from "../data/images";
 import { 
   CalendarIcon,
   FillHeartIcon, 
@@ -10,6 +10,7 @@ import {
 } from "@/assets/icons";
 import { useState } from "react";
 import Link from "next/link";
+import { RenterImage } from "@/feature/houses/data/images";
 const RenterCard = () => {
   const [isLiked, setIsLiked] = useState<boolean>(false);
   return (
