@@ -1,6 +1,6 @@
 import Layout from "@/common/layout";
 import HouseList from "@/feature/houses/houseList";
-import RentersList from "@/feature/houses/rentersList";
+import RentersList from "@/feature/renters/rentersList";
 import { useState } from "react";
 
 const Renters=()=>{

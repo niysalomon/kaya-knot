@@ -1,5 +1,5 @@
 import Layout from "@/common/layout";
-import SingleRenterDetail from "@/feature/houses/components/singleRenter";
+import SingleRenterDetail from "@/feature/renters/components/singleRenter";
 import { useState } from "react";
 
 const RenterDetails = () => {

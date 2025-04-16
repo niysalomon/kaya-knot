@@ -1,7 +1,7 @@
-import { BackIcon } from "@/assets/icons";
-import RenterCard from "./rentersCard";
+import { BackIcon } from "@/assets/icons"; 
 import Image from "next/image";
 import { useState } from "react";
+import RenterCard from "./rentersCard";
 
 const RentersBooked = () => {
   const data = ["1", "2", "3"];

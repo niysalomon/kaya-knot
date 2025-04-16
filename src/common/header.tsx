@@ -200,10 +200,10 @@ const Header = ({open,setOpen}:{open:boolean; setOpen:(_value:boolean)=>void}) =
                 >
                   <div
                     onClick={() => setIsOpen(true)}
-                    className="xs:px-3 sm:py-3  md:px-5 lg:px-20 xs:py-3 md:py-4  w-full border border-darkColor font-semibold rounded-lg  transition mx-2 xs:text-xs md:text-md"
+                    className="xs:px-1 sm:py-3  sm:px-2 md:px-4 lg:px-20 xs:py-3 md:py-4  w-full border border-darkColor font-semibold rounded-md  transition mx-2 xs:text-xs md:text-md"
                   >
                     <span>{format(range.from, "dd/MM/yyyy")} </span>
-                    <span className="px-2">-</span>
+                    <span className="px-1">-</span>
                     <span className=" ">{format(range.to, "dd/MM/yyyy")}</span>
                   </div>
 

@@ -1,9 +1,9 @@
 import { useState } from "react";
-import HouseBackground from "./components/houseBackground";
-import HouseCard from "./components/houseCard";
-import SingleHouseDetails from "./components/single-house-details";
+import HouseBackground from "../houses/components/houseBackground";
+import HouseCard from "../houses/components/houseCard";
+import SingleHouseDetails from "../houses/components/single-house-details";
 import SingleRenterDetail from "./components/singleRenter";
-import HomeBackground from "./components/homeBackground";
+import HomeBackground from "../houses/components/homeBackground";
 
 const RenterHouse=()=>{
     const h = ["1", "2", "3", "4", "1", "2", "3", "4"];

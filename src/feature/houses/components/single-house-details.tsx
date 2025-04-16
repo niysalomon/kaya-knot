@@ -12,7 +12,7 @@ import {
   UserIcon,
 } from "@/assets/icons";
 import { useEffect, useState } from "react";
-import RentersBooked from "./rentersBooked";
+import RentersBooked from "../../renters/components/rentersBooked";
 import dynamic from "next/dynamic";
 import BookingConfirmation from "./bookingConfirm";
 import ImageSliderModal from "../slide";

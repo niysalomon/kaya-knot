@@ -1,10 +1,10 @@
 import { useState } from "react";
-import HouseCard from "./components/houseCard";
-import RenterBackground from "./components/renterBackground";
-import RenterCard from "./components/rentersCard";
+import HouseCard from "../houses/components/houseCard";
+import RenterBackground from "./components/renterBackground"; 
 import SingleRenterDetail from "./components/singleRenter";
 import SearchSideBar from "@/common/searchSideBar";
 import SearchRenterSideBar from "@/common/searchRenterSideBar";
+import RenterCard from "./components/rentersCard";
 
 const RentersList = () => {
   const h = ["1", "2", "3", "4", "1", "2", "3", "4"];

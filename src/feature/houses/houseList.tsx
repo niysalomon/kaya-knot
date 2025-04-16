@@ -2,7 +2,7 @@ import { useState } from "react";
 import HouseCard from "./components/houseCard";
 import HouseBackground from "./components/houseBackground";
 import SingleHouseDetails from "./components/single-house-details";
-import SingleRenterDetail from "./components/singleRenter";
+import SingleRenterDetail from "../renters/components/singleRenter";
 import PhotoSlider from "./components/housCard";
 import SingleLayout from "@/common/singleLayout";
 import SearchSideBar from "@/common/searchSideBar";

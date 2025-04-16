@@ -1,6 +1,6 @@
 import Layout from "@/common/layout";
 import HouseRentersHome from "@/feature/houses/components/house-renters-home";
-import RenterHouse from "@/feature/houses/renterHouse"; 
+import RenterHouse from "@/feature/renters/renterHouse"; 
 import Slider from "@/feature/houses/slide";
 import { useState } from "react";
 
