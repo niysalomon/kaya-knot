@@ -1,9 +1,6 @@
 import Image from "next/image"; 
-import {
-  BathroomIcon,
-  BedIcon,
-  CalendarIcon,
-  HomeIcon,
+import { 
+  CalendarIcon, 
   LocationIcon,
   OccupationIcon,
   UserIcon,
