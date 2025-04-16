@@ -7,7 +7,7 @@ const Renters=()=>{
     const [open, setOpen] = useState(true);
     return( 
          <Layout open={open} setOpen={setOpen}>
-        <RentersList/>
+        <RentersList  open={open} setOpen={setOpen}/>
         </Layout> 
     )
 

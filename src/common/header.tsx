@@ -24,7 +24,13 @@ import { BellAlertIcon, HomeIcon } from "@heroicons/react/24/solid";
 import Breadcrumbs from "@/feature/houses/components/breadCrumbs";
 import NotificationComponent from "@/feature/profile/components/profile/notification";
 import Link from "next/link";
-const Header = ({open,setOpen}:{open:boolean; setOpen:(_value:boolean)=>void}) => {
+const Header = ({
+  open,
+  setOpen,
+}: {
+  open: boolean;
+  setOpen: (_value: boolean) => void;
+}) => {
   const breadcrumbLinks = [
     { name: "Home", href: "/" },
     { name: "Residential", href: "/house" },
@@ -184,23 +190,20 @@ const Header = ({open,setOpen}:{open:boolean; setOpen:(_value:boolean)=>void}) =
           <Image src={KayaLogo} alt="" />
         </div>
 
-        <div className="  w-5/6 xs:w-full flex  items-center content-center justify-center ">
+        <div className=" w-full  flex  items-center content-center justify-center bg-red-500">
           <div className="flex flex-col  w-full">
             <div className=" relative flex items-center justify-center   md:p-4 xs:p-0  w-full ">
               <div className="flex items-center justify-center  w-full py-1   ">
-              <button
-            onClick={() => setOpen(!open)}
-            className="lg:hidden"
-          >
-           <Image src={BarIcon} alt="" width={35} height={35} />
-          </button>
+                <button onClick={() => setOpen(!open)} className="lg:hidden">
+                  <Image src={BarIcon} alt="" width={35} height={35} />
+                </button>
                 <div
                   className="flex  z-10  bg-gradient-to-br text-black  "
                   ref={openingdates}
                 >
                   <div
                     onClick={() => setIsOpen(true)}
-                    className="xs:px-1 sm:py-3  sm:px-2 md:px-4 lg:px-20 xs:py-3 md:py-4  w-full border border-darkColor font-semibold rounded-md  transition mx-2 xs:text-xs md:text-md"
+                    className="xs:px-1 sm:py-3  sm:px-1 md:px-2 lg:px-20 xs:py-3 md:py-4  w-full border border-darkColor font-semibold rounded-md  transition mx-2 xs:text-xs md:text-md"
                   >
                     <span>{format(range.from, "dd/MM/yyyy")} </span>
                     <span className="px-1">-</span>
@@ -350,6 +353,7 @@ const Header = ({open,setOpen}:{open:boolean; setOpen:(_value:boolean)=>void}) =
                 src={UserIcon}
                 width={35}
                 alt=""
+                 className="min-w-[30px] min-h-[30px] object-contain"
               />
             </div>
           </div>
@@ -372,6 +376,7 @@ const Header = ({open,setOpen}:{open:boolean; setOpen:(_value:boolean)=>void}) =
                       src={UserIcon}
                       width={30}
                       alt=""
+                      className="min-w-[30px] min-h-[30px] object-contain"
                     />
                     <div className="truncate">Kalisa John</div>
                   </div>
@@ -423,11 +428,11 @@ const Header = ({open,setOpen}:{open:boolean; setOpen:(_value:boolean)=>void}) =
           )}
         </div>
       </div>
-      <div className="flex bg-darkColor justify-between items-center py-2 xs:flex-col md:flex-row ">
+      <div className="flex bg-darkColor justify-between items-center py-2 xs:flex-col sm:flex-col md:flex-row lg:flex-row ">
         <div className=" float-left  ">
           <Breadcrumbs links={breadcrumbLinks} />
         </div>
-        <div className="flex justify-center items-center py-2 gap-3 xs:gap-0 mr-5">
+        <div className="flex justify-center items-center py-2 lg:gap-3 xs:gap-0 sm:gap-0 md:gap-0 mr-5">
           <Link
             href="./house"
             className="flex items-center justify-end m-1 px-3 py-1 text-white border border-primary rounded-full cursor-pointer hover:border-white"
