@@ -87,7 +87,7 @@ const Header = ({
     <div className="bg-opacity-50 z-[9999] ">
       <div className="xs:flex md:hidden w-full justify-between items-center  bg-gray-100 h-16 border-b shadow-2xl   ">
         <div className="  ">
-          <Image src={KayaLogo} alt="" />
+          <Image src={KayaLogo}  alt="" className=" w-30" />
         </div>
         <div
           className="xs:inline md:hidden relative inline-flex items-center px-1 py-1 text-white rounded-full active mr-4 z-10  "
@@ -99,7 +99,7 @@ const Header = ({
               className="px-2 relative "
               onClick={() => setOpenNofication(!openNotification)}
             >
-              <BellAlertIcon color="gray" width={27} />
+              <BellAlertIcon color="gray" width={27} className="lg:min-w-[25px] xs:max-w-20px] lg:min-h-[25px] xs:max-h-[20px] object-contain" />
               <div className="absolute inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-white bg-red-500 border-2 border-white rounded-full -top-5 end-2 ">
                 2
               </div>
@@ -107,10 +107,9 @@ const Header = ({
             <div ref={openingProfile}>
               <Image
                 onClick={() => setOpenProfile(!openProfile)}
-                src={UserIcon}
-                width={30}
+                src={UserIcon} 
                 alt=""
-                className="min-w-[25px] min-h-[25px] object-contain"
+                className="lg:min-w-[25px] xs:max-w-20px] lg:min-h-[25px] xs:max-h-[20px] object-contain"
               />
             </div>
           </div>
