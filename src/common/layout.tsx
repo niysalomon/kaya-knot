@@ -6,7 +6,7 @@ const Layout = ({ children,open,setOpen }: {open:boolean; setOpen:(_value:boolea
         <div className="">
           <Header open={open} setOpen={setOpen}/>
         </div> 
-        <div className="h-[calc(95vh-190px)] overflow-auto">{children}</div>
+        <div className="h-[calc(95vh-190px)] overflow-hidden">{children}</div>
         <Footer />
       </div>
  

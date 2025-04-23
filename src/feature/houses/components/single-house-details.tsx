@@ -56,7 +56,7 @@ const SingleHouseDetails = () => {
     }
   };
   const [startIndex, setStartIndex] = useState(0);
-  const visibleImages = 5; // Number of images visible at a time
+  const visibleImages = 1; 
 
   const prevSlide = () => {
     if (startIndex > 0) {
@@ -78,9 +78,9 @@ const SingleHouseDetails = () => {
         <RentersBooked />
       ) : (
         <div className="grid gap-4 px-10 text-gray-500">
-          <div className="grid grid-cols-8 gap-4 pt-2">
-            <div className=" w-full grid row-span-4 col-span-2">
-              <div className=" block max-w-sm p-6 ml-4 text-gray-600 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 ">
+          <div className="lg:grid lg:grid-cols-8 xs:flex xs:flex-col gap-4 pt-2">
+            <div className=" w-full grid row-span-4 xs:row-span-8 col-span-2">
+              <div className=" block   p-6 ml-4 text-gray-600 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 ">
                 <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 py-3  ">
                   Basic information
                 </h5>
@@ -122,7 +122,7 @@ const SingleHouseDetails = () => {
                 </div>
               </div>
             </div>
-            <div className="min-w-fit grid row-span-2 col-span-4">
+            <div className="min-w-fit grid row-span-2 col-span-4 ">
               <Image
                 src={BackgroundHouseIcon}
                 className="w-xl h-auto shadow-xl"
@@ -198,6 +198,7 @@ const SingleHouseDetails = () => {
               </div>
             </div>
           </div>
+          
 
           <div className="relative flex justify-center ">
             <div className="flex items-center gap-2 overflow-hidden">

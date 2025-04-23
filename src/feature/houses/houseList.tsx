@@ -20,9 +20,9 @@ const HouseList = ({open,setOpen}:{open:boolean; setOpen:(_value:boolean)=>void}
             
             <SearchSideBar open={open} setOpen={setOpen} />
           </div>
-          <div className="md:col-span-10 sm:col-span-10 xs:col-span-10 lg:col-span-8 sm:col-span-8 h-screen   overflow-auto ">
+          <div className="md:col-span-10 sm:col-span-10 xs:col-span-10 lg:col-span-8 sm:col-span-10 h-screen   overflow-auto ">
             <HouseBackground /> 
-            <div className="grid grid-cols-1 xs:grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-4 mb-4 mr-2">
+            <div className="grid grid-cols-2 xs:grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-4 mb-4 mr-2">
               {h.map((item) => (
                 <HouseCard setIsHouseDetails={setIsHouseDetails} key={item} />
               ))}
