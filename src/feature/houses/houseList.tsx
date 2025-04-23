@@ -1,10 +1,6 @@
 import { useState } from "react";
 import HouseCard from "./components/houseCard";
-import HouseBackground from "./components/houseBackground";
-import SingleHouseDetails from "./components/single-house-details";
-import SingleRenterDetail from "../renters/components/singleRenter";
-import PhotoSlider from "./components/housCard";
-import SingleLayout from "@/common/singleLayout";
+import HouseBackground from "./components/houseBackground"; 
 import SearchSideBar from "@/common/searchSideBar";
 import Link from "next/link";
 const h = ["1", "2", "3", "4", "1", "2", "3", "4"];
@@ -15,7 +11,7 @@ const HouseList = ({open,setOpen}:{open:boolean; setOpen:(_value:boolean)=>void}
   return (
     <>
       <div className="  ">
-        <div className="grid grid-cols-10 ">
+        <div className="grid grid-cols-10 gap-4">
           <div className="md:col-span-2 sm:col-span-0 sx:col-span-0  "> 
             
             <SearchSideBar open={open} setOpen={setOpen} />
