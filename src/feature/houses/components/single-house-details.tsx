@@ -56,7 +56,7 @@ const SingleHouseDetails = () => {
     }
   };
   const [startIndex, setStartIndex] = useState(0);
-  const visibleImages = 1; 
+  const visibleImages = 5; 
 
   const prevSlide = () => {
     if (startIndex > 0) {

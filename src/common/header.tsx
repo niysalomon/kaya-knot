@@ -24,6 +24,7 @@ import { BellAlertIcon, HomeIcon } from "@heroicons/react/24/solid";
 import Breadcrumbs from "@/feature/houses/components/breadCrumbs";
 import NotificationComponent from "@/feature/profile/components/profile/notification";
 import Link from "next/link";
+import { useRouter } from 'next/router';
 const Header = ({
   open,
   setOpen,
@@ -31,6 +32,7 @@ const Header = ({
   open: boolean;
   setOpen: (_value: boolean) => void;
 }) => {
+  const router = useRouter();
   const breadcrumbLinks = [
     { name: "Home", href: "/" },
     { name: "Residential", href: "/house" },
@@ -413,13 +415,12 @@ const Header = ({
                         Profile
                       </a>
                     </li>
-                    <li className="border-b border-gray-100">
-                      <a
-                        href="./profile/dashboard"
+                    <li onClick={()=> router.push('./profile/dashboard')} className="border-b border-gray-100">
+                      <span 
                         className="block px-4 py-2 hover:bg-gray-100  "
                       >
                         Dashboard
-                      </a>
+                      </span>
                     </li>
                     <li className="border-b border-gray-100">
                       <a
