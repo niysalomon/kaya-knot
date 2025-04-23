@@ -3,7 +3,7 @@ import Image from "next/image";
 const Footer = () => {
   return (
     <>
-      <div className="bg-darkColor p-1 z-[9999]">
+      <div className="bg-darkColor p-1  ">
         {/* <div className="text-white flex flex-col atems-center justify-between py-2 px-5">
           <div className=" flex atems-center justify-between py-2">
             <Image src={KayaLogoDark} alt="" />

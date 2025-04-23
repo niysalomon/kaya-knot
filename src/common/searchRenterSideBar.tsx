@@ -6,6 +6,7 @@ import {
 import Image from "next/image";
 import {
   BudgetIcon,
+  CancelBlackIcon,
   DashboadIcon,
   HomeIcon,
   HousesIcon,
@@ -22,23 +23,22 @@ const SearchRenterSideBar = ({open,setOpen}:{open:boolean; setOpen:(_value:boole
   let item = 1;
   return (
     <aside
-    className={`xs:fixed sm:fixed md:fixed  lg:static sx:top-0 sx:left-0   bg-white text-darkColor shadow-lg sm:z-40 xs:z-40
+      className={`xs:fixed sm:fixed md:fixed  lg:static sx:top-0 sx:left-0   bg-white text-darkColor shadow-lg sm:z-40 xs:z-40
       transition-transform duration-300
       ${open ? "translate-x-0" : "-translate-x-full"} w-full  
-      lg:translate-x-0 lg:w-full xs:w-[60%] sm:w-[30%] h-screen  overflow-auto  
+      lg:translate-x-0 lg:w-full xs:w-[80%] sm:w-[80%] h-screen  overflow-auto inset-0    
       `}
     >
       <div className="relative h-screen   border-r border-gray-300 mr-2 overflow-auto">
-        <div
-          className={`top-[90px] cursor-pointer w-full z-10 relative mb-10 left-[1.9rem]
-                }`}
-        > 
-        </div>
-
-        <div 
+      <div
           className={`flex items-center mb-3 px-3  last:mb-0 cursor-pointer py-1 top-10 border-b border-gray-600 `}
         >
-          <div className={` pl-3 font-medium  `}>Search Co-renter</div>
+          <div className="flex items-center justify-between w-full">
+          <div className={` pl-3 font-medium  `}>Search Parameters</div>
+          <button onClick={() => setOpen(!open)} className="lg:hidden">
+            <Image src={CancelBlackIcon} alt="" width={35} height={35} />
+          </button>
+          </div>
         </div>
          
         <details

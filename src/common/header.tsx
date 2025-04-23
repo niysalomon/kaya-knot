@@ -87,7 +87,7 @@ const Header = ({
     <div className="bg-opacity-50 z-[9999] ">
       <div className="xs:flex md:hidden w-full justify-between items-center  bg-gray-100 h-16 border-b shadow-2xl   ">
         <div className="  ">
-          <Image src={KayaLogo}  alt="" className=" w-30" />
+          <Image src={KayaLogo} alt="" className=" w-30" />
         </div>
         <div
           className="xs:inline md:hidden relative inline-flex items-center px-1 py-1 text-white rounded-full active mr-4 z-10  "
@@ -99,7 +99,11 @@ const Header = ({
               className="px-2 relative "
               onClick={() => setOpenNofication(!openNotification)}
             >
-              <BellAlertIcon color="gray" width={27} className="lg:min-w-[25px] xs:max-w-20px] lg:min-h-[25px] xs:max-h-[20px] object-contain" />
+              <BellAlertIcon
+                color="gray"
+                width={27}
+                className="lg:min-w-[25px] xs:max-w-20px] lg:min-h-[25px] xs:max-h-[20px] object-contain"
+              />
               <div className="absolute inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-white bg-red-500 border-2 border-white rounded-full -top-5 end-2 ">
                 2
               </div>
@@ -107,7 +111,7 @@ const Header = ({
             <div ref={openingProfile}>
               <Image
                 onClick={() => setOpenProfile(!openProfile)}
-                src={UserIcon} 
+                src={UserIcon}
                 alt=""
                 className="lg:min-w-[25px] xs:max-w-20px] lg:min-h-[25px] xs:max-h-[20px] object-contain"
               />
@@ -189,144 +193,165 @@ const Header = ({
           <Image src={KayaLogo} alt="" />
         </div>
 
-        <div className=" w-full  flex  items-center content-center justify-center ">
+        <div className=" w-full lg:w-5/6  flex  items-center content-center justify-center ">
           <div className="flex flex-col  w-full">
             <div className=" relative flex items-center justify-center   md:p-4 xs:p-0  w-full ">
               <div className="flex items-center justify-center  w-full py-1   ">
-                <button onClick={() => setOpen(!open)} className="lg:hidden">
-                  <Image src={BarIcon} alt="" width={35} height={35} />
-                </button>
-                <div
-                  className="flex  z-10  bg-gradient-to-br text-black  "
-                  ref={openingdates}
-                >
-                  <div
-                    onClick={() => setIsOpen(true)}
-                    className="xs:px-1 sm:py-3  sm:px-1 md:px-2 lg:px-20 xs:py-3 md:py-4  w-full border border-darkColor font-semibold rounded-md  transition mx-2 xs:text-xs md:text-md"
-                  >
-                    <span>{format(range.from, "dd/MM/yyyy")} </span>
-                    <span className="px-1">-</span>
-                    <span className=" ">{format(range.to, "dd/MM/yyyy")}</span>
-                  </div>
+                <div className="flex   items-center justify-center  w-full py-1   ">
+                  <div className="flex xs:flex-col sm:flex-col md:flex-row lg:flex-row  items-center justify-center  w-full py-1   ">
+                    <div
+                      className="flex   bg-gradient-to-br text-black w-full  "
+                      ref={openingdates}
+                    >
+                      <div
+                        onClick={() => setIsOpen(true)}
+                        className="xs:px-1 sm:py-3  sm:px-1 md:px-2 lg:px-20 xs:py-3 md:py-4  w-full border border-darkColor font-semibold rounded-md  transition mx-2 xs:text-xs md:text-md"
+                      >
+                        <span>{format(range.from, "dd/MM/yyyy")} </span>
+                        <span className="px-1">-</span>
+                        <span className=" ">
+                          {format(range.to, "dd/MM/yyyy")}
+                        </span>
+                      </div>
 
-                  {isOpen && (
-                    <div className=" absolute inset-0 flex  justify-around  w-full z-10 top-20  divide-y divide-gray-50 text-black   bg-opacity-50 shadow-[0_35px_60px_-15px_rgba(0,0,0,0.9)]">
-                      <div className="fixed ">
-                        <div className="bg-white shadow-2xl   p-6  w-auto text-center border border-gray-200">
-                          <h2 className="text-xl font-bold text-gray-700 mb-4">
-                            Select Date Range
-                          </h2>
-                          <DayPicker
-                            mode="range"
-                            selected={range}
-                            onSelect={handleSelect}
-                            numberOfMonths={2}
-                            className="rounded-lg shadow-md p-3 text-gray-700 border border-gray-300 bg-white hover:shadow-lg transition-all"
-                            styles={{
-                              day_selected: {
-                                backgroundColor: "white",
-                                border: "2px solid green",
-                                color: "black",
-                              },
-                              day_range_start: {
-                                backgroundColor: "green",
-                                color: "white",
-                                borderRadius: "8px",
-                              },
-                              day_range_end: {
-                                backgroundColor: "green",
-                                color: "white",
-                                borderRadius: "8px",
-                              },
-                              day_range_middle: {
-                                backgroundColor: "lightgreen",
-                                color: "black",
-                              },
-                            }}
-                          />
-                          {range.from && range.to && (
-                            <div className="  text-lg text-gray-700 font-medium bg-white p-2 rounded-lg shadow-md">
-                              <div
-                                onClick={() => setIsOpen(true)}
-                                className="px-6 py-3 border border-darkColor font-semibold rounded-lg  transition mx-2"
-                              >
-                                <span>{format(range.from, "dd/MM/yyyy")} </span>
-                                <span className="px-2">-</span>
-                                <span className=" ">
-                                  {format(range.to, "dd/MM/yyyy")}
-                                </span>
-                              </div>{" "}
-                              <p>
-                                {differenceInDays(range.to, range.from)} days
-                              </p>
+                      {isOpen && (
+                        <div className=" absolute inset-0 flex  justify-around  w-full z-10 top-20  divide-y divide-gray-50 text-black   bg-opacity-50 shadow-[0_35px_60px_-15px_rgba(0,0,0,0.9)]">
+                          <div className="fixed ">
+                            <div className="bg-white shadow-2xl   p-6  w-auto text-center border border-gray-200">
+                              <h2 className="text-xl font-bold text-gray-700 mb-4">
+                                Select Date Range
+                              </h2>
+                              <DayPicker
+                                mode="range"
+                                selected={range}
+                                onSelect={handleSelect}
+                                numberOfMonths={2}
+                                className="rounded-lg shadow-md p-3 text-gray-700 border border-gray-300 bg-white hover:shadow-lg transition-all"
+                                styles={{
+                                  day_selected: {
+                                    backgroundColor: "white",
+                                    border: "2px solid green",
+                                    color: "black",
+                                  },
+                                  day_range_start: {
+                                    backgroundColor: "green",
+                                    color: "white",
+                                    borderRadius: "8px",
+                                  },
+                                  day_range_end: {
+                                    backgroundColor: "green",
+                                    color: "white",
+                                    borderRadius: "8px",
+                                  },
+                                  day_range_middle: {
+                                    backgroundColor: "lightgreen",
+                                    color: "black",
+                                  },
+                                }}
+                              />
+                              {range.from && range.to && (
+                                <div className="  text-lg text-gray-700 font-medium bg-white p-2 rounded-lg shadow-md">
+                                  <div
+                                    onClick={() => setIsOpen(true)}
+                                    className="px-6 py-3 border border-darkColor font-semibold rounded-lg  transition mx-2"
+                                  >
+                                    <span>
+                                      {format(range.from, "dd/MM/yyyy")}{" "}
+                                    </span>
+                                    <span className="px-2">-</span>
+                                    <span className=" ">
+                                      {format(range.to, "dd/MM/yyyy")}
+                                    </span>
+                                  </div>{" "}
+                                  <p>
+                                    {differenceInDays(range.to, range.from)}{" "}
+                                    days
+                                  </p>
+                                </div>
+                              )}
                             </div>
-                          )}
+                          </div>
                         </div>
-                      </div>
+                      )}
                     </div>
-                  )}
-                </div>
-                <div
-                  className=" border border-darkColor text-black rounded"
-                  ref={openingLocation}
-                >
-                  <input
-                    onClick={() => setShowFilter(!showFilter)}
-                    type="text"
-                    value={location}
-                    placeholder="Choose place"
-                    className="border xs:px-5 sm:px-5  xs:py-2 sm:py-2 md:py-3  md:px-5 lg:px-20 xs:px-2 w-full rounded"
-                  />
-                  {showFilter && (
-                    <div className=" absolute  bg-white flex  flex-col justify-around  md:w-1/2 xs:w-full z-10 top-20  divide-y divide-gray-50 text-black     shadow-[0_35px_60px_-15px_rgba(0,0,0,0.9)]">
-                      {/* <div className="bg-white flex flex-col  justify-center inset-x-0 top-0 absolute top-20 right-2 w-1/2 z-10  divide-y divide-gray-100 p-2 text-black  shadow-[0_35px_60px_-15px_rgba(0,0,0,0.9)]"> */}
-                      <div
-                        onClick={() => {
-                          setShowFilter(!showFilter);
-                          setLocation(" Kigali, Kanombe");
-                        }}
-                        className=" p-2 border-b "
-                      >
-                        Kigali, Kanombe
-                      </div>
-                      <div
-                        onClick={() => {
-                          setShowFilter(!showFilter);
-                          setLocation("Kigali, Kacyiru");
-                        }}
-                        className=" p-2 border-b "
-                      >
-                        Kigali, Kacyiru
-                      </div>
-                      <div
-                        onClick={() => {
-                          setShowFilter(!showFilter);
-                          setLocation("Kigali, kimisagara");
-                        }}
-                        className=" p-2 border-b "
-                      >
-                        Kigali, kimisagara
-                      </div>
-                      <div
-                        onClick={() => {
-                          setShowFilter(!showFilter);
-                          setLocation("Gicumbi , Byumba");
-                        }}
-                        className=" p-2 border-b "
-                      >
-                        Gicumbi , Byumba
-                      </div>
+                    <div
+                      className="  text-black rounded w-full px-2 my-1 "
+                      ref={openingLocation}
+                    >
+                      <input
+                        onClick={() => setShowFilter(!showFilter)}
+                        type="text"
+                        value={location}
+                        placeholder="Choose place"
+                        className="border border-darkColor xs:px-5 sm:px-5  xs:py-2 sm:py-2 md:py-3  md:px-5 lg:px-20 xs:px-2 w-full rounded"
+                      />
+                      {showFilter && (
+                        <div className=" absolute  bg-white flex  flex-col justify-around  md:w-1/2 xs:w-full z-10 top-20  divide-y divide-gray-50 text-black     shadow-[0_35px_60px_-15px_rgba(0,0,0,0.9)]">
+                          {/* <div className="bg-white flex flex-col  justify-center inset-x-0 top-0 absolute top-20 right-2 w-1/2 z-10  divide-y divide-gray-100 p-2 text-black  shadow-[0_35px_60px_-15px_rgba(0,0,0,0.9)]"> */}
+                          <div
+                            onClick={() => {
+                              setShowFilter(!showFilter);
+                              setLocation(" Kigali, Kanombe");
+                            }}
+                            className=" p-2 border-b "
+                          >
+                            Kigali, Kanombe
+                          </div>
+                          <div
+                            onClick={() => {
+                              setShowFilter(!showFilter);
+                              setLocation("Kigali, Kacyiru");
+                            }}
+                            className=" p-2 border-b "
+                          >
+                            Kigali, Kacyiru
+                          </div>
+                          <div
+                            onClick={() => {
+                              setShowFilter(!showFilter);
+                              setLocation("Kigali, kimisagara");
+                            }}
+                            className=" p-2 border-b "
+                          >
+                            Kigali, kimisagara
+                          </div>
+                          <div
+                            onClick={() => {
+                              setShowFilter(!showFilter);
+                              setLocation("Gicumbi , Byumba");
+                            }}
+                            className=" p-2 border-b "
+                          >
+                            Gicumbi , Byumba
+                          </div>
+                        </div>
+                      )}
                     </div>
-                  )}
-                </div>
 
-                <button
-                  type="submit"
-                  className=" text-white focus:ring-4 focus:outline-none   
+                    </div>
+                    <div className="flex items-center">
+                      <button
+                        type="submit"
+                        className=" text-white focus:ring-4 focus:outline-none   
                         font-medium rounded-lg text-sm px-8 xs:py-2.5 md:py-3.5 text-center mx-1 bg-darkColor focus:ring-primary-800"
-                >
-                  Search
-                </button>
+                      >
+                        Search
+                      </button>
+
+                      <button
+                        onClick={() => setOpen(!open)}
+                        className="lg:hidden"
+                      >
+                        <Image
+                          src={BarIcon}
+                          alt=""
+                          width={35}
+                          height={35}
+                          className="min-w-[35px] min-h-[35px] object-contain"
+                        />
+                      </button>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -352,7 +377,7 @@ const Header = ({
                 src={UserIcon}
                 width={35}
                 alt=""
-                 className="min-w-[30px] min-h-[30px] object-contain"
+                className="min-w-[30px] min-h-[30px] object-contain"
               />
             </div>
           </div>
@@ -434,7 +459,7 @@ const Header = ({
         <div className="flex justify-center items-center py-2 lg:gap-3 xs:gap-0 sm:gap-0 md:gap-0 mr-5 xs:m-0  ">
           <Link
             href="./house"
-            className="flex items-center justify-end m-1 px-3 xs:p-1 py-1 text-white border border-primary rounded-full cursor-pointer hover:border-white "
+            className="flex items-center justify-end m-1 px-3 xs:p-1 py-1 text-white   rounded-full cursor-pointer hover:border-white "
           >
             <Image
               src={HouseWhiteIcon}
