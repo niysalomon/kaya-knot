@@ -416,6 +416,44 @@ const SearchSideBar = ({
             </li>
           </ul>
         </details>
+        <details
+          className={`mb-2 last:mb-0 cursor-pointer py-1 px-3  `}
+          open={true}
+        >
+          <summary
+            className={`font-medium flex justify-between items-center border-b `}
+          >
+            {" "}
+            <div className="flex items-center">
+              <Image src={BudgetIcon} alt="" width={15} />
+              <div className={` pl-3 font-medium  `}>Is Furnished</div>
+            </div>
+          </summary>
+          <ul className=" max-h-[300px] overflow-auto ">
+            <li
+              className={` flex   duration-500 flex justify-between items-center cursor-pointer 
+                         `}
+            >
+              <div className=" flex flex-col w-full">
+                <div className="flex items-center">
+                  {" "}
+                  <input
+                    type="radio" name="isFurnished"
+                    className="form-checkbox h-5 w-5 text-blue-600 transition duration-150 ease-in-out"
+                  />
+                  <span className={` p-2 text-sm  `}> Furnished</span>
+                </div>
+                <div className="flex items-center">
+                  <input
+                    type="radio" name="isFurnished"
+                    className="form-checkbox h-5 w-5 text-blue-600 transition duration-150 ease-in-out"
+                  />
+                   <span className={` pl-2 text-sm   `}>Not Furnished</span>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </details>
       </div>
     </aside>
   );

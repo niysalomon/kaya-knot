@@ -17,14 +17,17 @@ import dynamic from "next/dynamic";
 import BookingConfirmation from "./bookingConfirm";
 import ImageSliderModal from "../slide";
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/solid";
+import HouseCard from "./houseCard";
+import HouseSuggestedCard from "./houseSuggestedCard";
 // import Map from "./map";
 const Map = dynamic(() => import("./map"), { ssr: false });
+const h = ["1", "2", "3", "4", "1", "2", "3", "4"];
 const SingleHouseDetails = () => {
   const [showRenters, setShowRenters] = useState<boolean>(false);
   const [latitude, setLatitude] = useState("");
   const [longitude, setLongitude] = useState("");
   const [isModalOpen, setModalOpen] = useState(false);
-
+  const [photoNumber, setPhotoNumber] = useState<number>(5);
   const [showBookingConfirmation, setShowBookingConfirmation] =
     useState<boolean>(false);
 
@@ -55,8 +58,23 @@ const SingleHouseDetails = () => {
       );
     }
   };
+  useEffect(() => {
+    const toggleSideBar = () =>
+      window.innerWidth > 1481
+        ? setPhotoNumber(5)
+        : window.innerWidth > 1350
+        ? setPhotoNumber(3)
+        : window.innerWidth > 950
+        ? setPhotoNumber(3)
+        : window.innerWidth > 700
+        ? setPhotoNumber(2)
+        : setPhotoNumber(1);
+    window.addEventListener("resize", toggleSideBar);
+
+    return () => window.removeEventListener("resize", toggleSideBar);
+  }, []);
   const [startIndex, setStartIndex] = useState(0);
-  const visibleImages = 5; 
+  const visibleImages = photoNumber;
 
   const prevSlide = () => {
     if (startIndex > 0) {
@@ -72,13 +90,14 @@ const SingleHouseDetails = () => {
   useEffect(() => {
     handleGetCurrentLocation();
   }, [latitude, longitude]);
+  const [isHouseDetails, setIsHouseDetails] = useState<boolean>(false);
   return (
     <>
       {showRenters ? (
         <RentersBooked />
       ) : (
-        <div className="grid gap-4 px-10 text-gray-500">
-          <div className="lg:grid lg:grid-cols-8 xs:flex xs:flex-col gap-4 pt-2">
+        <div className="grid gap-4 px-10 text-gray-500 h-screen overflow-auto">
+          <div className="lg:grid xl:grid-cols-8 lg:flex md:flex md:flex-col sm:flex sm:flex-col  xs:flex xs:flex-col gap-4 pt-2">
             <div className=" w-full grid row-span-4 xs:row-span-8 col-span-2">
               <div className=" block   p-6 ml-4 text-gray-600 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 ">
                 <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 py-3  ">
@@ -122,15 +141,15 @@ const SingleHouseDetails = () => {
                 </div>
               </div>
             </div>
-            <div className="min-w-fit grid row-span-2 col-span-4 ">
+            <div className=" w-full grid row-span-2 col-span-4 ">
               <Image
                 src={BackgroundHouseIcon}
                 className="w-xl h-auto shadow-xl"
                 alt=""
               />
             </div>
-            <div className="min-w-fit grid row-span-2 col-span-2 text-gray-700 ml-4">
-              <div className="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 ">
+            <div className="w-full grid row-span-4 xs:row-span-8 col-span-2">
+              <div className="block  p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 ">
                 <h5 className="mb-2 text-2xl font-semibold tracking-tight text-gray-900  ">
                   Individual share
                 </h5>
@@ -198,7 +217,6 @@ const SingleHouseDetails = () => {
               </div>
             </div>
           </div>
-          
 
           <div className="relative flex justify-center ">
             <div className="flex items-center gap-2 overflow-hidden">
@@ -302,22 +320,21 @@ const SingleHouseDetails = () => {
                 </div>
                 <div className="flex flex-col items-center justify-center  p-2 bg-white mx-2   rounded-lg ">
                   <div></div>
-                <button
-              onClick={() =>
-                setShowBookingConfirmation(!showBookingConfirmation)
-              }
-              type="submit"
-              className="w-full text-white focus:ring-4 focus:outline-none   
+                  <button
+                    onClick={() =>
+                      setShowBookingConfirmation(!showBookingConfirmation)
+                    }
+                    type="submit"
+                    className="w-full text-white focus:ring-4 focus:outline-none   
                         font-medium rounded-lg text-sm px-5 py-2.5 text-center  bg-darkColor focus:ring-primary-800"
-            >
-              Book
-            </button>
+                  >
+                    Book
+                  </button>
                 </div>
               </div>
             </fieldset>
-            
           </div>
-          <div className="flex w-full  ">
+          <div className=" flex w-full flex-col   ">
             <div className="mx-5">
               <hr className="my-2" />
               <div className=" my-2">
@@ -332,98 +349,104 @@ const SingleHouseDetails = () => {
               </div>
               <Map />
             </div>
-
-            <div className=" w-1/3 bg-white border border-gray-200 rounded-xl shadow p-1 text-gray-600 bg-gray-50  ">
-              <div className="p-5  max-h-[420px] overflow-auto">
-                <div className="flex items-start gap-2.5 my-1">
-                  <Image src={UserIcon} alt="" />
-                  <div className="flex flex-col w-full max-w-[320px] leading-1.5 px-2 border-gray-200 bg-gray-100 rounded-[12px]  ">
-                    <div className="flex items-center justify-between space-x-2 rtl:space-x-reverse py-1">
-                      <span className="text-sm font-semibold text-gray-900  ">
-                        Bonnie Green
-                      </span>
-                    </div>
-                    <p className="text-sm font-normal py-2.5 text-gray-900  ">
-                      That is awesome. I think our users will really appreciate
-                      the improvements.
-                    </p>
-                    <div className="flex justify-end">
-                      <span className="text-sm font-normal text-gray-500  ">
-                        11:46
-                      </span>
+            <div className="w-full flex flex-col">
+              {h.map((item) => (
+                <div className="flex flex-col w-full">
+                  <HouseSuggestedCard setIsHouseDetails={setIsHouseDetails} key={item} />
+                </div>
+              ))}
+              <div className=" w-full bg-white border border-gray-200 rounded-xl shadow p-1 text-gray-600 bg-gray-50  ">
+                <div className="p-5  max-h-[420px] overflow-auto">
+                  <div className="flex items-start gap-2.5 my-1">
+                    <Image src={UserIcon} alt="" />
+                    <div className="flex flex-col w-full max-w-[320px] leading-1.5 px-2 border-gray-200 bg-gray-100 rounded-[12px]  ">
+                      <div className="flex items-center justify-between space-x-2 rtl:space-x-reverse py-1">
+                        <span className="text-sm font-semibold text-gray-900  ">
+                          Bonnie Green
+                        </span>
+                      </div>
+                      <p className="text-sm font-normal py-2.5 text-gray-900  ">
+                        That is awesome. I think our users will really
+                        appreciate the improvements.
+                      </p>
+                      <div className="flex justify-end">
+                        <span className="text-sm font-normal text-gray-500  ">
+                          11:46
+                        </span>
+                      </div>
                     </div>
                   </div>
-                </div>
-                <div className="flex  items-start gap-2.5 justify-end">
-                  <div className="flex flex-col w-full max-w-[320px] leading-1.5 px-2 border-gray-200 bg-gray-100 rounded-[12px]  ">
-                    <div className="flex items-center justify-between space-x-2 rtl:space-x-reverse py-1">
-                      <span className="text-sm font-semibold text-gray-900  ">
-                        Bonnie Green
-                      </span>
+                  <div className="flex  items-start gap-2.5 justify-end">
+                    <div className="flex flex-col w-full max-w-[320px] leading-1.5 px-2 border-gray-200 bg-gray-100 rounded-[12px]  ">
+                      <div className="flex items-center justify-between space-x-2 rtl:space-x-reverse py-1">
+                        <span className="text-sm font-semibold text-gray-900  ">
+                          Bonnie Green
+                        </span>
+                      </div>
+                      <p className="text-sm font-normal py-2.5 text-gray-900  ">
+                        That is awesome. I think our users will really
+                        appreciate the improvements.
+                      </p>
+                      <div className="flex justify-end">
+                        <span className="text-sm font-normal text-gray-500  ">
+                          11:46
+                        </span>
+                      </div>
                     </div>
-                    <p className="text-sm font-normal py-2.5 text-gray-900  ">
-                      That is awesome. I think our users will really appreciate
-                      the improvements.
-                    </p>
-                    <div className="flex justify-end">
-                      <span className="text-sm font-normal text-gray-500  ">
-                        11:46
-                      </span>
+                    <Image src={UserIcon} alt="" />
+                  </div>
+                  <div className="flex items-start gap-2.5 my-1">
+                    <Image src={UserIcon} alt="" />
+                    <div className="flex flex-col w-full max-w-[320px] leading-1.5 px-2 border-gray-200 bg-gray-100 rounded-[12px]  ">
+                      <div className="flex items-center justify-between space-x-2 rtl:space-x-reverse py-1">
+                        <span className="text-sm font-semibold text-gray-900  ">
+                          Bonnie Green
+                        </span>
+                      </div>
+                      <p className="text-sm font-normal py-2.5 text-gray-900  ">
+                        That is awesome. I think our users will really
+                        appreciate the improvements.
+                      </p>
+                      <div className="flex justify-end">
+                        <span className="text-sm font-normal text-gray-500  ">
+                          11:46
+                        </span>
+                      </div>
                     </div>
                   </div>
-                  <Image src={UserIcon} alt="" />
-                </div>
-                <div className="flex items-start gap-2.5 my-1">
-                  <Image src={UserIcon} alt="" />
-                  <div className="flex flex-col w-full max-w-[320px] leading-1.5 px-2 border-gray-200 bg-gray-100 rounded-[12px]  ">
-                    <div className="flex items-center justify-between space-x-2 rtl:space-x-reverse py-1">
-                      <span className="text-sm font-semibold text-gray-900  ">
-                        Bonnie Green
-                      </span>
+                  <div className="flex  items-start gap-2.5 justify-end">
+                    <div className="flex flex-col w-full max-w-[320px] leading-1.5 px-2 border-gray-200 bg-gray-100 rounded-[12px]  ">
+                      <div className="flex items-center justify-between space-x-2 rtl:space-x-reverse py-1">
+                        <span className="text-sm font-semibold text-gray-900  ">
+                          Bonnie Green
+                        </span>
+                      </div>
+                      <p className="text-sm font-normal py-2.5 text-gray-900  ">
+                        That is awesome. I think our users will really
+                        appreciate the improvements.
+                      </p>
+                      <div className="flex justify-end">
+                        <span className="text-sm font-normal text-gray-500  ">
+                          11:46
+                        </span>
+                      </div>
                     </div>
-                    <p className="text-sm font-normal py-2.5 text-gray-900  ">
-                      That is awesome. I think our users will really appreciate
-                      the improvements.
-                    </p>
-                    <div className="flex justify-end">
-                      <span className="text-sm font-normal text-gray-500  ">
-                        11:46
-                      </span>
-                    </div>
+                    <Image src={UserIcon} alt="" />
                   </div>
                 </div>
-                <div className="flex  items-start gap-2.5 justify-end">
-                  <div className="flex flex-col w-full max-w-[320px] leading-1.5 px-2 border-gray-200 bg-gray-100 rounded-[12px]  ">
-                    <div className="flex items-center justify-between space-x-2 rtl:space-x-reverse py-1">
-                      <span className="text-sm font-semibold text-gray-900  ">
-                        Bonnie Green
-                      </span>
-                    </div>
-                    <p className="text-sm font-normal py-2.5 text-gray-900  ">
-                      That is awesome. I think our users will really appreciate
-                      the improvements.
-                    </p>
-                    <div className="flex justify-end">
-                      <span className="text-sm font-normal text-gray-500  ">
-                        11:46
-                      </span>
-                    </div>
+                <div className="flex items-center  pl-3 pb-3 sticky top-0 ">
+                  <textarea
+                    placeholder="chat with penina......"
+                    className="w-full shadow rounded-md border p-2"
+                  ></textarea>
+                  <div className=" relative bg-darkColor w-10 h-10 ml-1 rounded-full items-center">
+                    <Image
+                      className="absolute right-1 top-2 "
+                      width={25}
+                      src={SendIcon}
+                      alt=""
+                    />
                   </div>
-                  <Image src={UserIcon} alt="" />
-                </div>
-              </div>
-              <div className="flex items-center  pl-3 pb-3 sticky top-0 ">
-                <textarea
-                  placeholder="chat with penina......"
-                  className="w-full shadow rounded-md border p-2"
-                ></textarea>
-                <div className=" relative bg-darkColor w-10 h-10 ml-1 rounded-full items-center">
-                  <Image
-                    className="absolute right-1 top-2 "
-                    width={25}
-                    src={SendIcon}
-                    alt=""
-                  />
                 </div>
               </div>
             </div>
