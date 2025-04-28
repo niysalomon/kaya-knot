@@ -16,12 +16,11 @@ const Map: React.FC = () => {
     });
  
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: '',
-      // attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+      attribution: '', 
     }).addTo(map);
   }
   }, []);
-
+ 
   return <div className='my-5' id="map" style={{ width: '100%', height: '400px' }} />;
 };
 
